@@ -1,14 +1,11 @@
-CMakeFiles/simpleG4.dir/src/PhysicsList.cc.o: \
- /media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/SimpleG4/src/PhysicsList.cc \
+CMakeFiles/startG4.dir/src/PrimaryGeneratorAction.cc.o: \
+ /media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/src/PrimaryGeneratorAction.cc \
  /home/angel/anaconda3/envs/geant-root-env/x86_64-conda-linux-gnu/sysroot/usr/include/stdc-predef.h \
- /media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/SimpleG4/include/PhysicsList.hh \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4VModularPhysicsList.hh \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4VPhysicsConstructor.hh \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4ParticleTable.hh \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4ParticleDefinition.hh \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4PDefManager.hh \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4AutoLock.hh \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4Threading.hh \
+ /media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/include/PrimaryGeneratorAction.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4VUserPrimaryGeneratorAction.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4ParticleGun.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/globals.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4ios.hh \
  /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4Types.hh \
  /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4GlobalConfig.hh \
  /home/angel/anaconda3/envs/geant-root-env/lib/gcc/x86_64-conda-linux-gnu/13.3.0/include/c++/complex \
@@ -199,8 +196,6 @@ CMakeFiles/simpleG4.dir/src/PhysicsList.cc.o: \
  /home/angel/anaconda3/envs/geant-root-env/lib/gcc/x86_64-conda-linux-gnu/13.3.0/include/c++/bits/istream.tcc \
  /home/angel/anaconda3/envs/geant-root-env/lib/gcc/x86_64-conda-linux-gnu/13.3.0/include/c++/bits/sstream.tcc \
  /home/angel/anaconda3/envs/geant-root-env/include/Geant4/tls.hh \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/globals.hh \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4ios.hh \
  /home/angel/anaconda3/envs/geant-root-env/lib/gcc/x86_64-conda-linux-gnu/13.3.0/include/c++/iostream \
  /home/angel/anaconda3/envs/geant-root-env/lib/gcc/x86_64-conda-linux-gnu/13.3.0/include/c++/algorithm \
  /home/angel/anaconda3/envs/geant-root-env/lib/gcc/x86_64-conda-linux-gnu/13.3.0/include/c++/bits/stl_algo.h \
@@ -257,6 +252,15 @@ CMakeFiles/simpleG4.dir/src/PhysicsList.cc.o: \
  /home/angel/anaconda3/envs/geant-root-env/lib/gcc/x86_64-conda-linux-gnu/13.3.0/include/c++/bits/parse_numbers.h \
  /home/angel/anaconda3/envs/geant-root-env/lib/gcc/x86_64-conda-linux-gnu/13.3.0/include/c++/bits/std_mutex.h \
  /home/angel/anaconda3/envs/geant-root-env/lib/gcc/x86_64-conda-linux-gnu/13.3.0/include/c++/bits/unique_lock.h \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4VPrimaryGenerator.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4ThreeVector.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/CLHEP/Vector/ThreeVector.h \
+ /home/angel/anaconda3/envs/geant-root-env/include/CLHEP/Vector/defs.h \
+ /home/angel/anaconda3/envs/geant-root-env/include/CLHEP/Vector/ThreeVector.icc \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4ParticleDefinition.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4PDefManager.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4AutoLock.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4Threading.hh \
  /home/angel/anaconda3/envs/geant-root-env/lib/gcc/x86_64-conda-linux-gnu/13.3.0/include/c++/chrono \
  /home/angel/anaconda3/envs/geant-root-env/lib/gcc/x86_64-conda-linux-gnu/13.3.0/include/c++/vector \
  /home/angel/anaconda3/envs/geant-root-env/lib/gcc/x86_64-conda-linux-gnu/13.3.0/include/c++/bits/stl_uninitialized.h \
@@ -312,31 +316,12 @@ CMakeFiles/simpleG4.dir/src/PhysicsList.cc.o: \
  /home/angel/anaconda3/envs/geant-root-env/include/CLHEP/Units/defs.h \
  /home/angel/anaconda3/envs/geant-root-env/include/CLHEP/Units/SystemOfUnits.h \
  /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4ParticleDefinition.icc \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4PrimaryVertex.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4Allocator.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4AllocatorPool.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4PrimaryParticle.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4ParticleMomentum.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4ParticleTable.hh \
  /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4ParticleTableIterator.hh \
  /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4ParticleTable.icc \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4PhysicsListHelper.hh \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4PhysicsListOrderingParameter.hh \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4ThreadLocalSingleton.hh \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4Cache.hh \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4CacheDetails.hh \
- /home/angel/anaconda3/envs/geant-root-env/lib/gcc/x86_64-conda-linux-gnu/13.3.0/include/c++/list \
- /home/angel/anaconda3/envs/geant-root-env/lib/gcc/x86_64-conda-linux-gnu/13.3.0/include/c++/bits/stl_list.h \
- /home/angel/anaconda3/envs/geant-root-env/lib/gcc/x86_64-conda-linux-gnu/13.3.0/include/c++/bits/list.tcc \
- /home/angel/anaconda3/envs/geant-root-env/lib/gcc/x86_64-conda-linux-gnu/13.3.0/include/c++/functional \
- /home/angel/anaconda3/envs/geant-root-env/lib/gcc/x86_64-conda-linux-gnu/13.3.0/include/c++/unordered_map \
- /home/angel/anaconda3/envs/geant-root-env/lib/gcc/x86_64-conda-linux-gnu/13.3.0/include/c++/bits/unordered_map.h \
- /home/angel/anaconda3/envs/geant-root-env/lib/gcc/x86_64-conda-linux-gnu/13.3.0/include/c++/bits/hashtable.h \
- /home/angel/anaconda3/envs/geant-root-env/lib/gcc/x86_64-conda-linux-gnu/13.3.0/include/c++/bits/hashtable_policy.h \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4VUPLSplitter.hh \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/rundefs.hh \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4VUserPhysicsList.hh \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4PhysicsModelCatalog.hh \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4ProductionCutsTable.hh \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4MaterialCutsCouple.hh \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4ProductionCuts.hh \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4MCCIndexConversionTable.hh \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4Region.hh \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4GeomSplitter.hh \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/geomwdefs.hh \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4Region.icc \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4EmStandardPhysics.hh
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4SystemOfUnits.hh

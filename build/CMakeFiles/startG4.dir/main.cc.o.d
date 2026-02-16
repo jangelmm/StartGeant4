@@ -1,5 +1,5 @@
-CMakeFiles/simpleG4.dir/main.cc.o: \
- /media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/SimpleG4/main.cc \
+CMakeFiles/startG4.dir/main.cc.o: \
+ /media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/main.cc \
  /home/angel/anaconda3/envs/geant-root-env/x86_64-conda-linux-gnu/sysroot/usr/include/stdc-predef.h \
  /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4RunManagerFactory.hh \
  /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4MTRunManager.hh \
@@ -748,10 +748,10 @@ CMakeFiles/simpleG4.dir/main.cc.o: \
  /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4UIbatch.hh \
  /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4UIExecutive.hh \
  /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4VUIshell.hh \
- /media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/SimpleG4/include/DetectorConstruction.hh \
+ /media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/include/DetectorConstruction.hh \
  /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4VUserDetectorConstruction.hh \
  /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4LogicalVolume.hh \
- /media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/SimpleG4/include/PhysicsList.hh \
+ /media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/include/PhysicsList.hh \
  /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4VModularPhysicsList.hh \
  /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4VPhysicsConstructor.hh \
  /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4PhysicsListHelper.hh \
@@ -765,5 +765,5 @@ CMakeFiles/simpleG4.dir/main.cc.o: \
  /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4MaterialCutsCouple.hh \
  /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4ProductionCuts.hh \
  /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4MCCIndexConversionTable.hh \
- /media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/SimpleG4/include/ActionInitialization.hh \
+ /media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/include/ActionInitialization.hh \
  /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4VUserActionInitialization.hh

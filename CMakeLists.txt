@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.10)
-project(SimpleG4)
+project(startG4)
 
 # Busca Geant4 con visualización
 find_package(Geant4 REQUIRED ui_all vis_all)
@@ -17,9 +17,9 @@ file(GLOB sources ${PROJECT_SOURCE_DIR}/src/*.cc)
 file(GLOB headers ${PROJECT_SOURCE_DIR}/include/*.hh)
 
 # Crea ejecutable
-add_executable(simpleG4 main.cc ${sources} ${headers})
-target_include_directories(simpleG4 PRIVATE ${PROJECT_SOURCE_DIR}/include)
-target_link_libraries(simpleG4 PRIVATE ${Geant4_LIBRARIES} ${ROOT_LIBRARIES})
+add_executable(startG4 main.cc ${sources} ${headers})
+target_include_directories(startG4 PRIVATE ${PROJECT_SOURCE_DIR}/include)
+target_link_libraries(startG4 PRIVATE ${Geant4_LIBRARIES} ${ROOT_LIBRARIES})
 
 # Copia run.mac al build/
 set(SCRIPTS run.mac)

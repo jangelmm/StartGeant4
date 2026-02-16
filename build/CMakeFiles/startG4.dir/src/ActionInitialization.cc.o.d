@@ -1,8 +1,11 @@
-CMakeFiles/simpleG4.dir/src/DetectorConstruction.cc.o: \
- /media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/SimpleG4/src/DetectorConstruction.cc \
+CMakeFiles/startG4.dir/src/ActionInitialization.cc.o: \
+ /media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/src/ActionInitialization.cc \
  /home/angel/anaconda3/envs/geant-root-env/x86_64-conda-linux-gnu/sysroot/usr/include/stdc-predef.h \
- /media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/SimpleG4/include/DetectorConstruction.hh \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4VUserDetectorConstruction.hh \
+ /media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/include/ActionInitialization.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4VUserActionInitialization.hh \
+ /media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/include/PrimaryGeneratorAction.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4VUserPrimaryGeneratorAction.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4ParticleGun.hh \
  /home/angel/anaconda3/envs/geant-root-env/include/Geant4/globals.hh \
  /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4ios.hh \
  /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4Types.hh \
@@ -251,21 +254,38 @@ CMakeFiles/simpleG4.dir/src/DetectorConstruction.cc.o: \
  /home/angel/anaconda3/envs/geant-root-env/lib/gcc/x86_64-conda-linux-gnu/13.3.0/include/c++/bits/parse_numbers.h \
  /home/angel/anaconda3/envs/geant-root-env/lib/gcc/x86_64-conda-linux-gnu/13.3.0/include/c++/bits/std_mutex.h \
  /home/angel/anaconda3/envs/geant-root-env/lib/gcc/x86_64-conda-linux-gnu/13.3.0/include/c++/bits/unique_lock.h \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4VPrimaryGenerator.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4ThreeVector.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/CLHEP/Vector/ThreeVector.h \
+ /home/angel/anaconda3/envs/geant-root-env/include/CLHEP/Vector/defs.h \
+ /home/angel/anaconda3/envs/geant-root-env/include/CLHEP/Vector/ThreeVector.icc \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4ParticleDefinition.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4PDefManager.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4AutoLock.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4Threading.hh \
+ /home/angel/anaconda3/envs/geant-root-env/lib/gcc/x86_64-conda-linux-gnu/13.3.0/include/c++/chrono \
  /home/angel/anaconda3/envs/geant-root-env/lib/gcc/x86_64-conda-linux-gnu/13.3.0/include/c++/vector \
  /home/angel/anaconda3/envs/geant-root-env/lib/gcc/x86_64-conda-linux-gnu/13.3.0/include/c++/bits/stl_uninitialized.h \
  /home/angel/anaconda3/envs/geant-root-env/lib/gcc/x86_64-conda-linux-gnu/13.3.0/include/c++/bits/stl_vector.h \
  /home/angel/anaconda3/envs/geant-root-env/lib/gcc/x86_64-conda-linux-gnu/13.3.0/include/c++/bits/stl_bvector.h \
  /home/angel/anaconda3/envs/geant-root-env/lib/gcc/x86_64-conda-linux-gnu/13.3.0/include/c++/bits/vector.tcc \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4LogicalVolume.hh \
- /home/angel/anaconda3/envs/geant-root-env/lib/gcc/x86_64-conda-linux-gnu/13.3.0/include/c++/memory \
- /home/angel/anaconda3/envs/geant-root-env/lib/gcc/x86_64-conda-linux-gnu/13.3.0/include/c++/bits/stl_raw_storage_iter.h \
- /home/angel/anaconda3/envs/geant-root-env/lib/gcc/x86_64-conda-linux-gnu/13.3.0/include/c++/bits/align.h \
- /home/angel/anaconda3/envs/geant-root-env/lib/gcc/x86_64-conda-linux-gnu/13.3.0/include/c++/bits/unique_ptr.h \
  /home/angel/anaconda3/envs/geant-root-env/lib/gcc/x86_64-conda-linux-gnu/13.3.0/include/c++/bits/shared_ptr.h \
  /home/angel/anaconda3/envs/geant-root-env/lib/gcc/x86_64-conda-linux-gnu/13.3.0/include/c++/bits/shared_ptr_base.h \
  /home/angel/anaconda3/envs/geant-root-env/lib/gcc/x86_64-conda-linux-gnu/13.3.0/include/c++/bits/allocated_ptr.h \
+ /home/angel/anaconda3/envs/geant-root-env/lib/gcc/x86_64-conda-linux-gnu/13.3.0/include/c++/bits/unique_ptr.h \
  /home/angel/anaconda3/envs/geant-root-env/lib/gcc/x86_64-conda-linux-gnu/13.3.0/include/c++/ext/concurrence.h \
- /home/angel/anaconda3/envs/geant-root-env/lib/gcc/x86_64-conda-linux-gnu/13.3.0/include/c++/bits/shared_ptr_atomic.h \
+ /home/angel/anaconda3/envs/geant-root-env/lib/gcc/x86_64-conda-linux-gnu/13.3.0/include/c++/bits/align.h \
+ /home/angel/anaconda3/envs/geant-root-env/lib/gcc/x86_64-conda-linux-gnu/13.3.0/include/c++/bits/chrono_io.h \
+ /home/angel/anaconda3/envs/geant-root-env/lib/gcc/x86_64-conda-linux-gnu/13.3.0/include/c++/format \
+ /home/angel/anaconda3/envs/geant-root-env/lib/gcc/x86_64-conda-linux-gnu/13.3.0/include/c++/array \
+ /home/angel/anaconda3/envs/geant-root-env/lib/gcc/x86_64-conda-linux-gnu/13.3.0/include/c++/charconv \
+ /home/angel/anaconda3/envs/geant-root-env/lib/gcc/x86_64-conda-linux-gnu/13.3.0/include/c++/optional \
+ /home/angel/anaconda3/envs/geant-root-env/lib/gcc/x86_64-conda-linux-gnu/13.3.0/include/c++/bits/enable_special_members.h \
+ /home/angel/anaconda3/envs/geant-root-env/lib/gcc/x86_64-conda-linux-gnu/13.3.0/include/c++/span \
+ /home/angel/anaconda3/envs/geant-root-env/lib/gcc/x86_64-conda-linux-gnu/13.3.0/include/c++/variant \
+ /home/angel/anaconda3/envs/geant-root-env/lib/gcc/x86_64-conda-linux-gnu/13.3.0/include/c++/condition_variable \
+ /home/angel/anaconda3/envs/geant-root-env/lib/gcc/x86_64-conda-linux-gnu/13.3.0/include/c++/stop_token \
+ /home/angel/anaconda3/envs/geant-root-env/lib/gcc/x86_64-conda-linux-gnu/13.3.0/include/c++/atomic \
  /home/angel/anaconda3/envs/geant-root-env/lib/gcc/x86_64-conda-linux-gnu/13.3.0/include/c++/bits/atomic_base.h \
  /home/angel/anaconda3/envs/geant-root-env/lib/gcc/x86_64-conda-linux-gnu/13.3.0/include/c++/bits/atomic_lockfree_defines.h \
  /home/angel/anaconda3/envs/geant-root-env/lib/gcc/x86_64-conda-linux-gnu/13.3.0/include/c++/bits/atomic_wait.h \
@@ -280,26 +300,6 @@ CMakeFiles/simpleG4.dir/src/DetectorConstruction.cc.o: \
  /home/angel/anaconda3/envs/geant-root-env/x86_64-conda-linux-gnu/sysroot/usr/include/asm/unistd.h \
  /home/angel/anaconda3/envs/geant-root-env/x86_64-conda-linux-gnu/sysroot/usr/include/asm/unistd_64.h \
  /home/angel/anaconda3/envs/geant-root-env/x86_64-conda-linux-gnu/sysroot/usr/include/bits/syscall.h \
- /home/angel/anaconda3/envs/geant-root-env/lib/gcc/x86_64-conda-linux-gnu/13.3.0/include/c++/backward/auto_ptr.h \
- /home/angel/anaconda3/envs/geant-root-env/lib/gcc/x86_64-conda-linux-gnu/13.3.0/include/c++/bits/ranges_uninitialized.h \
- /home/angel/anaconda3/envs/geant-root-env/lib/gcc/x86_64-conda-linux-gnu/13.3.0/include/c++/pstl/glue_memory_defs.h \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4Region.hh \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4GeomSplitter.hh \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/geomwdefs.hh \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4AutoLock.hh \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4Threading.hh \
- /home/angel/anaconda3/envs/geant-root-env/lib/gcc/x86_64-conda-linux-gnu/13.3.0/include/c++/chrono \
- /home/angel/anaconda3/envs/geant-root-env/lib/gcc/x86_64-conda-linux-gnu/13.3.0/include/c++/bits/chrono_io.h \
- /home/angel/anaconda3/envs/geant-root-env/lib/gcc/x86_64-conda-linux-gnu/13.3.0/include/c++/format \
- /home/angel/anaconda3/envs/geant-root-env/lib/gcc/x86_64-conda-linux-gnu/13.3.0/include/c++/array \
- /home/angel/anaconda3/envs/geant-root-env/lib/gcc/x86_64-conda-linux-gnu/13.3.0/include/c++/charconv \
- /home/angel/anaconda3/envs/geant-root-env/lib/gcc/x86_64-conda-linux-gnu/13.3.0/include/c++/optional \
- /home/angel/anaconda3/envs/geant-root-env/lib/gcc/x86_64-conda-linux-gnu/13.3.0/include/c++/bits/enable_special_members.h \
- /home/angel/anaconda3/envs/geant-root-env/lib/gcc/x86_64-conda-linux-gnu/13.3.0/include/c++/span \
- /home/angel/anaconda3/envs/geant-root-env/lib/gcc/x86_64-conda-linux-gnu/13.3.0/include/c++/variant \
- /home/angel/anaconda3/envs/geant-root-env/lib/gcc/x86_64-conda-linux-gnu/13.3.0/include/c++/condition_variable \
- /home/angel/anaconda3/envs/geant-root-env/lib/gcc/x86_64-conda-linux-gnu/13.3.0/include/c++/stop_token \
- /home/angel/anaconda3/envs/geant-root-env/lib/gcc/x86_64-conda-linux-gnu/13.3.0/include/c++/atomic \
  /home/angel/anaconda3/envs/geant-root-env/lib/gcc/x86_64-conda-linux-gnu/13.3.0/include/c++/bits/std_thread.h \
  /home/angel/anaconda3/envs/geant-root-env/lib/gcc/x86_64-conda-linux-gnu/13.3.0/include/c++/semaphore \
  /home/angel/anaconda3/envs/geant-root-env/lib/gcc/x86_64-conda-linux-gnu/13.3.0/include/c++/bits/semaphore_base.h \
@@ -312,14 +312,55 @@ CMakeFiles/simpleG4.dir/src/DetectorConstruction.cc.o: \
  /home/angel/anaconda3/envs/geant-root-env/lib/gcc/x86_64-conda-linux-gnu/13.3.0/include/c++/bits/atomic_futex.h \
  /home/angel/anaconda3/envs/geant-root-env/lib/gcc/x86_64-conda-linux-gnu/13.3.0/include/c++/bits/std_function.h \
  /home/angel/anaconda3/envs/geant-root-env/lib/gcc/x86_64-conda-linux-gnu/13.3.0/include/c++/thread \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/pwdefs.hh \
+ /home/angel/anaconda3/envs/geant-root-env/lib/gcc/x86_64-conda-linux-gnu/13.3.0/include/c++/stdlib.h \
+ /home/angel/anaconda3/envs/geant-root-env/include/CLHEP/Units/PhysicalConstants.h \
+ /home/angel/anaconda3/envs/geant-root-env/include/CLHEP/Units/defs.h \
+ /home/angel/anaconda3/envs/geant-root-env/include/CLHEP/Units/SystemOfUnits.h \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4ParticleDefinition.icc \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4PrimaryVertex.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4Allocator.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4AllocatorPool.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4PrimaryParticle.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4ParticleMomentum.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4RunManager.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4Event.hh \
+ /home/angel/anaconda3/envs/geant-root-env/lib/gcc/x86_64-conda-linux-gnu/13.3.0/include/c++/set \
+ /home/angel/anaconda3/envs/geant-root-env/lib/gcc/x86_64-conda-linux-gnu/13.3.0/include/c++/bits/stl_set.h \
+ /home/angel/anaconda3/envs/geant-root-env/lib/gcc/x86_64-conda-linux-gnu/13.3.0/include/c++/bits/stl_multiset.h \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/evtdefs.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4HCofThisEvent.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4VHitsCollection.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4DCofThisEvent.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4VDigiCollection.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4TrajectoryContainer.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4VTrajectory.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4VUserEventInformation.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4EventManager.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4StackManager.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4UserStackingAction.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4ClassificationOfNewTrack.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4StackedTrack.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4TrackStack.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4SmartTrackStack.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4SubEventTrackStack.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4SubEvent.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4Track.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/trkdefs.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4LogicalVolume.hh \
+ /home/angel/anaconda3/envs/geant-root-env/lib/gcc/x86_64-conda-linux-gnu/13.3.0/include/c++/memory \
+ /home/angel/anaconda3/envs/geant-root-env/lib/gcc/x86_64-conda-linux-gnu/13.3.0/include/c++/bits/stl_raw_storage_iter.h \
+ /home/angel/anaconda3/envs/geant-root-env/lib/gcc/x86_64-conda-linux-gnu/13.3.0/include/c++/bits/shared_ptr_atomic.h \
+ /home/angel/anaconda3/envs/geant-root-env/lib/gcc/x86_64-conda-linux-gnu/13.3.0/include/c++/backward/auto_ptr.h \
+ /home/angel/anaconda3/envs/geant-root-env/lib/gcc/x86_64-conda-linux-gnu/13.3.0/include/c++/bits/ranges_uninitialized.h \
+ /home/angel/anaconda3/envs/geant-root-env/lib/gcc/x86_64-conda-linux-gnu/13.3.0/include/c++/pstl/glue_memory_defs.h \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4Region.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4GeomSplitter.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/geomwdefs.hh \
  /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4Region.icc \
  /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4VPhysicalVolume.hh \
  /home/angel/anaconda3/envs/geant-root-env/include/Geant4/geomdefs.hh \
  /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4RotationMatrix.hh \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4ThreeVector.hh \
- /home/angel/anaconda3/envs/geant-root-env/include/CLHEP/Vector/ThreeVector.h \
- /home/angel/anaconda3/envs/geant-root-env/include/CLHEP/Vector/defs.h \
- /home/angel/anaconda3/envs/geant-root-env/include/CLHEP/Vector/ThreeVector.icc \
  /home/angel/anaconda3/envs/geant-root-env/include/CLHEP/Vector/Rotation.h \
  /home/angel/anaconda3/envs/geant-root-env/include/CLHEP/Vector/RotationInterfaces.h \
  /home/angel/anaconda3/envs/geant-root-env/include/CLHEP/Vector/LorentzVector.h \
@@ -330,9 +371,6 @@ CMakeFiles/simpleG4.dir/src/DetectorConstruction.cc.o: \
  /home/angel/anaconda3/envs/geant-root-env/include/CLHEP/Vector/RotationInterfaces.icc \
  /home/angel/anaconda3/envs/geant-root-env/include/CLHEP/Vector/RotationX.h \
  /home/angel/anaconda3/envs/geant-root-env/include/CLHEP/Vector/RotationX.icc \
- /home/angel/anaconda3/envs/geant-root-env/include/CLHEP/Units/PhysicalConstants.h \
- /home/angel/anaconda3/envs/geant-root-env/include/CLHEP/Units/defs.h \
- /home/angel/anaconda3/envs/geant-root-env/include/CLHEP/Units/SystemOfUnits.h \
  /home/angel/anaconda3/envs/geant-root-env/include/CLHEP/Vector/RotationY.h \
  /home/angel/anaconda3/envs/geant-root-env/include/CLHEP/Vector/RotationY.icc \
  /home/angel/anaconda3/envs/geant-root-env/include/CLHEP/Vector/RotationZ.h \
@@ -340,33 +378,37 @@ CMakeFiles/simpleG4.dir/src/DetectorConstruction.cc.o: \
  /home/angel/anaconda3/envs/geant-root-env/include/CLHEP/Vector/Rotation.icc \
  /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4VPhysicalVolume.icc \
  /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4LogicalVolume.icc \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4Box.hh \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4GeomTypes.hh \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4GeomConfig.hh \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4CSGSolid.hh \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4VSolid.hh \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4VSolid.icc \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4Polyhedron.hh \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/HepPolyhedron.h \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4TwoVector.hh \
- /home/angel/anaconda3/envs/geant-root-env/include/CLHEP/Vector/TwoVector.h \
- /home/angel/anaconda3/envs/geant-root-env/include/CLHEP/Vector/TwoVector.icc \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4Point3D.hh \
- /home/angel/anaconda3/envs/geant-root-env/include/CLHEP/Geometry/Point3D.h \
- /home/angel/anaconda3/envs/geant-root-env/include/CLHEP/Geometry/defs.h \
- /home/angel/anaconda3/envs/geant-root-env/include/CLHEP/Geometry/BasicVector3D.h \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4Normal3D.hh \
- /home/angel/anaconda3/envs/geant-root-env/include/CLHEP/Geometry/Normal3D.h \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4DynamicParticle.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4ElectronOccupancy.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4Log.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4LorentzVector.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4DynamicParticle.icc \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4TrackStatus.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4TouchableHandle.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4VTouchable.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4TouchableHistory.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4NavigationHistory.hh \
+ /home/angel/anaconda3/envs/geant-root-env/x86_64-conda-linux-gnu/sysroot/usr/include/assert.h \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4AffineTransform.hh \
  /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4Transform3D.hh \
  /home/angel/anaconda3/envs/geant-root-env/include/CLHEP/Geometry/Transform3D.h \
+ /home/angel/anaconda3/envs/geant-root-env/include/CLHEP/Geometry/defs.h \
  /home/angel/anaconda3/envs/geant-root-env/include/CLHEP/Geometry/Transform3D.icc \
+ /home/angel/anaconda3/envs/geant-root-env/include/CLHEP/Geometry/Point3D.h \
+ /home/angel/anaconda3/envs/geant-root-env/include/CLHEP/Geometry/BasicVector3D.h \
  /home/angel/anaconda3/envs/geant-root-env/include/CLHEP/Geometry/Vector3D.h \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4Visible.hh \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4Visible.icc \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4Box.icc \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4PVPlacement.hh \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4NistManager.hh \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4ICRU90StoppingData.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/CLHEP/Geometry/Normal3D.h \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4AffineTransform.icc \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4NavigationLevel.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4NavigationLevelRep.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4NavigationLevelRep.icc \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4NavigationLevel.icc \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4NavigationHistoryPool.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4NavigationHistory.icc \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4TouchableHistory.icc \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4ReferenceCountedHandle.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4VUserTrackInformation.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4PhysicsModelCatalog.hh \
  /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4Material.hh \
  /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4Element.hh \
  /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4ElementTable.hh \
@@ -385,7 +427,6 @@ CMakeFiles/simpleG4.dir/src/DetectorConstruction.cc.o: \
  /home/angel/anaconda3/envs/geant-root-env/lib/gcc/x86_64-conda-linux-gnu/13.3.0/include/c++/x86_64-conda-linux-gnu/bits/basic_file.h \
  /home/angel/anaconda3/envs/geant-root-env/lib/gcc/x86_64-conda-linux-gnu/13.3.0/include/c++/x86_64-conda-linux-gnu/bits/c++io.h \
  /home/angel/anaconda3/envs/geant-root-env/lib/gcc/x86_64-conda-linux-gnu/13.3.0/include/c++/bits/fstream.tcc \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4Log.hh \
  /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4PhysicsVectorType.hh \
  /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4PhysicsVector.icc \
  /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4MaterialTable.hh \
@@ -393,9 +434,137 @@ CMakeFiles/simpleG4.dir/src/DetectorConstruction.cc.o: \
  /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4OrderedTable.hh \
  /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4DataVector.hh \
  /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4DataVector.icc \
- /home/angel/anaconda3/envs/geant-root-env/x86_64-conda-linux-gnu/sysroot/usr/include/assert.h \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4NistElementBuilder.hh \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4NistMaterialBuilder.hh \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4Pow.hh \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4Exp.hh \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4SystemOfUnits.hh
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4Track.icc \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4Step.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4StepPoint.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4SteppingControl.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4StepStatus.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4StepPoint.icc \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4TrackVector.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4Step.icc \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4PrimaryTransformer.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4ParticleTable.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4ParticleTableIterator.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4ParticleTable.icc \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4TrackingManager.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4SteppingManager.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4Navigator.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4NormalNavigation.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4VNavigation.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4VSolid.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4VSolid.icc \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4AuxiliaryNavServices.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4AuxiliaryNavServices.icc \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4NormalNavigation.icc \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4VoxelNavigation.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4NavigationLogger.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4BlockingList.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4BlockingList.icc \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4SmartVoxelProxy.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4SmartVoxelProxy.icc \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4SmartVoxelNode.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4SmartVoxelNode.icc \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4SmartVoxelHeader.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4SmartVoxelHeader.icc \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4VoxelNavigation.icc \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4ParameterisedNavigation.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4VPVParameterisation.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4VVolumeMaterialScanner.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4ParameterisedNavigation.icc \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4ReplicaNavigation.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4ReplicaNavigation.icc \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4RegularNavigation.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4VExternalNavigation.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4Navigator.icc \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4NoProcess.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4VProcess.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/Randomize.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/CLHEP/Random/Randomize.h \
+ /home/angel/anaconda3/envs/geant-root-env/include/CLHEP/Random/defs.h \
+ /home/angel/anaconda3/envs/geant-root-env/include/CLHEP/Random/DRand48Engine.h \
+ /home/angel/anaconda3/envs/geant-root-env/include/CLHEP/Random/RandomEngine.h \
+ /home/angel/anaconda3/envs/geant-root-env/include/CLHEP/Random/RandomEngine.icc \
+ /home/angel/anaconda3/envs/geant-root-env/include/CLHEP/Utility/noncopyable.h \
+ /home/angel/anaconda3/envs/geant-root-env/include/CLHEP/Utility/defs.h \
+ /home/angel/anaconda3/envs/geant-root-env/include/CLHEP/Random/DualRand.h \
+ /home/angel/anaconda3/envs/geant-root-env/include/CLHEP/Random/Hurd160Engine.h \
+ /home/angel/anaconda3/envs/geant-root-env/include/CLHEP/Random/Hurd288Engine.h \
+ /home/angel/anaconda3/envs/geant-root-env/include/CLHEP/Random/JamesRandom.h \
+ /home/angel/anaconda3/envs/geant-root-env/include/CLHEP/Random/MixMaxRng.h \
+ /home/angel/anaconda3/envs/geant-root-env/include/CLHEP/Random/MTwistEngine.h \
+ /home/angel/anaconda3/envs/geant-root-env/include/CLHEP/Random/RandEngine.h \
+ /home/angel/anaconda3/envs/geant-root-env/include/CLHEP/Random/RanecuEngine.h \
+ /home/angel/anaconda3/envs/geant-root-env/include/CLHEP/Random/RanluxEngine.h \
+ /home/angel/anaconda3/envs/geant-root-env/include/CLHEP/Random/Ranlux64Engine.h \
+ /home/angel/anaconda3/envs/geant-root-env/include/CLHEP/Random/RanluxppEngine.h \
+ /home/angel/anaconda3/envs/geant-root-env/include/CLHEP/Random/RanshiEngine.h \
+ /home/angel/anaconda3/envs/geant-root-env/include/CLHEP/Random/TripleRand.h \
+ /home/angel/anaconda3/envs/geant-root-env/include/CLHEP/Random/RandBinomial.h \
+ /home/angel/anaconda3/envs/geant-root-env/include/CLHEP/Random/Random.h \
+ /home/angel/anaconda3/envs/geant-root-env/include/CLHEP/Random/Random.icc \
+ /home/angel/anaconda3/envs/geant-root-env/include/CLHEP/Utility/memory.h \
+ /home/angel/anaconda3/envs/geant-root-env/include/CLHEP/Random/RandBinomial.icc \
+ /home/angel/anaconda3/envs/geant-root-env/include/CLHEP/Random/RandBreitWigner.h \
+ /home/angel/anaconda3/envs/geant-root-env/include/CLHEP/Random/RandFlat.h \
+ /home/angel/anaconda3/envs/geant-root-env/include/CLHEP/Utility/thread_local.h \
+ /home/angel/anaconda3/envs/geant-root-env/include/CLHEP/Random/RandFlat.icc \
+ /home/angel/anaconda3/envs/geant-root-env/include/CLHEP/Random/RandBreitWigner.icc \
+ /home/angel/anaconda3/envs/geant-root-env/include/CLHEP/Random/RandChiSquare.h \
+ /home/angel/anaconda3/envs/geant-root-env/include/CLHEP/Random/RandChiSquare.icc \
+ /home/angel/anaconda3/envs/geant-root-env/include/CLHEP/Random/RandExponential.h \
+ /home/angel/anaconda3/envs/geant-root-env/include/CLHEP/Random/RandExponential.icc \
+ /home/angel/anaconda3/envs/geant-root-env/include/CLHEP/Random/RandExpZiggurat.h \
+ /home/angel/anaconda3/envs/geant-root-env/include/CLHEP/Random/RandBit.h \
+ /home/angel/anaconda3/envs/geant-root-env/include/CLHEP/Random/RandBit.icc \
+ /home/angel/anaconda3/envs/geant-root-env/include/CLHEP/Random/RandGamma.h \
+ /home/angel/anaconda3/envs/geant-root-env/include/CLHEP/Random/RandGamma.icc \
+ /home/angel/anaconda3/envs/geant-root-env/include/CLHEP/Random/RandGauss.h \
+ /home/angel/anaconda3/envs/geant-root-env/include/CLHEP/Random/RandGauss.icc \
+ /home/angel/anaconda3/envs/geant-root-env/include/CLHEP/Random/RandGaussQ.h \
+ /home/angel/anaconda3/envs/geant-root-env/include/CLHEP/Random/RandGaussQ.icc \
+ /home/angel/anaconda3/envs/geant-root-env/include/CLHEP/Random/RandGaussT.h \
+ /home/angel/anaconda3/envs/geant-root-env/include/CLHEP/Random/Stat.h \
+ /home/angel/anaconda3/envs/geant-root-env/include/CLHEP/Random/RandGaussT.icc \
+ /home/angel/anaconda3/envs/geant-root-env/include/CLHEP/Random/RandGaussZiggurat.h \
+ /home/angel/anaconda3/envs/geant-root-env/include/CLHEP/Random/RandGeneral.h \
+ /home/angel/anaconda3/envs/geant-root-env/include/CLHEP/Random/RandGeneral.icc \
+ /home/angel/anaconda3/envs/geant-root-env/include/CLHEP/Random/RandLandau.h \
+ /home/angel/anaconda3/envs/geant-root-env/include/CLHEP/Random/RandLandau.icc \
+ /home/angel/anaconda3/envs/geant-root-env/include/CLHEP/Random/RandPoissonQ.h \
+ /home/angel/anaconda3/envs/geant-root-env/include/CLHEP/Random/RandPoisson.h \
+ /home/angel/anaconda3/envs/geant-root-env/include/CLHEP/Random/RandPoisson.icc \
+ /home/angel/anaconda3/envs/geant-root-env/include/CLHEP/Random/RandPoissonQ.icc \
+ /home/angel/anaconda3/envs/geant-root-env/include/CLHEP/Random/RandPoissonT.h \
+ /home/angel/anaconda3/envs/geant-root-env/include/CLHEP/Random/RandPoissonT.icc \
+ /home/angel/anaconda3/envs/geant-root-env/include/CLHEP/Random/RandSkewNormal.h \
+ /home/angel/anaconda3/envs/geant-root-env/include/CLHEP/Random/RandSkewNormal.icc \
+ /home/angel/anaconda3/envs/geant-root-env/include/CLHEP/Random/RandStudentT.h \
+ /home/angel/anaconda3/envs/geant-root-env/include/CLHEP/Random/RandStudentT.icc \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4PhysicsTable.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4PhysicsTable.icc \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4VParticleChange.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4VParticleChange.icc \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4ForceCondition.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4GPILSelection.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4ParticleChange.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4ParticleChange.icc \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4ProcessType.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4ProcessManager.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4ProcessVector.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4ProcessVector.icc \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4ProcessManager.icc \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4UserSteppingAction.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4VSteppingVerbose.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/trkgdefs.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4TrackingMessenger.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4UImessenger.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4UIdirectory.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4UIcommand.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4ApplicationState.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4UIparameter.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4UserTrackingAction.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4RunManagerKernel.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/rundefs.hh \
+ /home/angel/anaconda3/envs/geant-root-env/lib/gcc/x86_64-conda-linux-gnu/13.3.0/include/c++/list \
+ /home/angel/anaconda3/envs/geant-root-env/lib/gcc/x86_64-conda-linux-gnu/13.3.0/include/c++/bits/stl_list.h \
+ /home/angel/anaconda3/envs/geant-root-env/lib/gcc/x86_64-conda-linux-gnu/13.3.0/include/c++/bits/list.tcc

@@ -16,7 +16,7 @@
 
 # 5. Agregar trayectorias
 /vis/scene/add/trajectories smooth
-
+/vis/scene/endOfEventAction accumulate
 # 6. Crear modelo
 /vis/modeling/trajectories/create/drawByCharge
 

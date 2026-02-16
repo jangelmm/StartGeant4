@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/SimpleG4
+CMAKE_SOURCE_DIR = /media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/SimpleG4/build
+CMAKE_BINARY_DIR = /media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,9 +87,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/SimpleG4/build/CMakeFiles /media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/SimpleG4/build//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles /media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/SimpleG4/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -117,24 +117,24 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named simpleG4
+# Target rules for targets named startG4
 
 # Build rule for target.
-simpleG4: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 simpleG4
-.PHONY : simpleG4
+startG4: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 startG4
+.PHONY : startG4
 
 # fast build rule for target.
-simpleG4/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/simpleG4.dir/build.make CMakeFiles/simpleG4.dir/build
-.PHONY : simpleG4/fast
+startG4/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/startG4.dir/build.make CMakeFiles/startG4.dir/build
+.PHONY : startG4/fast
 
 main.o: main.cc.o
 .PHONY : main.o
 
 # target to build an object file
 main.cc.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/simpleG4.dir/build.make CMakeFiles/simpleG4.dir/main.cc.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/startG4.dir/build.make CMakeFiles/startG4.dir/main.cc.o
 .PHONY : main.cc.o
 
 main.i: main.cc.i
@@ -142,7 +142,7 @@ main.i: main.cc.i
 
 # target to preprocess a source file
 main.cc.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/simpleG4.dir/build.make CMakeFiles/simpleG4.dir/main.cc.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/startG4.dir/build.make CMakeFiles/startG4.dir/main.cc.i
 .PHONY : main.cc.i
 
 main.s: main.cc.s
@@ -150,7 +150,7 @@ main.s: main.cc.s
 
 # target to generate assembly for a file
 main.cc.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/simpleG4.dir/build.make CMakeFiles/simpleG4.dir/main.cc.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/startG4.dir/build.make CMakeFiles/startG4.dir/main.cc.s
 .PHONY : main.cc.s
 
 src/ActionInitialization.o: src/ActionInitialization.cc.o
@@ -158,7 +158,7 @@ src/ActionInitialization.o: src/ActionInitialization.cc.o
 
 # target to build an object file
 src/ActionInitialization.cc.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/simpleG4.dir/build.make CMakeFiles/simpleG4.dir/src/ActionInitialization.cc.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/startG4.dir/build.make CMakeFiles/startG4.dir/src/ActionInitialization.cc.o
 .PHONY : src/ActionInitialization.cc.o
 
 src/ActionInitialization.i: src/ActionInitialization.cc.i
@@ -166,7 +166,7 @@ src/ActionInitialization.i: src/ActionInitialization.cc.i
 
 # target to preprocess a source file
 src/ActionInitialization.cc.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/simpleG4.dir/build.make CMakeFiles/simpleG4.dir/src/ActionInitialization.cc.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/startG4.dir/build.make CMakeFiles/startG4.dir/src/ActionInitialization.cc.i
 .PHONY : src/ActionInitialization.cc.i
 
 src/ActionInitialization.s: src/ActionInitialization.cc.s
@@ -174,7 +174,7 @@ src/ActionInitialization.s: src/ActionInitialization.cc.s
 
 # target to generate assembly for a file
 src/ActionInitialization.cc.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/simpleG4.dir/build.make CMakeFiles/simpleG4.dir/src/ActionInitialization.cc.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/startG4.dir/build.make CMakeFiles/startG4.dir/src/ActionInitialization.cc.s
 .PHONY : src/ActionInitialization.cc.s
 
 src/DetectorConstruction.o: src/DetectorConstruction.cc.o
@@ -182,7 +182,7 @@ src/DetectorConstruction.o: src/DetectorConstruction.cc.o
 
 # target to build an object file
 src/DetectorConstruction.cc.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/simpleG4.dir/build.make CMakeFiles/simpleG4.dir/src/DetectorConstruction.cc.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/startG4.dir/build.make CMakeFiles/startG4.dir/src/DetectorConstruction.cc.o
 .PHONY : src/DetectorConstruction.cc.o
 
 src/DetectorConstruction.i: src/DetectorConstruction.cc.i
@@ -190,7 +190,7 @@ src/DetectorConstruction.i: src/DetectorConstruction.cc.i
 
 # target to preprocess a source file
 src/DetectorConstruction.cc.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/simpleG4.dir/build.make CMakeFiles/simpleG4.dir/src/DetectorConstruction.cc.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/startG4.dir/build.make CMakeFiles/startG4.dir/src/DetectorConstruction.cc.i
 .PHONY : src/DetectorConstruction.cc.i
 
 src/DetectorConstruction.s: src/DetectorConstruction.cc.s
@@ -198,7 +198,7 @@ src/DetectorConstruction.s: src/DetectorConstruction.cc.s
 
 # target to generate assembly for a file
 src/DetectorConstruction.cc.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/simpleG4.dir/build.make CMakeFiles/simpleG4.dir/src/DetectorConstruction.cc.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/startG4.dir/build.make CMakeFiles/startG4.dir/src/DetectorConstruction.cc.s
 .PHONY : src/DetectorConstruction.cc.s
 
 src/PhysicsList.o: src/PhysicsList.cc.o
@@ -206,7 +206,7 @@ src/PhysicsList.o: src/PhysicsList.cc.o
 
 # target to build an object file
 src/PhysicsList.cc.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/simpleG4.dir/build.make CMakeFiles/simpleG4.dir/src/PhysicsList.cc.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/startG4.dir/build.make CMakeFiles/startG4.dir/src/PhysicsList.cc.o
 .PHONY : src/PhysicsList.cc.o
 
 src/PhysicsList.i: src/PhysicsList.cc.i
@@ -214,7 +214,7 @@ src/PhysicsList.i: src/PhysicsList.cc.i
 
 # target to preprocess a source file
 src/PhysicsList.cc.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/simpleG4.dir/build.make CMakeFiles/simpleG4.dir/src/PhysicsList.cc.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/startG4.dir/build.make CMakeFiles/startG4.dir/src/PhysicsList.cc.i
 .PHONY : src/PhysicsList.cc.i
 
 src/PhysicsList.s: src/PhysicsList.cc.s
@@ -222,7 +222,7 @@ src/PhysicsList.s: src/PhysicsList.cc.s
 
 # target to generate assembly for a file
 src/PhysicsList.cc.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/simpleG4.dir/build.make CMakeFiles/simpleG4.dir/src/PhysicsList.cc.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/startG4.dir/build.make CMakeFiles/startG4.dir/src/PhysicsList.cc.s
 .PHONY : src/PhysicsList.cc.s
 
 src/PrimaryGeneratorAction.o: src/PrimaryGeneratorAction.cc.o
@@ -230,7 +230,7 @@ src/PrimaryGeneratorAction.o: src/PrimaryGeneratorAction.cc.o
 
 # target to build an object file
 src/PrimaryGeneratorAction.cc.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/simpleG4.dir/build.make CMakeFiles/simpleG4.dir/src/PrimaryGeneratorAction.cc.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/startG4.dir/build.make CMakeFiles/startG4.dir/src/PrimaryGeneratorAction.cc.o
 .PHONY : src/PrimaryGeneratorAction.cc.o
 
 src/PrimaryGeneratorAction.i: src/PrimaryGeneratorAction.cc.i
@@ -238,7 +238,7 @@ src/PrimaryGeneratorAction.i: src/PrimaryGeneratorAction.cc.i
 
 # target to preprocess a source file
 src/PrimaryGeneratorAction.cc.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/simpleG4.dir/build.make CMakeFiles/simpleG4.dir/src/PrimaryGeneratorAction.cc.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/startG4.dir/build.make CMakeFiles/startG4.dir/src/PrimaryGeneratorAction.cc.i
 .PHONY : src/PrimaryGeneratorAction.cc.i
 
 src/PrimaryGeneratorAction.s: src/PrimaryGeneratorAction.cc.s
@@ -246,7 +246,7 @@ src/PrimaryGeneratorAction.s: src/PrimaryGeneratorAction.cc.s
 
 # target to generate assembly for a file
 src/PrimaryGeneratorAction.cc.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/simpleG4.dir/build.make CMakeFiles/simpleG4.dir/src/PrimaryGeneratorAction.cc.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/startG4.dir/build.make CMakeFiles/startG4.dir/src/PrimaryGeneratorAction.cc.s
 .PHONY : src/PrimaryGeneratorAction.cc.s
 
 # Help Target
@@ -257,7 +257,7 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... simpleG4"
+	@echo "... startG4"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
