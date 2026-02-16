@@ -1,6 +1,7 @@
 #include "ActionInitialization.hh"
 #include "PrimaryGeneratorAction.hh"
 #include "G4RunManager.hh"
+#include "SteppingAction.hh"
 
 ActionInitialization::ActionInitialization() : G4VUserActionInitialization() {}
 
@@ -14,4 +15,5 @@ void ActionInitialization::BuildForMaster() const {
 void ActionInitialization::Build() const {
     // Define las acciones del usuario para cada hilo
     SetUserAction(new PrimaryGeneratorAction());
+    SetUserAction(new SteppingAction());
 }

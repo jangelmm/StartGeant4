@@ -9,6 +9,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/startG4.dir/src/PhysicsList.cc.o.d"
   "CMakeFiles/startG4.dir/src/PrimaryGeneratorAction.cc.o"
   "CMakeFiles/startG4.dir/src/PrimaryGeneratorAction.cc.o.d"
+  "CMakeFiles/startG4.dir/src/SteppingAction.cc.o"
+  "CMakeFiles/startG4.dir/src/SteppingAction.cc.o.d"
   "startG4"
   "startG4.pdb"
 )

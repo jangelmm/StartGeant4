@@ -931,3 +931,91 @@ events:
         
       exitCode: 0
 ...
+
+---
+events:
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/FindHDF5.cmake:238 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/FindHDF5.cmake:608 (_HDF5_test_regular_compiler_C)"
+      - "/usr/share/cmake-3.28/Modules/CMakeFindDependencyMacro.cmake:76 (find_package)"
+      - "/home/angel/anaconda3/envs/geant-root-env/lib/cmake/Geant4/Geant4Config.cmake:329 (find_dependency)"
+      - "CMakeLists.txt:5 (find_package)"
+    directories:
+      source: "/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-04jUaO"
+      binary: "/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-04jUaO"
+    cmakeVariables:
+      CMAKE_C_FLAGS: "-march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe -isystem /home/angel/anaconda3/envs/geant-root-env/include"
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: "-Wl,-O2 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--disable-new-dtags -Wl,--gc-sections -Wl,--allow-shlib-undefined -Wl,-rpath,/home/angel/anaconda3/envs/geant-root-env/lib -Wl,-rpath-link,/home/angel/anaconda3/envs/geant-root-env/lib -L/home/angel/anaconda3/envs/geant-root-env/lib"
+      CMAKE_MODULE_PATH: "/home/angel/anaconda3/envs/geant-root-env/lib/cmake/Geant4/Modules"
+    buildResult:
+      variable: "HDF5_C_COMPILER_NO_INTERROGATE"
+      cached: true
+      stdout: |
+        Change Dir: '/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-04jUaO'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_a0d48/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_a0d48.dir/build.make CMakeFiles/cmTC_a0d48.dir/build
+        gmake[1]: Entering directory '/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-04jUaO'
+        Building C object CMakeFiles/cmTC_a0d48.dir/cmake_hdf5_test.c.o
+        /home/angel/anaconda3/envs/geant-root-env/bin/x86_64-conda-linux-gnu-cc   -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe -isystem /home/angel/anaconda3/envs/geant-root-env/include  -o CMakeFiles/cmTC_a0d48.dir/cmake_hdf5_test.c.o -c /media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/hdf5/cmake_hdf5_test.c
+        Linking C executable cmTC_a0d48
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a0d48.dir/link.txt --verbose=1
+        /home/angel/anaconda3/envs/geant-root-env/bin/x86_64-conda-linux-gnu-cc -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe -isystem /home/angel/anaconda3/envs/geant-root-env/include  -Wl,-O2 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--disable-new-dtags -Wl,--gc-sections -Wl,--allow-shlib-undefined -Wl,-rpath,/home/angel/anaconda3/envs/geant-root-env/lib -Wl,-rpath-link,/home/angel/anaconda3/envs/geant-root-env/lib -L/home/angel/anaconda3/envs/geant-root-env/lib  CMakeFiles/cmTC_a0d48.dir/cmake_hdf5_test.c.o -o cmTC_a0d48 
+        /home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0/../../../../x86_64-conda-linux-gnu/bin/ld: CMakeFiles/cmTC_a0d48.dir/cmake_hdf5_test.c.o: in function `main':
+        cmake_hdf5_test.c:(.text.startup.main+0x15): undefined reference to `H5check_version'
+        /home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0/../../../../x86_64-conda-linux-gnu/bin/ld: cmake_hdf5_test.c:(.text.startup.main+0x1b): undefined reference to `H5open'
+        /home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0/../../../../x86_64-conda-linux-gnu/bin/ld: cmake_hdf5_test.c:(.text.startup.main+0x31): undefined reference to `H5Fcreate'
+        collect2: error: ld returned 1 exit status
+        gmake[1]: *** [CMakeFiles/cmTC_a0d48.dir/build.make:99: cmTC_a0d48] Error 1
+        gmake[1]: Leaving directory '/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-04jUaO'
+        gmake: *** [Makefile:127: cmTC_a0d48/fast] Error 2
+        
+      exitCode: 2
+...
+
+---
+events:
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/FindHDF5.cmake:238 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/FindHDF5.cmake:608 (_HDF5_test_regular_compiler_C)"
+      - "/usr/share/cmake-3.28/Modules/CMakeFindDependencyMacro.cmake:76 (find_package)"
+      - "/home/angel/anaconda3/envs/geant-root-env/lib/cmake/Geant4/Geant4Config.cmake:329 (find_dependency)"
+      - "CMakeLists.txt:5 (find_package)"
+    directories:
+      source: "/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-PELzHE"
+      binary: "/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-PELzHE"
+    cmakeVariables:
+      CMAKE_C_FLAGS: "-march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe -isystem /home/angel/anaconda3/envs/geant-root-env/include"
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: "-Wl,-O2 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--disable-new-dtags -Wl,--gc-sections -Wl,--allow-shlib-undefined -Wl,-rpath,/home/angel/anaconda3/envs/geant-root-env/lib -Wl,-rpath-link,/home/angel/anaconda3/envs/geant-root-env/lib -L/home/angel/anaconda3/envs/geant-root-env/lib"
+      CMAKE_MODULE_PATH: "/home/angel/anaconda3/envs/geant-root-env/lib/cmake/Geant4/Modules"
+    buildResult:
+      variable: "HDF5_C_COMPILER_NO_INTERROGATE"
+      cached: true
+      stdout: |
+        Change Dir: '/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-PELzHE'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_49045/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_49045.dir/build.make CMakeFiles/cmTC_49045.dir/build
+        gmake[1]: Entering directory '/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-PELzHE'
+        Building C object CMakeFiles/cmTC_49045.dir/cmake_hdf5_test.c.o
+        /home/angel/anaconda3/envs/geant-root-env/bin/x86_64-conda-linux-gnu-cc   -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe -isystem /home/angel/anaconda3/envs/geant-root-env/include  -o CMakeFiles/cmTC_49045.dir/cmake_hdf5_test.c.o -c /media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/hdf5/cmake_hdf5_test.c
+        Linking C executable cmTC_49045
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_49045.dir/link.txt --verbose=1
+        /home/angel/anaconda3/envs/geant-root-env/bin/x86_64-conda-linux-gnu-cc -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe -isystem /home/angel/anaconda3/envs/geant-root-env/include  -Wl,-O2 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--disable-new-dtags -Wl,--gc-sections -Wl,--allow-shlib-undefined -Wl,-rpath,/home/angel/anaconda3/envs/geant-root-env/lib -Wl,-rpath-link,/home/angel/anaconda3/envs/geant-root-env/lib -L/home/angel/anaconda3/envs/geant-root-env/lib  CMakeFiles/cmTC_49045.dir/cmake_hdf5_test.c.o -o cmTC_49045 
+        /home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0/../../../../x86_64-conda-linux-gnu/bin/ld: CMakeFiles/cmTC_49045.dir/cmake_hdf5_test.c.o: in function `main':
+        cmake_hdf5_test.c:(.text.startup.main+0x15): undefined reference to `H5check_version'
+        /home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0/../../../../x86_64-conda-linux-gnu/bin/ld: cmake_hdf5_test.c:(.text.startup.main+0x1b): undefined reference to `H5open'
+        /home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0/../../../../x86_64-conda-linux-gnu/bin/ld: cmake_hdf5_test.c:(.text.startup.main+0x31): undefined reference to `H5Fcreate'
+        collect2: error: ld returned 1 exit status
+        gmake[1]: *** [CMakeFiles/cmTC_49045.dir/build.make:99: cmTC_49045] Error 1
+        gmake[1]: Leaving directory '/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-PELzHE'
+        gmake: *** [Makefile:127: cmTC_49045/fast] Error 2
+        
+      exitCode: 2
+...

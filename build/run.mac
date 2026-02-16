@@ -25,4 +25,4 @@
 /vis/modeling/trajectories/drawByCharge-0/default/setStepPtsSize 2
 
 # 8. Ejecutar
-/run/beamOn 100
+/run/beamOn 1000
