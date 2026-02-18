@@ -15,6 +15,8 @@ G4VPhysicalVolume* DetectorConstruction::Construct() {
     //auto* air = nist->FindOrBuildMaterial("G4_AIR");       //Seleccionamos Aire 
     //auto* water = nist->FindOrBuildMaterial("G4_WATER");   //Seleccionamos Agua
 
+
+
     // ================================= EJEMPLO CREACION MATERIAL - CASO 1
     //Polystyrene (C8H8)
     G4double density = 1.050 * g / cm3;
@@ -36,6 +38,29 @@ G4VPhysicalVolume* DetectorConstruction::Construct() {
     auto* water = new G4Material("Water", 1.0*g/cm3, 2);
     water->AddElement(H, 2);
     water->AddElement(O, 1);
+
+    // ================================= EJEMPLO CREACION MATERIAL - CASO 3
+    //CASO 1 + Centellador
+
+    //PMMA (Material de Fibras WLS)
+    std::vector<G4String> elem = {"C", "H", "O"};
+    std::vector<G4int> nat = {5, 8, 2};
+    auto* pmma = nist->ConstructNewMaterial("PMMA", elem, nat, 1.190*g/cm3); //Basta con reemplazar en G4LogicalVolume
+
+    //Tabla de Propiedades================================================
+    auto* mpt = new G4MaterialPropertiesTable();
+    //Indice de refracción
+    std::vector<G4double> energy = {2.0*eV, 3.5*eV};
+    std::vector<G4double> rindex = {1.59, 1.59};
+    mpt->AddProperty("RINDEX", energy, rindex);
+    //Componentes de centelleo
+    std::vector<G4double> scint = {0.0, 1.0};  
+    mpt->AddProperty("SCINTILLATIONCOMPONENT1", energy, scint);
+    mpt->AddConstProperty("SCINTILLATIONYIELD", 10000./MeV);
+
+    polystyrene->SetMaterialPropertiesTable(mpt);
+
+
     
     // ================================= MUNDO ====================================
     G4double worldSize = 2.0 * m;                                                        //worldSize será el - Tamaño total 1m
@@ -43,12 +68,14 @@ G4VPhysicalVolume* DetectorConstruction::Construct() {
     auto* worldLV = new G4LogicalVolume(worldSolid, air, "World");                       //worldLV será el   - VolumenLogico(Cubo, elemento, nombre)
     auto* worldPV = new G4PVPlacement(nullptr, {}, worldLV, "World", nullptr, false, 0); //worldPV será el   - Espacio(rotacion, posicion {} es default, VolumenLogico, nombre, PL_madre, copia_multiple, numero_copia)
 
+    
+    
     // ================================= DETECTOR
 
     // Blanco
     G4double targetSize = 10.0 * cm;                                                     //targetSize será el  -  Tamaño total 10 cm
     auto* targetSolid = new G4Box("Target", targetSize/2, targetSize/2, targetSize/2);   //targetSolid será el -  Cubo(nombre, mitad anchoX , mitad alturaY, mitad profundidadZ)
-    fLogicTarget = new G4LogicalVolume(targetSolid, water, "Target");                    //flogicalTarget será el-VolumenLogico(Cubo, elemento, nombre)
+    fLogicTarget = new G4LogicalVolume(targetSolid, polystyrene, "Target");                    //flogicalTarget será el-VolumenLogico(Cubo, elemento, nombre)
     new G4PVPlacement(nullptr, {}, fLogicTarget, "Target", worldLV, false, 0);           //No se crea            - Espacio(rotacion, posicion {} es default, VolumenLogico, nombre, PL_madre, copia_multiple, numero_copia)
 
     
