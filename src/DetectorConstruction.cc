@@ -1,4 +1,6 @@
 #include "DetectorConstruction.hh"
+#include "MyMaterials.hh"
+
 #include "G4Box.hh"
 #include "G4LogicalVolume.hh"
 #include "G4PVPlacement.hh"
@@ -11,54 +13,13 @@ DetectorConstruction::~DetectorConstruction() = default;
 
 G4VPhysicalVolume* DetectorConstruction::Construct() {
 
-    auto* nist = G4NistManager::Instance();                //Cátologo de materiales
-    //auto* air = nist->FindOrBuildMaterial("G4_AIR");       //Seleccionamos Aire 
-    //auto* water = nist->FindOrBuildMaterial("G4_WATER");   //Seleccionamos Agua
+    //Obtenemos la instancia única de materiales
+    MyMaterials* materials = MyMaterials::GetInstance();
 
-
-
-    // ================================= EJEMPLO CREACION MATERIAL - CASO 1
-    //Polystyrene (C8H8)
-    G4double density = 1.050 * g / cm3;
-    std::vector<G4String> elements = {"C", "H"}; //Carbono, Hidrogeno
-    std::vector<G4int> natoms = {8,8}; //8 De Carbono, 8 de Hidrogeno
-    auto* polystyrene = nist->ConstructNewMaterial("Polystyrene", elements, natoms, density); //Basta con reemplazar en G4LogicalVolume
-
-    // ================================= EJEMPLO CREACION MATERIAL - CASO 2
-    //Crear Agua (Air) y Water (Agua)
-    auto N = new G4Element("Nitrogen", "N", 7, 14.01*g/mole);
-    auto O = new G4Element("Oxygen",   "O", 8, 16.00*g/mole);
-
-    auto* air = new G4Material("Air", 1.29*mg/cm3, 2);
-    air->AddElement(N, 70*perCent);
-    air->AddElement(O, 30*perCent);
-
-    auto H = new G4Element("Hydrogen", "H", 1, 1.01*g/mole);
-
-    auto* water = new G4Material("Water", 1.0*g/cm3, 2);
-    water->AddElement(H, 2);
-    water->AddElement(O, 1);
-
-    // ================================= EJEMPLO CREACION MATERIAL - CASO 3
-    //CASO 1 + Centellador
-
-    //PMMA (Material de Fibras WLS)
-    std::vector<G4String> elem = {"C", "H", "O"};
-    std::vector<G4int> nat = {5, 8, 2};
-    auto* pmma = nist->ConstructNewMaterial("PMMA", elem, nat, 1.190*g/cm3); //Basta con reemplazar en G4LogicalVolume
-
-    //Tabla de Propiedades================================================
-    auto* mpt = new G4MaterialPropertiesTable();
-    //Indice de refracción
-    std::vector<G4double> energy = {2.0*eV, 3.5*eV};
-    std::vector<G4double> rindex = {1.59, 1.59};
-    mpt->AddProperty("RINDEX", energy, rindex);
-    //Componentes de centelleo
-    std::vector<G4double> scint = {0.0, 1.0};  
-    mpt->AddProperty("SCINTILLATIONCOMPONENT1", energy, scint);
-    mpt->AddConstProperty("SCINTILLATIONYIELD", 10000./MeV);
-
-    polystyrene->SetMaterialPropertiesTable(mpt);
+    //Pedimos los materiales que necesitamos
+    auto* air         = materials->GetAir();
+    auto* polystyrene = materials->GetPolystyrene();
+    //auto* puma        = materials->GetPMMA();
 
 
     
@@ -72,18 +33,11 @@ G4VPhysicalVolume* DetectorConstruction::Construct() {
     
     // ================================= DETECTOR
 
-    // Blanco
+    // Detector (construido con Polysterene con centello)
     G4double targetSize = 10.0 * cm;                                                     //targetSize será el  -  Tamaño total 10 cm
     auto* targetSolid = new G4Box("Target", targetSize/2, targetSize/2, targetSize/2);   //targetSolid será el -  Cubo(nombre, mitad anchoX , mitad alturaY, mitad profundidadZ)
     fLogicTarget = new G4LogicalVolume(targetSolid, polystyrene, "Target");                    //flogicalTarget será el-VolumenLogico(Cubo, elemento, nombre)
     new G4PVPlacement(nullptr, {}, fLogicTarget, "Target", worldLV, false, 0);           //No se crea            - Espacio(rotacion, posicion {} es default, VolumenLogico, nombre, PL_madre, copia_multiple, numero_copia)
-
-    
-    // ================================= MODIFCACIONES 
-
-    //Alternativas o cambios (Práctica)
-    //G4RotationMatrix* rot = new G4RotationMatrix(); rot->rotateZ(45*deg);                                      //Rotar el cubo
-    //new G4PVPlacement(rot, G4ThreeVector(0,10*cm, 0), fLogicTarget, "Target", worldLV, false, 0);          //Mover 10 cm hacia arriba
 
 
     return worldPV; //Se devuelve el mundo
