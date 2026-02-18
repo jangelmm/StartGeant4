@@ -1336,7 +1336,8 @@ CMakeFiles/startG4.dir/src/ActionInitialization.cc.o: /media/Files/Documentos/Pr
   /home/angel/anaconda3/envs/geant-root-env/x86_64-conda-linux-gnu/sysroot/usr/include/wctype.h \
   /home/angel/anaconda3/envs/geant-root-env/x86_64-conda-linux-gnu/sysroot/usr/include/xlocale.h \
   /media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/include/ActionInitialization.hh \
-  /media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/include/PrimaryGeneratorAction.hh
+  /media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/include/PrimaryGeneratorAction.hh \
+  /media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/include/SteppingAction.hh
 
 CMakeFiles/startG4.dir/src/DetectorConstruction.cc.o: /media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/src/DetectorConstruction.cc \
   /home/angel/anaconda3/envs/geant-root-env/include/CLHEP/Geometry/BasicVector3D.h \
@@ -2983,13 +2984,13 @@ CMakeFiles/startG4.dir/src/SteppingAction.cc.o: /media/Files/Documentos/Programa
 
 /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4Pow.hh:
 
-/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/include/SteppingAction.hh:
-
-/home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4PVPlacement.hh:
-
 /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4NistMaterialBuilder.hh:
 
 /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4Exp.hh:
+
+/home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4PVPlacement.hh:
+
+/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/include/SteppingAction.hh:
 
 /media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/include/PrimaryGeneratorAction.hh:
 

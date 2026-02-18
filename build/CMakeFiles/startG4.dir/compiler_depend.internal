@@ -1339,6 +1339,7 @@ CMakeFiles/startG4.dir/src/ActionInitialization.cc.o
  /home/angel/anaconda3/envs/geant-root-env/x86_64-conda-linux-gnu/sysroot/usr/include/xlocale.h
  /media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/include/ActionInitialization.hh
  /media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/include/PrimaryGeneratorAction.hh
+ /media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/include/SteppingAction.hh
 
 CMakeFiles/startG4.dir/src/DetectorConstruction.cc.o
  /media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/src/DetectorConstruction.cc
