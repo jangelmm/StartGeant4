@@ -13,7 +13,13 @@ G4VPhysicalVolume* DetectorConstruction::Construct() {
     auto* nist = G4NistManager::Instance();                //Cátologo de materiales
     auto* air = nist->FindOrBuildMaterial("G4_AIR");       //Seleccionamos Aire 
     auto* water = nist->FindOrBuildMaterial("G4_WATER");   //Seleccionamos Agua
-    
+
+    // ================================= EJEMPLO CREACION MATERIAL - CASO 1
+    //Polystyrene (C8H8)
+    G4double density = 1.050 * g / cm3;
+    std::vector<G4String> elements = {"C", "H"}; //Carbono, Hidrogeno
+    std::vector<G4int> natoms = {8,8}; //8 De Carbono, 8 de Hidrogeno
+    auto* polystyrene = nist->ConstructNewMaterial("Polystyrene", elements, natoms, density); //Basta con reemplazar en G4LogicalVolume
     
     // ================================= MUNDO ====================================
     G4double worldSize = 2.0 * m;                                                        //worldSize será el - Tamaño total 1m
@@ -26,7 +32,7 @@ G4VPhysicalVolume* DetectorConstruction::Construct() {
     // Blanco
     G4double targetSize = 10.0 * cm;                                                     //targetSize será el  -  Tamaño total 10 cm
     auto* targetSolid = new G4Box("Target", targetSize/2, targetSize/2, targetSize/2);   //targetSolid será el -  Cubo(nombre, mitad anchoX , mitad alturaY, mitad profundidadZ)
-    fLogicTarget = new G4LogicalVolume(targetSolid, water, "Target");                    //flogicalTarget será el-VolumenLogico(Cubo, elemento, nombre)
+    fLogicTarget = new G4LogicalVolume(targetSolid, polystyrene, "Target");                    //flogicalTarget será el-VolumenLogico(Cubo, elemento, nombre)
     new G4PVPlacement(nullptr, {}, fLogicTarget, "Target", worldLV, false, 0);           //No se crea            - Espacio(rotacion, posicion {} es default, VolumenLogico, nombre, PL_madre, copia_multiple, numero_copia)
 
     
