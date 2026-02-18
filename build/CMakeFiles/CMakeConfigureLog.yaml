@@ -61,8 +61,8 @@ events:
     checks:
       - "Detecting C compiler ABI info"
     directories:
-      source: "/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-tlRRsk"
-      binary: "/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-tlRRsk"
+      source: "/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-UfV2Bx"
+      binary: "/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-UfV2Bx"
     cmakeVariables:
       CMAKE_C_FLAGS: "-march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe -isystem /home/angel/anaconda3/envs/geant-root-env/include"
       CMAKE_C_FLAGS_DEBUG: "-g"
@@ -71,13 +71,13 @@ events:
       variable: "CMAKE_C_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: '/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-tlRRsk'
+        Change Dir: '/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-UfV2Bx'
         
-        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_3b89d/fast
-        /usr/bin/gmake  -f CMakeFiles/cmTC_3b89d.dir/build.make CMakeFiles/cmTC_3b89d.dir/build
-        gmake[1]: Entering directory '/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-tlRRsk'
-        Building C object CMakeFiles/cmTC_3b89d.dir/CMakeCCompilerABI.c.o
-        /home/angel/anaconda3/envs/geant-root-env/bin/x86_64-conda-linux-gnu-cc   -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe -isystem /home/angel/anaconda3/envs/geant-root-env/include    -v -o CMakeFiles/cmTC_3b89d.dir/CMakeCCompilerABI.c.o -c /usr/share/cmake-3.28/Modules/CMakeCCompilerABI.c
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_ccc61/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_ccc61.dir/build.make CMakeFiles/cmTC_ccc61.dir/build
+        gmake[1]: Entering directory '/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-UfV2Bx'
+        Building C object CMakeFiles/cmTC_ccc61.dir/CMakeCCompilerABI.c.o
+        /home/angel/anaconda3/envs/geant-root-env/bin/x86_64-conda-linux-gnu-cc   -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe -isystem /home/angel/anaconda3/envs/geant-root-env/include    -v -o CMakeFiles/cmTC_ccc61.dir/CMakeCCompilerABI.c.o -c /usr/share/cmake-3.28/Modules/CMakeCCompilerABI.c
         Reading specs from /home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0/specs
         could not find specs file conda.specs
         COLLECT_GCC=/home/angel/anaconda3/envs/geant-root-env/bin/x86_64-conda-linux-gnu-cc
@@ -86,9 +86,9 @@ events:
         Thread model: posix
         Supported LTO compression algorithms: zlib
         gcc version 13.3.0 (conda-forge gcc 13.3.0-2) 
-        COLLECT_GCC_OPTIONS='-march=nocona' '-mtune=haswell' '-ftree-vectorize' '-fPIC' '-fstack-protector-strong' '-fno-plt' '-O2' '-ffunction-sections' '-pipe' '-isystem' '/home/angel/anaconda3/envs/geant-root-env/include' '-v' '-o' 'CMakeFiles/cmTC_3b89d.dir/CMakeCCompilerABI.c.o' '-c' '-dumpdir' 'CMakeFiles/cmTC_3b89d.dir/'
-         /home/angel/anaconda3/envs/geant-root-env/bin/../libexec/gcc/x86_64-conda-linux-gnu/13.3.0/cc1 -quiet -v -iprefix /home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0/ -isysroot /home/angel/anaconda3/envs/geant-root-env/bin/../x86_64-conda-linux-gnu/sysroot -isystem /home/angel/anaconda3/envs/geant-root-env/include /usr/share/cmake-3.28/Modules/CMakeCCompilerABI.c -quiet -dumpdir CMakeFiles/cmTC_3b89d.dir/ -dumpbase CMakeCCompilerABI.c.c -dumpbase-ext .c -march=nocona -mtune=haswell -O2 -version -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -ffunction-sections -o - |
-         /home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0/../../../../x86_64-conda-linux-gnu/bin/as -v --64 -o CMakeFiles/cmTC_3b89d.dir/CMakeCCompilerABI.c.o
+        COLLECT_GCC_OPTIONS='-march=nocona' '-mtune=haswell' '-ftree-vectorize' '-fPIC' '-fstack-protector-strong' '-fno-plt' '-O2' '-ffunction-sections' '-pipe' '-isystem' '/home/angel/anaconda3/envs/geant-root-env/include' '-v' '-o' 'CMakeFiles/cmTC_ccc61.dir/CMakeCCompilerABI.c.o' '-c' '-dumpdir' 'CMakeFiles/cmTC_ccc61.dir/'
+         /home/angel/anaconda3/envs/geant-root-env/bin/../libexec/gcc/x86_64-conda-linux-gnu/13.3.0/cc1 -quiet -v -iprefix /home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0/ -isysroot /home/angel/anaconda3/envs/geant-root-env/bin/../x86_64-conda-linux-gnu/sysroot -isystem /home/angel/anaconda3/envs/geant-root-env/include /usr/share/cmake-3.28/Modules/CMakeCCompilerABI.c -quiet -dumpdir CMakeFiles/cmTC_ccc61.dir/ -dumpbase CMakeCCompilerABI.c.c -dumpbase-ext .c -march=nocona -mtune=haswell -O2 -version -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -ffunction-sections -o - |
+         /home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0/../../../../x86_64-conda-linux-gnu/bin/as -v --64 -o CMakeFiles/cmTC_ccc61.dir/CMakeCCompilerABI.c.o
         GNU assembler version 2.43 (x86_64-conda-linux-gnu) using BFD version (GNU Binutils) 2.43
         GNU C17 (conda-forge gcc 13.3.0-2) version 13.3.0 (x86_64-conda-linux-gnu)
         	compiled by GNU C version 14.2.0, GMP version 6.2.1, MPFR version 4.1.0, MPC version 1.2.1, isl version isl-0.24-GMP
@@ -109,10 +109,10 @@ events:
         Compiler executable checksum: 22db4d4c393de085038a31a0c800173d
         COMPILER_PATH=/home/angel/anaconda3/envs/geant-root-env/bin/../libexec/gcc/x86_64-conda-linux-gnu/13.3.0/:/home/angel/anaconda3/envs/geant-root-env/bin/../libexec/gcc/:/home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0/../../../../x86_64-conda-linux-gnu/bin/
         LIBRARY_PATH=/home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0/:/home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/:/home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0/../../../../x86_64-conda-linux-gnu/lib/../lib/:/home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0/../../../../lib/:/home/angel/anaconda3/envs/geant-root-env/bin/../x86_64-conda-linux-gnu/sysroot/lib/../lib/:/home/angel/anaconda3/envs/geant-root-env/bin/../x86_64-conda-linux-gnu/sysroot/usr/lib/../lib/:/home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0/../../../../x86_64-conda-linux-gnu/lib/:/home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0/../../../:/home/angel/anaconda3/envs/geant-root-env/bin/../x86_64-conda-linux-gnu/sysroot/lib/:/home/angel/anaconda3/envs/geant-root-env/bin/../x86_64-conda-linux-gnu/sysroot/usr/lib/
-        COLLECT_GCC_OPTIONS='-march=nocona' '-mtune=haswell' '-ftree-vectorize' '-fPIC' '-fstack-protector-strong' '-fno-plt' '-O2' '-ffunction-sections' '-pipe' '-isystem' '/home/angel/anaconda3/envs/geant-root-env/include' '-v' '-o' 'CMakeFiles/cmTC_3b89d.dir/CMakeCCompilerABI.c.o' '-c' '-dumpdir' 'CMakeFiles/cmTC_3b89d.dir/CMakeCCompilerABI.c.'
-        Linking C executable cmTC_3b89d
-        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_3b89d.dir/link.txt --verbose=1
-        /home/angel/anaconda3/envs/geant-root-env/bin/x86_64-conda-linux-gnu-cc -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe -isystem /home/angel/anaconda3/envs/geant-root-env/include  -Wl,-O2 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--disable-new-dtags -Wl,--gc-sections -Wl,--allow-shlib-undefined -Wl,-rpath,/home/angel/anaconda3/envs/geant-root-env/lib -Wl,-rpath-link,/home/angel/anaconda3/envs/geant-root-env/lib -L/home/angel/anaconda3/envs/geant-root-env/lib -v CMakeFiles/cmTC_3b89d.dir/CMakeCCompilerABI.c.o -o cmTC_3b89d 
+        COLLECT_GCC_OPTIONS='-march=nocona' '-mtune=haswell' '-ftree-vectorize' '-fPIC' '-fstack-protector-strong' '-fno-plt' '-O2' '-ffunction-sections' '-pipe' '-isystem' '/home/angel/anaconda3/envs/geant-root-env/include' '-v' '-o' 'CMakeFiles/cmTC_ccc61.dir/CMakeCCompilerABI.c.o' '-c' '-dumpdir' 'CMakeFiles/cmTC_ccc61.dir/CMakeCCompilerABI.c.'
+        Linking C executable cmTC_ccc61
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ccc61.dir/link.txt --verbose=1
+        /home/angel/anaconda3/envs/geant-root-env/bin/x86_64-conda-linux-gnu-cc -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe -isystem /home/angel/anaconda3/envs/geant-root-env/include  -Wl,-O2 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--disable-new-dtags -Wl,--gc-sections -Wl,--allow-shlib-undefined -Wl,-rpath,/home/angel/anaconda3/envs/geant-root-env/lib -Wl,-rpath-link,/home/angel/anaconda3/envs/geant-root-env/lib -L/home/angel/anaconda3/envs/geant-root-env/lib -v CMakeFiles/cmTC_ccc61.dir/CMakeCCompilerABI.c.o -o cmTC_ccc61 
         Reading specs from /home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0/specs
         could not find specs file conda.specs
         COLLECT_GCC=/home/angel/anaconda3/envs/geant-root-env/bin/x86_64-conda-linux-gnu-cc
@@ -124,10 +124,10 @@ events:
         gcc version 13.3.0 (conda-forge gcc 13.3.0-2) 
         COMPILER_PATH=/home/angel/anaconda3/envs/geant-root-env/bin/../libexec/gcc/x86_64-conda-linux-gnu/13.3.0/:/home/angel/anaconda3/envs/geant-root-env/bin/../libexec/gcc/:/home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0/../../../../x86_64-conda-linux-gnu/bin/
         LIBRARY_PATH=/home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0/:/home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/:/home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0/../../../../x86_64-conda-linux-gnu/lib/../lib/:/home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0/../../../../lib/:/home/angel/anaconda3/envs/geant-root-env/bin/../x86_64-conda-linux-gnu/sysroot/lib/../lib/:/home/angel/anaconda3/envs/geant-root-env/bin/../x86_64-conda-linux-gnu/sysroot/usr/lib/../lib/:/home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0/../../../../x86_64-conda-linux-gnu/lib/:/home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0/../../../:/home/angel/anaconda3/envs/geant-root-env/bin/../x86_64-conda-linux-gnu/sysroot/lib/:/home/angel/anaconda3/envs/geant-root-env/bin/../x86_64-conda-linux-gnu/sysroot/usr/lib/
-        COLLECT_GCC_OPTIONS='-march=nocona' '-mtune=haswell' '-ftree-vectorize' '-fPIC' '-fstack-protector-strong' '-fno-plt' '-O2' '-ffunction-sections' '-pipe' '-isystem' '/home/angel/anaconda3/envs/geant-root-env/include' '-L/home/angel/anaconda3/envs/geant-root-env/lib' '-v' '-o' 'cmTC_3b89d' '-dumpdir' 'cmTC_3b89d.'
-         /home/angel/anaconda3/envs/geant-root-env/bin/../libexec/gcc/x86_64-conda-linux-gnu/13.3.0/collect2 -plugin /home/angel/anaconda3/envs/geant-root-env/bin/../libexec/gcc/x86_64-conda-linux-gnu/13.3.0/liblto_plugin.so -plugin-opt=/home/angel/anaconda3/envs/geant-root-env/bin/../libexec/gcc/x86_64-conda-linux-gnu/13.3.0/lto-wrapper -plugin-opt=-fresolution=/tmp/ccqDthNr.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --sysroot=/home/angel/anaconda3/envs/geant-root-env/bin/../x86_64-conda-linux-gnu/sysroot --eh-frame-hdr -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -o cmTC_3b89d /home/angel/anaconda3/envs/geant-root-env/bin/../x86_64-conda-linux-gnu/sysroot/usr/lib/../lib/Scrt1.o /home/angel/anaconda3/envs/geant-root-env/bin/../x86_64-conda-linux-gnu/sysroot/usr/lib/../lib/crti.o /home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0/crtbeginS.o -L/home/angel/anaconda3/envs/geant-root-env/lib -L/home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0 -L/home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc -L/home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0/../../../../x86_64-conda-linux-gnu/lib/../lib -L/home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0/../../../../lib -L/home/angel/anaconda3/envs/geant-root-env/bin/../x86_64-conda-linux-gnu/sysroot/lib/../lib -L/home/angel/anaconda3/envs/geant-root-env/bin/../x86_64-conda-linux-gnu/sysroot/usr/lib/../lib -L/home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0/../../../../x86_64-conda-linux-gnu/lib -L/home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0/../../.. -L/home/angel/anaconda3/envs/geant-root-env/bin/../x86_64-conda-linux-gnu/sysroot/lib -L/home/angel/anaconda3/envs/geant-root-env/bin/../x86_64-conda-linux-gnu/sysroot/usr/lib -O2 --sort-common --as-needed -z relro -z now --disable-new-dtags --gc-sections --allow-shlib-undefined -rpath /home/angel/anaconda3/envs/geant-root-env/lib -rpath-link /home/angel/anaconda3/envs/geant-root-env/lib CMakeFiles/cmTC_3b89d.dir/CMakeCCompilerABI.c.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0/crtendS.o /home/angel/anaconda3/envs/geant-root-env/bin/../x86_64-conda-linux-gnu/sysroot/usr/lib/../lib/crtn.o -rpath /home/angel/anaconda3/envs/geant-root-env/lib
-        COLLECT_GCC_OPTIONS='-march=nocona' '-mtune=haswell' '-ftree-vectorize' '-fPIC' '-fstack-protector-strong' '-fno-plt' '-O2' '-ffunction-sections' '-pipe' '-isystem' '/home/angel/anaconda3/envs/geant-root-env/include' '-L/home/angel/anaconda3/envs/geant-root-env/lib' '-v' '-o' 'cmTC_3b89d' '-dumpdir' 'cmTC_3b89d.'
-        gmake[1]: Leaving directory '/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-tlRRsk'
+        COLLECT_GCC_OPTIONS='-march=nocona' '-mtune=haswell' '-ftree-vectorize' '-fPIC' '-fstack-protector-strong' '-fno-plt' '-O2' '-ffunction-sections' '-pipe' '-isystem' '/home/angel/anaconda3/envs/geant-root-env/include' '-L/home/angel/anaconda3/envs/geant-root-env/lib' '-v' '-o' 'cmTC_ccc61' '-dumpdir' 'cmTC_ccc61.'
+         /home/angel/anaconda3/envs/geant-root-env/bin/../libexec/gcc/x86_64-conda-linux-gnu/13.3.0/collect2 -plugin /home/angel/anaconda3/envs/geant-root-env/bin/../libexec/gcc/x86_64-conda-linux-gnu/13.3.0/liblto_plugin.so -plugin-opt=/home/angel/anaconda3/envs/geant-root-env/bin/../libexec/gcc/x86_64-conda-linux-gnu/13.3.0/lto-wrapper -plugin-opt=-fresolution=/tmp/ccmvRydO.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --sysroot=/home/angel/anaconda3/envs/geant-root-env/bin/../x86_64-conda-linux-gnu/sysroot --eh-frame-hdr -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -o cmTC_ccc61 /home/angel/anaconda3/envs/geant-root-env/bin/../x86_64-conda-linux-gnu/sysroot/usr/lib/../lib/Scrt1.o /home/angel/anaconda3/envs/geant-root-env/bin/../x86_64-conda-linux-gnu/sysroot/usr/lib/../lib/crti.o /home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0/crtbeginS.o -L/home/angel/anaconda3/envs/geant-root-env/lib -L/home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0 -L/home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc -L/home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0/../../../../x86_64-conda-linux-gnu/lib/../lib -L/home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0/../../../../lib -L/home/angel/anaconda3/envs/geant-root-env/bin/../x86_64-conda-linux-gnu/sysroot/lib/../lib -L/home/angel/anaconda3/envs/geant-root-env/bin/../x86_64-conda-linux-gnu/sysroot/usr/lib/../lib -L/home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0/../../../../x86_64-conda-linux-gnu/lib -L/home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0/../../.. -L/home/angel/anaconda3/envs/geant-root-env/bin/../x86_64-conda-linux-gnu/sysroot/lib -L/home/angel/anaconda3/envs/geant-root-env/bin/../x86_64-conda-linux-gnu/sysroot/usr/lib -O2 --sort-common --as-needed -z relro -z now --disable-new-dtags --gc-sections --allow-shlib-undefined -rpath /home/angel/anaconda3/envs/geant-root-env/lib -rpath-link /home/angel/anaconda3/envs/geant-root-env/lib CMakeFiles/cmTC_ccc61.dir/CMakeCCompilerABI.c.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0/crtendS.o /home/angel/anaconda3/envs/geant-root-env/bin/../x86_64-conda-linux-gnu/sysroot/usr/lib/../lib/crtn.o -rpath /home/angel/anaconda3/envs/geant-root-env/lib
+        COLLECT_GCC_OPTIONS='-march=nocona' '-mtune=haswell' '-ftree-vectorize' '-fPIC' '-fstack-protector-strong' '-fno-plt' '-O2' '-ffunction-sections' '-pipe' '-isystem' '/home/angel/anaconda3/envs/geant-root-env/include' '-L/home/angel/anaconda3/envs/geant-root-env/lib' '-v' '-o' 'cmTC_ccc61' '-dumpdir' 'cmTC_ccc61.'
+        gmake[1]: Leaving directory '/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-UfV2Bx'
         
       exitCode: 0
   -
@@ -161,13 +161,13 @@ events:
     message: |
       Parsed C implicit link information:
         link line regex: [^( *|.*[/\\])(x86_64-conda-linux-gnu-ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
-        ignore line: [Change Dir: '/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-tlRRsk']
+        ignore line: [Change Dir: '/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-UfV2Bx']
         ignore line: []
-        ignore line: [Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_3b89d/fast]
-        ignore line: [/usr/bin/gmake  -f CMakeFiles/cmTC_3b89d.dir/build.make CMakeFiles/cmTC_3b89d.dir/build]
-        ignore line: [gmake[1]: Entering directory '/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-tlRRsk']
-        ignore line: [Building C object CMakeFiles/cmTC_3b89d.dir/CMakeCCompilerABI.c.o]
-        ignore line: [/home/angel/anaconda3/envs/geant-root-env/bin/x86_64-conda-linux-gnu-cc   -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe -isystem /home/angel/anaconda3/envs/geant-root-env/include    -v -o CMakeFiles/cmTC_3b89d.dir/CMakeCCompilerABI.c.o -c /usr/share/cmake-3.28/Modules/CMakeCCompilerABI.c]
+        ignore line: [Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_ccc61/fast]
+        ignore line: [/usr/bin/gmake  -f CMakeFiles/cmTC_ccc61.dir/build.make CMakeFiles/cmTC_ccc61.dir/build]
+        ignore line: [gmake[1]: Entering directory '/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-UfV2Bx']
+        ignore line: [Building C object CMakeFiles/cmTC_ccc61.dir/CMakeCCompilerABI.c.o]
+        ignore line: [/home/angel/anaconda3/envs/geant-root-env/bin/x86_64-conda-linux-gnu-cc   -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe -isystem /home/angel/anaconda3/envs/geant-root-env/include    -v -o CMakeFiles/cmTC_ccc61.dir/CMakeCCompilerABI.c.o -c /usr/share/cmake-3.28/Modules/CMakeCCompilerABI.c]
         ignore line: [Reading specs from /home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0/specs]
         ignore line: [could not find specs file conda.specs]
         ignore line: [COLLECT_GCC=/home/angel/anaconda3/envs/geant-root-env/bin/x86_64-conda-linux-gnu-cc]
@@ -176,9 +176,9 @@ events:
         ignore line: [Thread model: posix]
         ignore line: [Supported LTO compression algorithms: zlib]
         ignore line: [gcc version 13.3.0 (conda-forge gcc 13.3.0-2) ]
-        ignore line: [COLLECT_GCC_OPTIONS='-march=nocona' '-mtune=haswell' '-ftree-vectorize' '-fPIC' '-fstack-protector-strong' '-fno-plt' '-O2' '-ffunction-sections' '-pipe' '-isystem' '/home/angel/anaconda3/envs/geant-root-env/include' '-v' '-o' 'CMakeFiles/cmTC_3b89d.dir/CMakeCCompilerABI.c.o' '-c' '-dumpdir' 'CMakeFiles/cmTC_3b89d.dir/']
-        ignore line: [ /home/angel/anaconda3/envs/geant-root-env/bin/../libexec/gcc/x86_64-conda-linux-gnu/13.3.0/cc1 -quiet -v -iprefix /home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0/ -isysroot /home/angel/anaconda3/envs/geant-root-env/bin/../x86_64-conda-linux-gnu/sysroot -isystem /home/angel/anaconda3/envs/geant-root-env/include /usr/share/cmake-3.28/Modules/CMakeCCompilerABI.c -quiet -dumpdir CMakeFiles/cmTC_3b89d.dir/ -dumpbase CMakeCCompilerABI.c.c -dumpbase-ext .c -march=nocona -mtune=haswell -O2 -version -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -ffunction-sections -o - |]
-        ignore line: [ /home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0/../../../../x86_64-conda-linux-gnu/bin/as -v --64 -o CMakeFiles/cmTC_3b89d.dir/CMakeCCompilerABI.c.o]
+        ignore line: [COLLECT_GCC_OPTIONS='-march=nocona' '-mtune=haswell' '-ftree-vectorize' '-fPIC' '-fstack-protector-strong' '-fno-plt' '-O2' '-ffunction-sections' '-pipe' '-isystem' '/home/angel/anaconda3/envs/geant-root-env/include' '-v' '-o' 'CMakeFiles/cmTC_ccc61.dir/CMakeCCompilerABI.c.o' '-c' '-dumpdir' 'CMakeFiles/cmTC_ccc61.dir/']
+        ignore line: [ /home/angel/anaconda3/envs/geant-root-env/bin/../libexec/gcc/x86_64-conda-linux-gnu/13.3.0/cc1 -quiet -v -iprefix /home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0/ -isysroot /home/angel/anaconda3/envs/geant-root-env/bin/../x86_64-conda-linux-gnu/sysroot -isystem /home/angel/anaconda3/envs/geant-root-env/include /usr/share/cmake-3.28/Modules/CMakeCCompilerABI.c -quiet -dumpdir CMakeFiles/cmTC_ccc61.dir/ -dumpbase CMakeCCompilerABI.c.c -dumpbase-ext .c -march=nocona -mtune=haswell -O2 -version -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -ffunction-sections -o - |]
+        ignore line: [ /home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0/../../../../x86_64-conda-linux-gnu/bin/as -v --64 -o CMakeFiles/cmTC_ccc61.dir/CMakeCCompilerABI.c.o]
         ignore line: [GNU assembler version 2.43 (x86_64-conda-linux-gnu) using BFD version (GNU Binutils) 2.43]
         ignore line: [GNU C17 (conda-forge gcc 13.3.0-2) version 13.3.0 (x86_64-conda-linux-gnu)]
         ignore line: [	compiled by GNU C version 14.2.0  GMP version 6.2.1  MPFR version 4.1.0  MPC version 1.2.1  isl version isl-0.24-GMP]
@@ -199,10 +199,10 @@ events:
         ignore line: [Compiler executable checksum: 22db4d4c393de085038a31a0c800173d]
         ignore line: [COMPILER_PATH=/home/angel/anaconda3/envs/geant-root-env/bin/../libexec/gcc/x86_64-conda-linux-gnu/13.3.0/:/home/angel/anaconda3/envs/geant-root-env/bin/../libexec/gcc/:/home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0/../../../../x86_64-conda-linux-gnu/bin/]
         ignore line: [LIBRARY_PATH=/home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0/:/home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/:/home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0/../../../../x86_64-conda-linux-gnu/lib/../lib/:/home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0/../../../../lib/:/home/angel/anaconda3/envs/geant-root-env/bin/../x86_64-conda-linux-gnu/sysroot/lib/../lib/:/home/angel/anaconda3/envs/geant-root-env/bin/../x86_64-conda-linux-gnu/sysroot/usr/lib/../lib/:/home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0/../../../../x86_64-conda-linux-gnu/lib/:/home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0/../../../:/home/angel/anaconda3/envs/geant-root-env/bin/../x86_64-conda-linux-gnu/sysroot/lib/:/home/angel/anaconda3/envs/geant-root-env/bin/../x86_64-conda-linux-gnu/sysroot/usr/lib/]
-        ignore line: [COLLECT_GCC_OPTIONS='-march=nocona' '-mtune=haswell' '-ftree-vectorize' '-fPIC' '-fstack-protector-strong' '-fno-plt' '-O2' '-ffunction-sections' '-pipe' '-isystem' '/home/angel/anaconda3/envs/geant-root-env/include' '-v' '-o' 'CMakeFiles/cmTC_3b89d.dir/CMakeCCompilerABI.c.o' '-c' '-dumpdir' 'CMakeFiles/cmTC_3b89d.dir/CMakeCCompilerABI.c.']
-        ignore line: [Linking C executable cmTC_3b89d]
-        ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_3b89d.dir/link.txt --verbose=1]
-        ignore line: [/home/angel/anaconda3/envs/geant-root-env/bin/x86_64-conda-linux-gnu-cc -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe -isystem /home/angel/anaconda3/envs/geant-root-env/include  -Wl -O2 -Wl --sort-common -Wl --as-needed -Wl -z relro -Wl -z now -Wl --disable-new-dtags -Wl --gc-sections -Wl --allow-shlib-undefined -Wl -rpath /home/angel/anaconda3/envs/geant-root-env/lib -Wl -rpath-link /home/angel/anaconda3/envs/geant-root-env/lib -L/home/angel/anaconda3/envs/geant-root-env/lib -v CMakeFiles/cmTC_3b89d.dir/CMakeCCompilerABI.c.o -o cmTC_3b89d ]
+        ignore line: [COLLECT_GCC_OPTIONS='-march=nocona' '-mtune=haswell' '-ftree-vectorize' '-fPIC' '-fstack-protector-strong' '-fno-plt' '-O2' '-ffunction-sections' '-pipe' '-isystem' '/home/angel/anaconda3/envs/geant-root-env/include' '-v' '-o' 'CMakeFiles/cmTC_ccc61.dir/CMakeCCompilerABI.c.o' '-c' '-dumpdir' 'CMakeFiles/cmTC_ccc61.dir/CMakeCCompilerABI.c.']
+        ignore line: [Linking C executable cmTC_ccc61]
+        ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ccc61.dir/link.txt --verbose=1]
+        ignore line: [/home/angel/anaconda3/envs/geant-root-env/bin/x86_64-conda-linux-gnu-cc -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe -isystem /home/angel/anaconda3/envs/geant-root-env/include  -Wl -O2 -Wl --sort-common -Wl --as-needed -Wl -z relro -Wl -z now -Wl --disable-new-dtags -Wl --gc-sections -Wl --allow-shlib-undefined -Wl -rpath /home/angel/anaconda3/envs/geant-root-env/lib -Wl -rpath-link /home/angel/anaconda3/envs/geant-root-env/lib -L/home/angel/anaconda3/envs/geant-root-env/lib -v CMakeFiles/cmTC_ccc61.dir/CMakeCCompilerABI.c.o -o cmTC_ccc61 ]
         ignore line: [Reading specs from /home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0/specs]
         ignore line: [could not find specs file conda.specs]
         ignore line: [COLLECT_GCC=/home/angel/anaconda3/envs/geant-root-env/bin/x86_64-conda-linux-gnu-cc]
@@ -214,13 +214,13 @@ events:
         ignore line: [gcc version 13.3.0 (conda-forge gcc 13.3.0-2) ]
         ignore line: [COMPILER_PATH=/home/angel/anaconda3/envs/geant-root-env/bin/../libexec/gcc/x86_64-conda-linux-gnu/13.3.0/:/home/angel/anaconda3/envs/geant-root-env/bin/../libexec/gcc/:/home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0/../../../../x86_64-conda-linux-gnu/bin/]
         ignore line: [LIBRARY_PATH=/home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0/:/home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/:/home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0/../../../../x86_64-conda-linux-gnu/lib/../lib/:/home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0/../../../../lib/:/home/angel/anaconda3/envs/geant-root-env/bin/../x86_64-conda-linux-gnu/sysroot/lib/../lib/:/home/angel/anaconda3/envs/geant-root-env/bin/../x86_64-conda-linux-gnu/sysroot/usr/lib/../lib/:/home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0/../../../../x86_64-conda-linux-gnu/lib/:/home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0/../../../:/home/angel/anaconda3/envs/geant-root-env/bin/../x86_64-conda-linux-gnu/sysroot/lib/:/home/angel/anaconda3/envs/geant-root-env/bin/../x86_64-conda-linux-gnu/sysroot/usr/lib/]
-        ignore line: [COLLECT_GCC_OPTIONS='-march=nocona' '-mtune=haswell' '-ftree-vectorize' '-fPIC' '-fstack-protector-strong' '-fno-plt' '-O2' '-ffunction-sections' '-pipe' '-isystem' '/home/angel/anaconda3/envs/geant-root-env/include' '-L/home/angel/anaconda3/envs/geant-root-env/lib' '-v' '-o' 'cmTC_3b89d' '-dumpdir' 'cmTC_3b89d.']
-        link line: [ /home/angel/anaconda3/envs/geant-root-env/bin/../libexec/gcc/x86_64-conda-linux-gnu/13.3.0/collect2 -plugin /home/angel/anaconda3/envs/geant-root-env/bin/../libexec/gcc/x86_64-conda-linux-gnu/13.3.0/liblto_plugin.so -plugin-opt=/home/angel/anaconda3/envs/geant-root-env/bin/../libexec/gcc/x86_64-conda-linux-gnu/13.3.0/lto-wrapper -plugin-opt=-fresolution=/tmp/ccqDthNr.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --sysroot=/home/angel/anaconda3/envs/geant-root-env/bin/../x86_64-conda-linux-gnu/sysroot --eh-frame-hdr -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -o cmTC_3b89d /home/angel/anaconda3/envs/geant-root-env/bin/../x86_64-conda-linux-gnu/sysroot/usr/lib/../lib/Scrt1.o /home/angel/anaconda3/envs/geant-root-env/bin/../x86_64-conda-linux-gnu/sysroot/usr/lib/../lib/crti.o /home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0/crtbeginS.o -L/home/angel/anaconda3/envs/geant-root-env/lib -L/home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0 -L/home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc -L/home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0/../../../../x86_64-conda-linux-gnu/lib/../lib -L/home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0/../../../../lib -L/home/angel/anaconda3/envs/geant-root-env/bin/../x86_64-conda-linux-gnu/sysroot/lib/../lib -L/home/angel/anaconda3/envs/geant-root-env/bin/../x86_64-conda-linux-gnu/sysroot/usr/lib/../lib -L/home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0/../../../../x86_64-conda-linux-gnu/lib -L/home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0/../../.. -L/home/angel/anaconda3/envs/geant-root-env/bin/../x86_64-conda-linux-gnu/sysroot/lib -L/home/angel/anaconda3/envs/geant-root-env/bin/../x86_64-conda-linux-gnu/sysroot/usr/lib -O2 --sort-common --as-needed -z relro -z now --disable-new-dtags --gc-sections --allow-shlib-undefined -rpath /home/angel/anaconda3/envs/geant-root-env/lib -rpath-link /home/angel/anaconda3/envs/geant-root-env/lib CMakeFiles/cmTC_3b89d.dir/CMakeCCompilerABI.c.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0/crtendS.o /home/angel/anaconda3/envs/geant-root-env/bin/../x86_64-conda-linux-gnu/sysroot/usr/lib/../lib/crtn.o -rpath /home/angel/anaconda3/envs/geant-root-env/lib]
+        ignore line: [COLLECT_GCC_OPTIONS='-march=nocona' '-mtune=haswell' '-ftree-vectorize' '-fPIC' '-fstack-protector-strong' '-fno-plt' '-O2' '-ffunction-sections' '-pipe' '-isystem' '/home/angel/anaconda3/envs/geant-root-env/include' '-L/home/angel/anaconda3/envs/geant-root-env/lib' '-v' '-o' 'cmTC_ccc61' '-dumpdir' 'cmTC_ccc61.']
+        link line: [ /home/angel/anaconda3/envs/geant-root-env/bin/../libexec/gcc/x86_64-conda-linux-gnu/13.3.0/collect2 -plugin /home/angel/anaconda3/envs/geant-root-env/bin/../libexec/gcc/x86_64-conda-linux-gnu/13.3.0/liblto_plugin.so -plugin-opt=/home/angel/anaconda3/envs/geant-root-env/bin/../libexec/gcc/x86_64-conda-linux-gnu/13.3.0/lto-wrapper -plugin-opt=-fresolution=/tmp/ccmvRydO.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --sysroot=/home/angel/anaconda3/envs/geant-root-env/bin/../x86_64-conda-linux-gnu/sysroot --eh-frame-hdr -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -o cmTC_ccc61 /home/angel/anaconda3/envs/geant-root-env/bin/../x86_64-conda-linux-gnu/sysroot/usr/lib/../lib/Scrt1.o /home/angel/anaconda3/envs/geant-root-env/bin/../x86_64-conda-linux-gnu/sysroot/usr/lib/../lib/crti.o /home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0/crtbeginS.o -L/home/angel/anaconda3/envs/geant-root-env/lib -L/home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0 -L/home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc -L/home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0/../../../../x86_64-conda-linux-gnu/lib/../lib -L/home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0/../../../../lib -L/home/angel/anaconda3/envs/geant-root-env/bin/../x86_64-conda-linux-gnu/sysroot/lib/../lib -L/home/angel/anaconda3/envs/geant-root-env/bin/../x86_64-conda-linux-gnu/sysroot/usr/lib/../lib -L/home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0/../../../../x86_64-conda-linux-gnu/lib -L/home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0/../../.. -L/home/angel/anaconda3/envs/geant-root-env/bin/../x86_64-conda-linux-gnu/sysroot/lib -L/home/angel/anaconda3/envs/geant-root-env/bin/../x86_64-conda-linux-gnu/sysroot/usr/lib -O2 --sort-common --as-needed -z relro -z now --disable-new-dtags --gc-sections --allow-shlib-undefined -rpath /home/angel/anaconda3/envs/geant-root-env/lib -rpath-link /home/angel/anaconda3/envs/geant-root-env/lib CMakeFiles/cmTC_ccc61.dir/CMakeCCompilerABI.c.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0/crtendS.o /home/angel/anaconda3/envs/geant-root-env/bin/../x86_64-conda-linux-gnu/sysroot/usr/lib/../lib/crtn.o -rpath /home/angel/anaconda3/envs/geant-root-env/lib]
           arg [/home/angel/anaconda3/envs/geant-root-env/bin/../libexec/gcc/x86_64-conda-linux-gnu/13.3.0/collect2] ==> ignore
           arg [-plugin] ==> ignore
           arg [/home/angel/anaconda3/envs/geant-root-env/bin/../libexec/gcc/x86_64-conda-linux-gnu/13.3.0/liblto_plugin.so] ==> ignore
           arg [-plugin-opt=/home/angel/anaconda3/envs/geant-root-env/bin/../libexec/gcc/x86_64-conda-linux-gnu/13.3.0/lto-wrapper] ==> ignore
-          arg [-plugin-opt=-fresolution=/tmp/ccqDthNr.res] ==> ignore
+          arg [-plugin-opt=-fresolution=/tmp/ccmvRydO.res] ==> ignore
           arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
           arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
           arg [-plugin-opt=-pass-through=-lc] ==> ignore
@@ -234,7 +234,7 @@ events:
           arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
           arg [-pie] ==> ignore
           arg [-o] ==> ignore
-          arg [cmTC_3b89d] ==> ignore
+          arg [cmTC_ccc61] ==> ignore
           arg [/home/angel/anaconda3/envs/geant-root-env/bin/../x86_64-conda-linux-gnu/sysroot/usr/lib/../lib/Scrt1.o] ==> obj [/home/angel/anaconda3/envs/geant-root-env/bin/../x86_64-conda-linux-gnu/sysroot/usr/lib/../lib/Scrt1.o]
           arg [/home/angel/anaconda3/envs/geant-root-env/bin/../x86_64-conda-linux-gnu/sysroot/usr/lib/../lib/crti.o] ==> obj [/home/angel/anaconda3/envs/geant-root-env/bin/../x86_64-conda-linux-gnu/sysroot/usr/lib/../lib/crti.o]
           arg [/home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0/crtbeginS.o] ==> obj [/home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0/crtbeginS.o]
@@ -261,7 +261,7 @@ events:
           arg [/home/angel/anaconda3/envs/geant-root-env/lib] ==> ignore
           arg [-rpath-link] ==> ignore
           arg [/home/angel/anaconda3/envs/geant-root-env/lib] ==> ignore
-          arg [CMakeFiles/cmTC_3b89d.dir/CMakeCCompilerABI.c.o] ==> ignore
+          arg [CMakeFiles/cmTC_ccc61.dir/CMakeCCompilerABI.c.o] ==> ignore
           arg [-lgcc] ==> lib [gcc]
           arg [--push-state] ==> ignore
           arg [--as-needed] ==> ignore
@@ -308,8 +308,8 @@ events:
     checks:
       - "Detecting CXX compiler ABI info"
     directories:
-      source: "/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-jkVzVe"
-      binary: "/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-jkVzVe"
+      source: "/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-zuIqbj"
+      binary: "/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-zuIqbj"
     cmakeVariables:
       CMAKE_CXX_FLAGS: "-fvisibility-inlines-hidden -fmessage-length=0 -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe -isystem /home/angel/anaconda3/envs/geant-root-env/include"
       CMAKE_CXX_FLAGS_DEBUG: "-g"
@@ -318,13 +318,13 @@ events:
       variable: "CMAKE_CXX_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: '/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-jkVzVe'
+        Change Dir: '/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-zuIqbj'
         
-        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_c794b/fast
-        /usr/bin/gmake  -f CMakeFiles/cmTC_c794b.dir/build.make CMakeFiles/cmTC_c794b.dir/build
-        gmake[1]: Entering directory '/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-jkVzVe'
-        Building CXX object CMakeFiles/cmTC_c794b.dir/CMakeCXXCompilerABI.cpp.o
-        /home/angel/anaconda3/envs/geant-root-env/bin/x86_64-conda-linux-gnu-c++   -fvisibility-inlines-hidden -fmessage-length=0 -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe -isystem /home/angel/anaconda3/envs/geant-root-env/include    -v -o CMakeFiles/cmTC_c794b.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.28/Modules/CMakeCXXCompilerABI.cpp
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_a71ba/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_a71ba.dir/build.make CMakeFiles/cmTC_a71ba.dir/build
+        gmake[1]: Entering directory '/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-zuIqbj'
+        Building CXX object CMakeFiles/cmTC_a71ba.dir/CMakeCXXCompilerABI.cpp.o
+        /home/angel/anaconda3/envs/geant-root-env/bin/x86_64-conda-linux-gnu-c++   -fvisibility-inlines-hidden -fmessage-length=0 -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe -isystem /home/angel/anaconda3/envs/geant-root-env/include    -v -o CMakeFiles/cmTC_a71ba.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.28/Modules/CMakeCXXCompilerABI.cpp
         Reading specs from /home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0/specs
         could not find specs file conda.specs
         COLLECT_GCC=/home/angel/anaconda3/envs/geant-root-env/bin/x86_64-conda-linux-gnu-c++
@@ -333,9 +333,9 @@ events:
         Thread model: posix
         Supported LTO compression algorithms: zlib
         gcc version 13.3.0 (conda-forge gcc 13.3.0-2) 
-        COLLECT_GCC_OPTIONS='-fvisibility-inlines-hidden' '-fmessage-length=0' '-march=nocona' '-mtune=haswell' '-ftree-vectorize' '-fPIC' '-fstack-protector-strong' '-fno-plt' '-O2' '-ffunction-sections' '-pipe' '-isystem' '/home/angel/anaconda3/envs/geant-root-env/include' '-v' '-o' 'CMakeFiles/cmTC_c794b.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-dumpdir' 'CMakeFiles/cmTC_c794b.dir/'
-         /home/angel/anaconda3/envs/geant-root-env/bin/../libexec/gcc/x86_64-conda-linux-gnu/13.3.0/cc1plus -quiet -v -iprefix /home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0/ -isysroot /home/angel/anaconda3/envs/geant-root-env/bin/../x86_64-conda-linux-gnu/sysroot -D_GNU_SOURCE -isystem /home/angel/anaconda3/envs/geant-root-env/include /usr/share/cmake-3.28/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpdir CMakeFiles/cmTC_c794b.dir/ -dumpbase CMakeCXXCompilerABI.cpp.cpp -dumpbase-ext .cpp -march=nocona -mtune=haswell -O2 -version -fvisibility-inlines-hidden -fmessage-length=0 -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -ffunction-sections -o - |
-         /home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0/../../../../x86_64-conda-linux-gnu/bin/as -v --64 -o CMakeFiles/cmTC_c794b.dir/CMakeCXXCompilerABI.cpp.o
+        COLLECT_GCC_OPTIONS='-fvisibility-inlines-hidden' '-fmessage-length=0' '-march=nocona' '-mtune=haswell' '-ftree-vectorize' '-fPIC' '-fstack-protector-strong' '-fno-plt' '-O2' '-ffunction-sections' '-pipe' '-isystem' '/home/angel/anaconda3/envs/geant-root-env/include' '-v' '-o' 'CMakeFiles/cmTC_a71ba.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-dumpdir' 'CMakeFiles/cmTC_a71ba.dir/'
+         /home/angel/anaconda3/envs/geant-root-env/bin/../libexec/gcc/x86_64-conda-linux-gnu/13.3.0/cc1plus -quiet -v -iprefix /home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0/ -isysroot /home/angel/anaconda3/envs/geant-root-env/bin/../x86_64-conda-linux-gnu/sysroot -D_GNU_SOURCE -isystem /home/angel/anaconda3/envs/geant-root-env/include /usr/share/cmake-3.28/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpdir CMakeFiles/cmTC_a71ba.dir/ -dumpbase CMakeCXXCompilerABI.cpp.cpp -dumpbase-ext .cpp -march=nocona -mtune=haswell -O2 -version -fvisibility-inlines-hidden -fmessage-length=0 -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -ffunction-sections -o - |
+         /home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0/../../../../x86_64-conda-linux-gnu/bin/as -v --64 -o CMakeFiles/cmTC_a71ba.dir/CMakeCXXCompilerABI.cpp.o
         GNU assembler version 2.43 (x86_64-conda-linux-gnu) using BFD version (GNU Binutils) 2.43
         GNU C++17 (conda-forge gcc 13.3.0-2) version 13.3.0 (x86_64-conda-linux-gnu)
         	compiled by GNU C version 14.2.0, GMP version 6.2.1, MPFR version 4.1.0, MPC version 1.2.1, isl version isl-0.24-GMP
@@ -362,10 +362,10 @@ events:
         Compiler executable checksum: d087570e6c007cf08e494b8046e3695a
         COMPILER_PATH=/home/angel/anaconda3/envs/geant-root-env/bin/../libexec/gcc/x86_64-conda-linux-gnu/13.3.0/:/home/angel/anaconda3/envs/geant-root-env/bin/../libexec/gcc/:/home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0/../../../../x86_64-conda-linux-gnu/bin/
         LIBRARY_PATH=/home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0/:/home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/:/home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0/../../../../x86_64-conda-linux-gnu/lib/../lib/:/home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0/../../../../lib/:/home/angel/anaconda3/envs/geant-root-env/bin/../x86_64-conda-linux-gnu/sysroot/lib/../lib/:/home/angel/anaconda3/envs/geant-root-env/bin/../x86_64-conda-linux-gnu/sysroot/usr/lib/../lib/:/home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0/../../../../x86_64-conda-linux-gnu/lib/:/home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0/../../../:/home/angel/anaconda3/envs/geant-root-env/bin/../x86_64-conda-linux-gnu/sysroot/lib/:/home/angel/anaconda3/envs/geant-root-env/bin/../x86_64-conda-linux-gnu/sysroot/usr/lib/
-        COLLECT_GCC_OPTIONS='-fvisibility-inlines-hidden' '-fmessage-length=0' '-march=nocona' '-mtune=haswell' '-ftree-vectorize' '-fPIC' '-fstack-protector-strong' '-fno-plt' '-O2' '-ffunction-sections' '-pipe' '-isystem' '/home/angel/anaconda3/envs/geant-root-env/include' '-v' '-o' 'CMakeFiles/cmTC_c794b.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-dumpdir' 'CMakeFiles/cmTC_c794b.dir/CMakeCXXCompilerABI.cpp.'
-        Linking CXX executable cmTC_c794b
-        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c794b.dir/link.txt --verbose=1
-        /home/angel/anaconda3/envs/geant-root-env/bin/x86_64-conda-linux-gnu-c++ -fvisibility-inlines-hidden -fmessage-length=0 -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe -isystem /home/angel/anaconda3/envs/geant-root-env/include  -Wl,-O2 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--disable-new-dtags -Wl,--gc-sections -Wl,--allow-shlib-undefined -Wl,-rpath,/home/angel/anaconda3/envs/geant-root-env/lib -Wl,-rpath-link,/home/angel/anaconda3/envs/geant-root-env/lib -L/home/angel/anaconda3/envs/geant-root-env/lib -v CMakeFiles/cmTC_c794b.dir/CMakeCXXCompilerABI.cpp.o -o cmTC_c794b 
+        COLLECT_GCC_OPTIONS='-fvisibility-inlines-hidden' '-fmessage-length=0' '-march=nocona' '-mtune=haswell' '-ftree-vectorize' '-fPIC' '-fstack-protector-strong' '-fno-plt' '-O2' '-ffunction-sections' '-pipe' '-isystem' '/home/angel/anaconda3/envs/geant-root-env/include' '-v' '-o' 'CMakeFiles/cmTC_a71ba.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-dumpdir' 'CMakeFiles/cmTC_a71ba.dir/CMakeCXXCompilerABI.cpp.'
+        Linking CXX executable cmTC_a71ba
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a71ba.dir/link.txt --verbose=1
+        /home/angel/anaconda3/envs/geant-root-env/bin/x86_64-conda-linux-gnu-c++ -fvisibility-inlines-hidden -fmessage-length=0 -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe -isystem /home/angel/anaconda3/envs/geant-root-env/include  -Wl,-O2 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--disable-new-dtags -Wl,--gc-sections -Wl,--allow-shlib-undefined -Wl,-rpath,/home/angel/anaconda3/envs/geant-root-env/lib -Wl,-rpath-link,/home/angel/anaconda3/envs/geant-root-env/lib -L/home/angel/anaconda3/envs/geant-root-env/lib -v CMakeFiles/cmTC_a71ba.dir/CMakeCXXCompilerABI.cpp.o -o cmTC_a71ba 
         Reading specs from /home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0/specs
         could not find specs file conda.specs
         COLLECT_GCC=/home/angel/anaconda3/envs/geant-root-env/bin/x86_64-conda-linux-gnu-c++
@@ -377,10 +377,10 @@ events:
         gcc version 13.3.0 (conda-forge gcc 13.3.0-2) 
         COMPILER_PATH=/home/angel/anaconda3/envs/geant-root-env/bin/../libexec/gcc/x86_64-conda-linux-gnu/13.3.0/:/home/angel/anaconda3/envs/geant-root-env/bin/../libexec/gcc/:/home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0/../../../../x86_64-conda-linux-gnu/bin/
         LIBRARY_PATH=/home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0/:/home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/:/home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0/../../../../x86_64-conda-linux-gnu/lib/../lib/:/home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0/../../../../lib/:/home/angel/anaconda3/envs/geant-root-env/bin/../x86_64-conda-linux-gnu/sysroot/lib/../lib/:/home/angel/anaconda3/envs/geant-root-env/bin/../x86_64-conda-linux-gnu/sysroot/usr/lib/../lib/:/home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0/../../../../x86_64-conda-linux-gnu/lib/:/home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0/../../../:/home/angel/anaconda3/envs/geant-root-env/bin/../x86_64-conda-linux-gnu/sysroot/lib/:/home/angel/anaconda3/envs/geant-root-env/bin/../x86_64-conda-linux-gnu/sysroot/usr/lib/
-        COLLECT_GCC_OPTIONS='-fvisibility-inlines-hidden' '-fmessage-length=0' '-march=nocona' '-mtune=haswell' '-ftree-vectorize' '-fPIC' '-fstack-protector-strong' '-fno-plt' '-O2' '-ffunction-sections' '-pipe' '-isystem' '/home/angel/anaconda3/envs/geant-root-env/include' '-L/home/angel/anaconda3/envs/geant-root-env/lib' '-v' '-o' 'cmTC_c794b' '-shared-libgcc' '-dumpdir' 'cmTC_c794b.'
-         /home/angel/anaconda3/envs/geant-root-env/bin/../libexec/gcc/x86_64-conda-linux-gnu/13.3.0/collect2 -plugin /home/angel/anaconda3/envs/geant-root-env/bin/../libexec/gcc/x86_64-conda-linux-gnu/13.3.0/liblto_plugin.so -plugin-opt=/home/angel/anaconda3/envs/geant-root-env/bin/../libexec/gcc/x86_64-conda-linux-gnu/13.3.0/lto-wrapper -plugin-opt=-fresolution=/tmp/ccAZYY9t.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --sysroot=/home/angel/anaconda3/envs/geant-root-env/bin/../x86_64-conda-linux-gnu/sysroot --eh-frame-hdr -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -o cmTC_c794b /home/angel/anaconda3/envs/geant-root-env/bin/../x86_64-conda-linux-gnu/sysroot/usr/lib/../lib/Scrt1.o /home/angel/anaconda3/envs/geant-root-env/bin/../x86_64-conda-linux-gnu/sysroot/usr/lib/../lib/crti.o /home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0/crtbeginS.o -L/home/angel/anaconda3/envs/geant-root-env/lib -L/home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0 -L/home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc -L/home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0/../../../../x86_64-conda-linux-gnu/lib/../lib -L/home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0/../../../../lib -L/home/angel/anaconda3/envs/geant-root-env/bin/../x86_64-conda-linux-gnu/sysroot/lib/../lib -L/home/angel/anaconda3/envs/geant-root-env/bin/../x86_64-conda-linux-gnu/sysroot/usr/lib/../lib -L/home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0/../../../../x86_64-conda-linux-gnu/lib -L/home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0/../../.. -L/home/angel/anaconda3/envs/geant-root-env/bin/../x86_64-conda-linux-gnu/sysroot/lib -L/home/angel/anaconda3/envs/geant-root-env/bin/../x86_64-conda-linux-gnu/sysroot/usr/lib -O2 --sort-common --as-needed -z relro -z now --disable-new-dtags --gc-sections --allow-shlib-undefined -rpath /home/angel/anaconda3/envs/geant-root-env/lib -rpath-link /home/angel/anaconda3/envs/geant-root-env/lib CMakeFiles/cmTC_c794b.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0/crtendS.o /home/angel/anaconda3/envs/geant-root-env/bin/../x86_64-conda-linux-gnu/sysroot/usr/lib/../lib/crtn.o -rpath /home/angel/anaconda3/envs/geant-root-env/lib
-        COLLECT_GCC_OPTIONS='-fvisibility-inlines-hidden' '-fmessage-length=0' '-march=nocona' '-mtune=haswell' '-ftree-vectorize' '-fPIC' '-fstack-protector-strong' '-fno-plt' '-O2' '-ffunction-sections' '-pipe' '-isystem' '/home/angel/anaconda3/envs/geant-root-env/include' '-L/home/angel/anaconda3/envs/geant-root-env/lib' '-v' '-o' 'cmTC_c794b' '-shared-libgcc' '-dumpdir' 'cmTC_c794b.'
-        gmake[1]: Leaving directory '/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-jkVzVe'
+        COLLECT_GCC_OPTIONS='-fvisibility-inlines-hidden' '-fmessage-length=0' '-march=nocona' '-mtune=haswell' '-ftree-vectorize' '-fPIC' '-fstack-protector-strong' '-fno-plt' '-O2' '-ffunction-sections' '-pipe' '-isystem' '/home/angel/anaconda3/envs/geant-root-env/include' '-L/home/angel/anaconda3/envs/geant-root-env/lib' '-v' '-o' 'cmTC_a71ba' '-shared-libgcc' '-dumpdir' 'cmTC_a71ba.'
+         /home/angel/anaconda3/envs/geant-root-env/bin/../libexec/gcc/x86_64-conda-linux-gnu/13.3.0/collect2 -plugin /home/angel/anaconda3/envs/geant-root-env/bin/../libexec/gcc/x86_64-conda-linux-gnu/13.3.0/liblto_plugin.so -plugin-opt=/home/angel/anaconda3/envs/geant-root-env/bin/../libexec/gcc/x86_64-conda-linux-gnu/13.3.0/lto-wrapper -plugin-opt=-fresolution=/tmp/ccMp5SYo.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --sysroot=/home/angel/anaconda3/envs/geant-root-env/bin/../x86_64-conda-linux-gnu/sysroot --eh-frame-hdr -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -o cmTC_a71ba /home/angel/anaconda3/envs/geant-root-env/bin/../x86_64-conda-linux-gnu/sysroot/usr/lib/../lib/Scrt1.o /home/angel/anaconda3/envs/geant-root-env/bin/../x86_64-conda-linux-gnu/sysroot/usr/lib/../lib/crti.o /home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0/crtbeginS.o -L/home/angel/anaconda3/envs/geant-root-env/lib -L/home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0 -L/home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc -L/home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0/../../../../x86_64-conda-linux-gnu/lib/../lib -L/home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0/../../../../lib -L/home/angel/anaconda3/envs/geant-root-env/bin/../x86_64-conda-linux-gnu/sysroot/lib/../lib -L/home/angel/anaconda3/envs/geant-root-env/bin/../x86_64-conda-linux-gnu/sysroot/usr/lib/../lib -L/home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0/../../../../x86_64-conda-linux-gnu/lib -L/home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0/../../.. -L/home/angel/anaconda3/envs/geant-root-env/bin/../x86_64-conda-linux-gnu/sysroot/lib -L/home/angel/anaconda3/envs/geant-root-env/bin/../x86_64-conda-linux-gnu/sysroot/usr/lib -O2 --sort-common --as-needed -z relro -z now --disable-new-dtags --gc-sections --allow-shlib-undefined -rpath /home/angel/anaconda3/envs/geant-root-env/lib -rpath-link /home/angel/anaconda3/envs/geant-root-env/lib CMakeFiles/cmTC_a71ba.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0/crtendS.o /home/angel/anaconda3/envs/geant-root-env/bin/../x86_64-conda-linux-gnu/sysroot/usr/lib/../lib/crtn.o -rpath /home/angel/anaconda3/envs/geant-root-env/lib
+        COLLECT_GCC_OPTIONS='-fvisibility-inlines-hidden' '-fmessage-length=0' '-march=nocona' '-mtune=haswell' '-ftree-vectorize' '-fPIC' '-fstack-protector-strong' '-fno-plt' '-O2' '-ffunction-sections' '-pipe' '-isystem' '/home/angel/anaconda3/envs/geant-root-env/include' '-L/home/angel/anaconda3/envs/geant-root-env/lib' '-v' '-o' 'cmTC_a71ba' '-shared-libgcc' '-dumpdir' 'cmTC_a71ba.'
+        gmake[1]: Leaving directory '/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-zuIqbj'
         
       exitCode: 0
   -
@@ -420,13 +420,13 @@ events:
     message: |
       Parsed CXX implicit link information:
         link line regex: [^( *|.*[/\\])(x86_64-conda-linux-gnu-ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
-        ignore line: [Change Dir: '/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-jkVzVe']
+        ignore line: [Change Dir: '/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-zuIqbj']
         ignore line: []
-        ignore line: [Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_c794b/fast]
-        ignore line: [/usr/bin/gmake  -f CMakeFiles/cmTC_c794b.dir/build.make CMakeFiles/cmTC_c794b.dir/build]
-        ignore line: [gmake[1]: Entering directory '/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-jkVzVe']
-        ignore line: [Building CXX object CMakeFiles/cmTC_c794b.dir/CMakeCXXCompilerABI.cpp.o]
-        ignore line: [/home/angel/anaconda3/envs/geant-root-env/bin/x86_64-conda-linux-gnu-c++   -fvisibility-inlines-hidden -fmessage-length=0 -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe -isystem /home/angel/anaconda3/envs/geant-root-env/include    -v -o CMakeFiles/cmTC_c794b.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.28/Modules/CMakeCXXCompilerABI.cpp]
+        ignore line: [Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_a71ba/fast]
+        ignore line: [/usr/bin/gmake  -f CMakeFiles/cmTC_a71ba.dir/build.make CMakeFiles/cmTC_a71ba.dir/build]
+        ignore line: [gmake[1]: Entering directory '/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-zuIqbj']
+        ignore line: [Building CXX object CMakeFiles/cmTC_a71ba.dir/CMakeCXXCompilerABI.cpp.o]
+        ignore line: [/home/angel/anaconda3/envs/geant-root-env/bin/x86_64-conda-linux-gnu-c++   -fvisibility-inlines-hidden -fmessage-length=0 -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe -isystem /home/angel/anaconda3/envs/geant-root-env/include    -v -o CMakeFiles/cmTC_a71ba.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.28/Modules/CMakeCXXCompilerABI.cpp]
         ignore line: [Reading specs from /home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0/specs]
         ignore line: [could not find specs file conda.specs]
         ignore line: [COLLECT_GCC=/home/angel/anaconda3/envs/geant-root-env/bin/x86_64-conda-linux-gnu-c++]
@@ -435,9 +435,9 @@ events:
         ignore line: [Thread model: posix]
         ignore line: [Supported LTO compression algorithms: zlib]
         ignore line: [gcc version 13.3.0 (conda-forge gcc 13.3.0-2) ]
-        ignore line: [COLLECT_GCC_OPTIONS='-fvisibility-inlines-hidden' '-fmessage-length=0' '-march=nocona' '-mtune=haswell' '-ftree-vectorize' '-fPIC' '-fstack-protector-strong' '-fno-plt' '-O2' '-ffunction-sections' '-pipe' '-isystem' '/home/angel/anaconda3/envs/geant-root-env/include' '-v' '-o' 'CMakeFiles/cmTC_c794b.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-dumpdir' 'CMakeFiles/cmTC_c794b.dir/']
-        ignore line: [ /home/angel/anaconda3/envs/geant-root-env/bin/../libexec/gcc/x86_64-conda-linux-gnu/13.3.0/cc1plus -quiet -v -iprefix /home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0/ -isysroot /home/angel/anaconda3/envs/geant-root-env/bin/../x86_64-conda-linux-gnu/sysroot -D_GNU_SOURCE -isystem /home/angel/anaconda3/envs/geant-root-env/include /usr/share/cmake-3.28/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpdir CMakeFiles/cmTC_c794b.dir/ -dumpbase CMakeCXXCompilerABI.cpp.cpp -dumpbase-ext .cpp -march=nocona -mtune=haswell -O2 -version -fvisibility-inlines-hidden -fmessage-length=0 -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -ffunction-sections -o - |]
-        ignore line: [ /home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0/../../../../x86_64-conda-linux-gnu/bin/as -v --64 -o CMakeFiles/cmTC_c794b.dir/CMakeCXXCompilerABI.cpp.o]
+        ignore line: [COLLECT_GCC_OPTIONS='-fvisibility-inlines-hidden' '-fmessage-length=0' '-march=nocona' '-mtune=haswell' '-ftree-vectorize' '-fPIC' '-fstack-protector-strong' '-fno-plt' '-O2' '-ffunction-sections' '-pipe' '-isystem' '/home/angel/anaconda3/envs/geant-root-env/include' '-v' '-o' 'CMakeFiles/cmTC_a71ba.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-dumpdir' 'CMakeFiles/cmTC_a71ba.dir/']
+        ignore line: [ /home/angel/anaconda3/envs/geant-root-env/bin/../libexec/gcc/x86_64-conda-linux-gnu/13.3.0/cc1plus -quiet -v -iprefix /home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0/ -isysroot /home/angel/anaconda3/envs/geant-root-env/bin/../x86_64-conda-linux-gnu/sysroot -D_GNU_SOURCE -isystem /home/angel/anaconda3/envs/geant-root-env/include /usr/share/cmake-3.28/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpdir CMakeFiles/cmTC_a71ba.dir/ -dumpbase CMakeCXXCompilerABI.cpp.cpp -dumpbase-ext .cpp -march=nocona -mtune=haswell -O2 -version -fvisibility-inlines-hidden -fmessage-length=0 -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -ffunction-sections -o - |]
+        ignore line: [ /home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0/../../../../x86_64-conda-linux-gnu/bin/as -v --64 -o CMakeFiles/cmTC_a71ba.dir/CMakeCXXCompilerABI.cpp.o]
         ignore line: [GNU assembler version 2.43 (x86_64-conda-linux-gnu) using BFD version (GNU Binutils) 2.43]
         ignore line: [GNU C++17 (conda-forge gcc 13.3.0-2) version 13.3.0 (x86_64-conda-linux-gnu)]
         ignore line: [	compiled by GNU C version 14.2.0  GMP version 6.2.1  MPFR version 4.1.0  MPC version 1.2.1  isl version isl-0.24-GMP]
@@ -464,10 +464,10 @@ events:
         ignore line: [Compiler executable checksum: d087570e6c007cf08e494b8046e3695a]
         ignore line: [COMPILER_PATH=/home/angel/anaconda3/envs/geant-root-env/bin/../libexec/gcc/x86_64-conda-linux-gnu/13.3.0/:/home/angel/anaconda3/envs/geant-root-env/bin/../libexec/gcc/:/home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0/../../../../x86_64-conda-linux-gnu/bin/]
         ignore line: [LIBRARY_PATH=/home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0/:/home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/:/home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0/../../../../x86_64-conda-linux-gnu/lib/../lib/:/home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0/../../../../lib/:/home/angel/anaconda3/envs/geant-root-env/bin/../x86_64-conda-linux-gnu/sysroot/lib/../lib/:/home/angel/anaconda3/envs/geant-root-env/bin/../x86_64-conda-linux-gnu/sysroot/usr/lib/../lib/:/home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0/../../../../x86_64-conda-linux-gnu/lib/:/home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0/../../../:/home/angel/anaconda3/envs/geant-root-env/bin/../x86_64-conda-linux-gnu/sysroot/lib/:/home/angel/anaconda3/envs/geant-root-env/bin/../x86_64-conda-linux-gnu/sysroot/usr/lib/]
-        ignore line: [COLLECT_GCC_OPTIONS='-fvisibility-inlines-hidden' '-fmessage-length=0' '-march=nocona' '-mtune=haswell' '-ftree-vectorize' '-fPIC' '-fstack-protector-strong' '-fno-plt' '-O2' '-ffunction-sections' '-pipe' '-isystem' '/home/angel/anaconda3/envs/geant-root-env/include' '-v' '-o' 'CMakeFiles/cmTC_c794b.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-dumpdir' 'CMakeFiles/cmTC_c794b.dir/CMakeCXXCompilerABI.cpp.']
-        ignore line: [Linking CXX executable cmTC_c794b]
-        ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c794b.dir/link.txt --verbose=1]
-        ignore line: [/home/angel/anaconda3/envs/geant-root-env/bin/x86_64-conda-linux-gnu-c++ -fvisibility-inlines-hidden -fmessage-length=0 -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe -isystem /home/angel/anaconda3/envs/geant-root-env/include  -Wl -O2 -Wl --sort-common -Wl --as-needed -Wl -z relro -Wl -z now -Wl --disable-new-dtags -Wl --gc-sections -Wl --allow-shlib-undefined -Wl -rpath /home/angel/anaconda3/envs/geant-root-env/lib -Wl -rpath-link /home/angel/anaconda3/envs/geant-root-env/lib -L/home/angel/anaconda3/envs/geant-root-env/lib -v CMakeFiles/cmTC_c794b.dir/CMakeCXXCompilerABI.cpp.o -o cmTC_c794b ]
+        ignore line: [COLLECT_GCC_OPTIONS='-fvisibility-inlines-hidden' '-fmessage-length=0' '-march=nocona' '-mtune=haswell' '-ftree-vectorize' '-fPIC' '-fstack-protector-strong' '-fno-plt' '-O2' '-ffunction-sections' '-pipe' '-isystem' '/home/angel/anaconda3/envs/geant-root-env/include' '-v' '-o' 'CMakeFiles/cmTC_a71ba.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-dumpdir' 'CMakeFiles/cmTC_a71ba.dir/CMakeCXXCompilerABI.cpp.']
+        ignore line: [Linking CXX executable cmTC_a71ba]
+        ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a71ba.dir/link.txt --verbose=1]
+        ignore line: [/home/angel/anaconda3/envs/geant-root-env/bin/x86_64-conda-linux-gnu-c++ -fvisibility-inlines-hidden -fmessage-length=0 -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe -isystem /home/angel/anaconda3/envs/geant-root-env/include  -Wl -O2 -Wl --sort-common -Wl --as-needed -Wl -z relro -Wl -z now -Wl --disable-new-dtags -Wl --gc-sections -Wl --allow-shlib-undefined -Wl -rpath /home/angel/anaconda3/envs/geant-root-env/lib -Wl -rpath-link /home/angel/anaconda3/envs/geant-root-env/lib -L/home/angel/anaconda3/envs/geant-root-env/lib -v CMakeFiles/cmTC_a71ba.dir/CMakeCXXCompilerABI.cpp.o -o cmTC_a71ba ]
         ignore line: [Reading specs from /home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0/specs]
         ignore line: [could not find specs file conda.specs]
         ignore line: [COLLECT_GCC=/home/angel/anaconda3/envs/geant-root-env/bin/x86_64-conda-linux-gnu-c++]
@@ -479,13 +479,13 @@ events:
         ignore line: [gcc version 13.3.0 (conda-forge gcc 13.3.0-2) ]
         ignore line: [COMPILER_PATH=/home/angel/anaconda3/envs/geant-root-env/bin/../libexec/gcc/x86_64-conda-linux-gnu/13.3.0/:/home/angel/anaconda3/envs/geant-root-env/bin/../libexec/gcc/:/home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0/../../../../x86_64-conda-linux-gnu/bin/]
         ignore line: [LIBRARY_PATH=/home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0/:/home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/:/home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0/../../../../x86_64-conda-linux-gnu/lib/../lib/:/home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0/../../../../lib/:/home/angel/anaconda3/envs/geant-root-env/bin/../x86_64-conda-linux-gnu/sysroot/lib/../lib/:/home/angel/anaconda3/envs/geant-root-env/bin/../x86_64-conda-linux-gnu/sysroot/usr/lib/../lib/:/home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0/../../../../x86_64-conda-linux-gnu/lib/:/home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0/../../../:/home/angel/anaconda3/envs/geant-root-env/bin/../x86_64-conda-linux-gnu/sysroot/lib/:/home/angel/anaconda3/envs/geant-root-env/bin/../x86_64-conda-linux-gnu/sysroot/usr/lib/]
-        ignore line: [COLLECT_GCC_OPTIONS='-fvisibility-inlines-hidden' '-fmessage-length=0' '-march=nocona' '-mtune=haswell' '-ftree-vectorize' '-fPIC' '-fstack-protector-strong' '-fno-plt' '-O2' '-ffunction-sections' '-pipe' '-isystem' '/home/angel/anaconda3/envs/geant-root-env/include' '-L/home/angel/anaconda3/envs/geant-root-env/lib' '-v' '-o' 'cmTC_c794b' '-shared-libgcc' '-dumpdir' 'cmTC_c794b.']
-        link line: [ /home/angel/anaconda3/envs/geant-root-env/bin/../libexec/gcc/x86_64-conda-linux-gnu/13.3.0/collect2 -plugin /home/angel/anaconda3/envs/geant-root-env/bin/../libexec/gcc/x86_64-conda-linux-gnu/13.3.0/liblto_plugin.so -plugin-opt=/home/angel/anaconda3/envs/geant-root-env/bin/../libexec/gcc/x86_64-conda-linux-gnu/13.3.0/lto-wrapper -plugin-opt=-fresolution=/tmp/ccAZYY9t.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --sysroot=/home/angel/anaconda3/envs/geant-root-env/bin/../x86_64-conda-linux-gnu/sysroot --eh-frame-hdr -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -o cmTC_c794b /home/angel/anaconda3/envs/geant-root-env/bin/../x86_64-conda-linux-gnu/sysroot/usr/lib/../lib/Scrt1.o /home/angel/anaconda3/envs/geant-root-env/bin/../x86_64-conda-linux-gnu/sysroot/usr/lib/../lib/crti.o /home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0/crtbeginS.o -L/home/angel/anaconda3/envs/geant-root-env/lib -L/home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0 -L/home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc -L/home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0/../../../../x86_64-conda-linux-gnu/lib/../lib -L/home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0/../../../../lib -L/home/angel/anaconda3/envs/geant-root-env/bin/../x86_64-conda-linux-gnu/sysroot/lib/../lib -L/home/angel/anaconda3/envs/geant-root-env/bin/../x86_64-conda-linux-gnu/sysroot/usr/lib/../lib -L/home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0/../../../../x86_64-conda-linux-gnu/lib -L/home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0/../../.. -L/home/angel/anaconda3/envs/geant-root-env/bin/../x86_64-conda-linux-gnu/sysroot/lib -L/home/angel/anaconda3/envs/geant-root-env/bin/../x86_64-conda-linux-gnu/sysroot/usr/lib -O2 --sort-common --as-needed -z relro -z now --disable-new-dtags --gc-sections --allow-shlib-undefined -rpath /home/angel/anaconda3/envs/geant-root-env/lib -rpath-link /home/angel/anaconda3/envs/geant-root-env/lib CMakeFiles/cmTC_c794b.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0/crtendS.o /home/angel/anaconda3/envs/geant-root-env/bin/../x86_64-conda-linux-gnu/sysroot/usr/lib/../lib/crtn.o -rpath /home/angel/anaconda3/envs/geant-root-env/lib]
+        ignore line: [COLLECT_GCC_OPTIONS='-fvisibility-inlines-hidden' '-fmessage-length=0' '-march=nocona' '-mtune=haswell' '-ftree-vectorize' '-fPIC' '-fstack-protector-strong' '-fno-plt' '-O2' '-ffunction-sections' '-pipe' '-isystem' '/home/angel/anaconda3/envs/geant-root-env/include' '-L/home/angel/anaconda3/envs/geant-root-env/lib' '-v' '-o' 'cmTC_a71ba' '-shared-libgcc' '-dumpdir' 'cmTC_a71ba.']
+        link line: [ /home/angel/anaconda3/envs/geant-root-env/bin/../libexec/gcc/x86_64-conda-linux-gnu/13.3.0/collect2 -plugin /home/angel/anaconda3/envs/geant-root-env/bin/../libexec/gcc/x86_64-conda-linux-gnu/13.3.0/liblto_plugin.so -plugin-opt=/home/angel/anaconda3/envs/geant-root-env/bin/../libexec/gcc/x86_64-conda-linux-gnu/13.3.0/lto-wrapper -plugin-opt=-fresolution=/tmp/ccMp5SYo.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --sysroot=/home/angel/anaconda3/envs/geant-root-env/bin/../x86_64-conda-linux-gnu/sysroot --eh-frame-hdr -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -o cmTC_a71ba /home/angel/anaconda3/envs/geant-root-env/bin/../x86_64-conda-linux-gnu/sysroot/usr/lib/../lib/Scrt1.o /home/angel/anaconda3/envs/geant-root-env/bin/../x86_64-conda-linux-gnu/sysroot/usr/lib/../lib/crti.o /home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0/crtbeginS.o -L/home/angel/anaconda3/envs/geant-root-env/lib -L/home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0 -L/home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc -L/home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0/../../../../x86_64-conda-linux-gnu/lib/../lib -L/home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0/../../../../lib -L/home/angel/anaconda3/envs/geant-root-env/bin/../x86_64-conda-linux-gnu/sysroot/lib/../lib -L/home/angel/anaconda3/envs/geant-root-env/bin/../x86_64-conda-linux-gnu/sysroot/usr/lib/../lib -L/home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0/../../../../x86_64-conda-linux-gnu/lib -L/home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0/../../.. -L/home/angel/anaconda3/envs/geant-root-env/bin/../x86_64-conda-linux-gnu/sysroot/lib -L/home/angel/anaconda3/envs/geant-root-env/bin/../x86_64-conda-linux-gnu/sysroot/usr/lib -O2 --sort-common --as-needed -z relro -z now --disable-new-dtags --gc-sections --allow-shlib-undefined -rpath /home/angel/anaconda3/envs/geant-root-env/lib -rpath-link /home/angel/anaconda3/envs/geant-root-env/lib CMakeFiles/cmTC_a71ba.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0/crtendS.o /home/angel/anaconda3/envs/geant-root-env/bin/../x86_64-conda-linux-gnu/sysroot/usr/lib/../lib/crtn.o -rpath /home/angel/anaconda3/envs/geant-root-env/lib]
           arg [/home/angel/anaconda3/envs/geant-root-env/bin/../libexec/gcc/x86_64-conda-linux-gnu/13.3.0/collect2] ==> ignore
           arg [-plugin] ==> ignore
           arg [/home/angel/anaconda3/envs/geant-root-env/bin/../libexec/gcc/x86_64-conda-linux-gnu/13.3.0/liblto_plugin.so] ==> ignore
           arg [-plugin-opt=/home/angel/anaconda3/envs/geant-root-env/bin/../libexec/gcc/x86_64-conda-linux-gnu/13.3.0/lto-wrapper] ==> ignore
-          arg [-plugin-opt=-fresolution=/tmp/ccAZYY9t.res] ==> ignore
+          arg [-plugin-opt=-fresolution=/tmp/ccMp5SYo.res] ==> ignore
           arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
           arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
           arg [-plugin-opt=-pass-through=-lc] ==> ignore
@@ -499,7 +499,7 @@ events:
           arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
           arg [-pie] ==> ignore
           arg [-o] ==> ignore
-          arg [cmTC_c794b] ==> ignore
+          arg [cmTC_a71ba] ==> ignore
           arg [/home/angel/anaconda3/envs/geant-root-env/bin/../x86_64-conda-linux-gnu/sysroot/usr/lib/../lib/Scrt1.o] ==> obj [/home/angel/anaconda3/envs/geant-root-env/bin/../x86_64-conda-linux-gnu/sysroot/usr/lib/../lib/Scrt1.o]
           arg [/home/angel/anaconda3/envs/geant-root-env/bin/../x86_64-conda-linux-gnu/sysroot/usr/lib/../lib/crti.o] ==> obj [/home/angel/anaconda3/envs/geant-root-env/bin/../x86_64-conda-linux-gnu/sysroot/usr/lib/../lib/crti.o]
           arg [/home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0/crtbeginS.o] ==> obj [/home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0/crtbeginS.o]
@@ -526,7 +526,7 @@ events:
           arg [/home/angel/anaconda3/envs/geant-root-env/lib] ==> ignore
           arg [-rpath-link] ==> ignore
           arg [/home/angel/anaconda3/envs/geant-root-env/lib] ==> ignore
-          arg [CMakeFiles/cmTC_c794b.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
+          arg [CMakeFiles/cmTC_a71ba.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
           arg [-lstdc++] ==> lib [stdc++]
           arg [-lm] ==> lib [m]
           arg [-lgcc_s] ==> lib [gcc_s]
@@ -575,8 +575,8 @@ events:
     checks:
       - "Performing Test CMAKE_HAVE_LIBC_PTHREAD"
     directories:
-      source: "/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-0Z826h"
-      binary: "/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-0Z826h"
+      source: "/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-fAIHpZ"
+      binary: "/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-fAIHpZ"
     cmakeVariables:
       CMAKE_C_FLAGS: "-march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe -isystem /home/angel/anaconda3/envs/geant-root-env/include"
       CMAKE_C_FLAGS_DEBUG: "-g"
@@ -586,26 +586,26 @@ events:
       variable: "CMAKE_HAVE_LIBC_PTHREAD"
       cached: true
       stdout: |
-        Change Dir: '/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-0Z826h'
+        Change Dir: '/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-fAIHpZ'
         
-        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_a01bf/fast
-        /usr/bin/gmake  -f CMakeFiles/cmTC_a01bf.dir/build.make CMakeFiles/cmTC_a01bf.dir/build
-        gmake[1]: Entering directory '/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-0Z826h'
-        Building C object CMakeFiles/cmTC_a01bf.dir/src.c.o
-        /home/angel/anaconda3/envs/geant-root-env/bin/x86_64-conda-linux-gnu-cc -DCMAKE_HAVE_LIBC_PTHREAD  -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe -isystem /home/angel/anaconda3/envs/geant-root-env/include  -o CMakeFiles/cmTC_a01bf.dir/src.c.o -c /media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-0Z826h/src.c
-        Linking C executable cmTC_a01bf
-        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a01bf.dir/link.txt --verbose=1
-        /home/angel/anaconda3/envs/geant-root-env/bin/x86_64-conda-linux-gnu-cc -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe -isystem /home/angel/anaconda3/envs/geant-root-env/include  -Wl,-O2 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--disable-new-dtags -Wl,--gc-sections -Wl,--allow-shlib-undefined -Wl,-rpath,/home/angel/anaconda3/envs/geant-root-env/lib -Wl,-rpath-link,/home/angel/anaconda3/envs/geant-root-env/lib -L/home/angel/anaconda3/envs/geant-root-env/lib  CMakeFiles/cmTC_a01bf.dir/src.c.o -o cmTC_a01bf 
-        /home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0/../../../../x86_64-conda-linux-gnu/bin/ld: CMakeFiles/cmTC_a01bf.dir/src.c.o: in function `main':
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_34e1c/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_34e1c.dir/build.make CMakeFiles/cmTC_34e1c.dir/build
+        gmake[1]: Entering directory '/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-fAIHpZ'
+        Building C object CMakeFiles/cmTC_34e1c.dir/src.c.o
+        /home/angel/anaconda3/envs/geant-root-env/bin/x86_64-conda-linux-gnu-cc -DCMAKE_HAVE_LIBC_PTHREAD  -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe -isystem /home/angel/anaconda3/envs/geant-root-env/include  -o CMakeFiles/cmTC_34e1c.dir/src.c.o -c /media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-fAIHpZ/src.c
+        Linking C executable cmTC_34e1c
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_34e1c.dir/link.txt --verbose=1
+        /home/angel/anaconda3/envs/geant-root-env/bin/x86_64-conda-linux-gnu-cc -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe -isystem /home/angel/anaconda3/envs/geant-root-env/include  -Wl,-O2 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--disable-new-dtags -Wl,--gc-sections -Wl,--allow-shlib-undefined -Wl,-rpath,/home/angel/anaconda3/envs/geant-root-env/lib -Wl,-rpath-link,/home/angel/anaconda3/envs/geant-root-env/lib -L/home/angel/anaconda3/envs/geant-root-env/lib  CMakeFiles/cmTC_34e1c.dir/src.c.o -o cmTC_34e1c 
+        /home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0/../../../../x86_64-conda-linux-gnu/bin/ld: CMakeFiles/cmTC_34e1c.dir/src.c.o: in function `main':
         src.c:(.text.startup.main+0x24): undefined reference to `pthread_create'
         /home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0/../../../../x86_64-conda-linux-gnu/bin/ld: src.c:(.text.startup.main+0x2e): undefined reference to `pthread_detach'
         /home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0/../../../../x86_64-conda-linux-gnu/bin/ld: src.c:(.text.startup.main+0x38): undefined reference to `pthread_cancel'
         /home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0/../../../../x86_64-conda-linux-gnu/bin/ld: src.c:(.text.startup.main+0x44): undefined reference to `pthread_join'
         /home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0/../../../../x86_64-conda-linux-gnu/bin/ld: src.c:(.text.startup.main+0x50): undefined reference to `pthread_atfork'
         collect2: error: ld returned 1 exit status
-        gmake[1]: *** [CMakeFiles/cmTC_a01bf.dir/build.make:99: cmTC_a01bf] Error 1
-        gmake[1]: Leaving directory '/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-0Z826h'
-        gmake: *** [Makefile:127: cmTC_a01bf/fast] Error 2
+        gmake[1]: *** [CMakeFiles/cmTC_34e1c.dir/build.make:99: cmTC_34e1c] Error 1
+        gmake[1]: Leaving directory '/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-fAIHpZ'
+        gmake: *** [Makefile:127: cmTC_34e1c/fast] Error 2
         
       exitCode: 2
   -
@@ -621,8 +621,8 @@ events:
     checks:
       - "Check if compiler accepts -pthread"
     directories:
-      source: "/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-1NzXW4"
-      binary: "/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-1NzXW4"
+      source: "/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-oCQ784"
+      binary: "/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-oCQ784"
     cmakeVariables:
       CMAKE_C_FLAGS: "-march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe -isystem /home/angel/anaconda3/envs/geant-root-env/include"
       CMAKE_C_FLAGS_DEBUG: "-g"
@@ -632,17 +632,17 @@ events:
       variable: "THREADS_HAVE_PTHREAD_ARG"
       cached: true
       stdout: |
-        Change Dir: '/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-1NzXW4'
+        Change Dir: '/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-oCQ784'
         
-        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_5ad4e/fast
-        /usr/bin/gmake  -f CMakeFiles/cmTC_5ad4e.dir/build.make CMakeFiles/cmTC_5ad4e.dir/build
-        gmake[1]: Entering directory '/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-1NzXW4'
-        Building C object CMakeFiles/cmTC_5ad4e.dir/CheckForPthreads.c.o
-        /home/angel/anaconda3/envs/geant-root-env/bin/x86_64-conda-linux-gnu-cc   -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe -isystem /home/angel/anaconda3/envs/geant-root-env/include  -o CMakeFiles/cmTC_5ad4e.dir/CheckForPthreads.c.o -c /media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-1NzXW4/CheckForPthreads.c
-        Linking C executable cmTC_5ad4e
-        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_5ad4e.dir/link.txt --verbose=1
-        /home/angel/anaconda3/envs/geant-root-env/bin/x86_64-conda-linux-gnu-cc -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe -isystem /home/angel/anaconda3/envs/geant-root-env/include  -Wl,-O2 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--disable-new-dtags -Wl,--gc-sections -Wl,--allow-shlib-undefined -Wl,-rpath,/home/angel/anaconda3/envs/geant-root-env/lib -Wl,-rpath-link,/home/angel/anaconda3/envs/geant-root-env/lib -L/home/angel/anaconda3/envs/geant-root-env/lib  CMakeFiles/cmTC_5ad4e.dir/CheckForPthreads.c.o -o cmTC_5ad4e  -pthread 
-        gmake[1]: Leaving directory '/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-1NzXW4'
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_efa50/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_efa50.dir/build.make CMakeFiles/cmTC_efa50.dir/build
+        gmake[1]: Entering directory '/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-oCQ784'
+        Building C object CMakeFiles/cmTC_efa50.dir/CheckForPthreads.c.o
+        /home/angel/anaconda3/envs/geant-root-env/bin/x86_64-conda-linux-gnu-cc   -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe -isystem /home/angel/anaconda3/envs/geant-root-env/include  -o CMakeFiles/cmTC_efa50.dir/CheckForPthreads.c.o -c /media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-oCQ784/CheckForPthreads.c
+        Linking C executable cmTC_efa50
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_efa50.dir/link.txt --verbose=1
+        /home/angel/anaconda3/envs/geant-root-env/bin/x86_64-conda-linux-gnu-cc -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe -isystem /home/angel/anaconda3/envs/geant-root-env/include  -Wl,-O2 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--disable-new-dtags -Wl,--gc-sections -Wl,--allow-shlib-undefined -Wl,-rpath,/home/angel/anaconda3/envs/geant-root-env/lib -Wl,-rpath-link,/home/angel/anaconda3/envs/geant-root-env/lib -L/home/angel/anaconda3/envs/geant-root-env/lib  CMakeFiles/cmTC_efa50.dir/CheckForPthreads.c.o -o cmTC_efa50  -pthread 
+        gmake[1]: Leaving directory '/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-oCQ784'
         
       exitCode: 0
   -
@@ -654,8 +654,8 @@ events:
       - "/home/angel/anaconda3/envs/geant-root-env/lib/cmake/Geant4/Geant4Config.cmake:329 (find_dependency)"
       - "CMakeLists.txt:5 (find_package)"
     directories:
-      source: "/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-O6wBNj"
-      binary: "/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-O6wBNj"
+      source: "/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-dO4Ya7"
+      binary: "/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-dO4Ya7"
     cmakeVariables:
       CMAKE_C_FLAGS: "-march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe -isystem /home/angel/anaconda3/envs/geant-root-env/include"
       CMAKE_C_FLAGS_DEBUG: "-g"
@@ -665,24 +665,24 @@ events:
       variable: "HDF5_C_COMPILER_NO_INTERROGATE"
       cached: true
       stdout: |
-        Change Dir: '/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-O6wBNj'
+        Change Dir: '/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-dO4Ya7'
         
-        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_9385f/fast
-        /usr/bin/gmake  -f CMakeFiles/cmTC_9385f.dir/build.make CMakeFiles/cmTC_9385f.dir/build
-        gmake[1]: Entering directory '/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-O6wBNj'
-        Building C object CMakeFiles/cmTC_9385f.dir/cmake_hdf5_test.c.o
-        /home/angel/anaconda3/envs/geant-root-env/bin/x86_64-conda-linux-gnu-cc   -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe -isystem /home/angel/anaconda3/envs/geant-root-env/include  -o CMakeFiles/cmTC_9385f.dir/cmake_hdf5_test.c.o -c /media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/hdf5/cmake_hdf5_test.c
-        Linking C executable cmTC_9385f
-        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_9385f.dir/link.txt --verbose=1
-        /home/angel/anaconda3/envs/geant-root-env/bin/x86_64-conda-linux-gnu-cc -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe -isystem /home/angel/anaconda3/envs/geant-root-env/include  -Wl,-O2 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--disable-new-dtags -Wl,--gc-sections -Wl,--allow-shlib-undefined -Wl,-rpath,/home/angel/anaconda3/envs/geant-root-env/lib -Wl,-rpath-link,/home/angel/anaconda3/envs/geant-root-env/lib -L/home/angel/anaconda3/envs/geant-root-env/lib  CMakeFiles/cmTC_9385f.dir/cmake_hdf5_test.c.o -o cmTC_9385f 
-        /home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0/../../../../x86_64-conda-linux-gnu/bin/ld: CMakeFiles/cmTC_9385f.dir/cmake_hdf5_test.c.o: in function `main':
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_417b7/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_417b7.dir/build.make CMakeFiles/cmTC_417b7.dir/build
+        gmake[1]: Entering directory '/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-dO4Ya7'
+        Building C object CMakeFiles/cmTC_417b7.dir/cmake_hdf5_test.c.o
+        /home/angel/anaconda3/envs/geant-root-env/bin/x86_64-conda-linux-gnu-cc   -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe -isystem /home/angel/anaconda3/envs/geant-root-env/include  -o CMakeFiles/cmTC_417b7.dir/cmake_hdf5_test.c.o -c /media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/hdf5/cmake_hdf5_test.c
+        Linking C executable cmTC_417b7
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_417b7.dir/link.txt --verbose=1
+        /home/angel/anaconda3/envs/geant-root-env/bin/x86_64-conda-linux-gnu-cc -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe -isystem /home/angel/anaconda3/envs/geant-root-env/include  -Wl,-O2 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--disable-new-dtags -Wl,--gc-sections -Wl,--allow-shlib-undefined -Wl,-rpath,/home/angel/anaconda3/envs/geant-root-env/lib -Wl,-rpath-link,/home/angel/anaconda3/envs/geant-root-env/lib -L/home/angel/anaconda3/envs/geant-root-env/lib  CMakeFiles/cmTC_417b7.dir/cmake_hdf5_test.c.o -o cmTC_417b7 
+        /home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0/../../../../x86_64-conda-linux-gnu/bin/ld: CMakeFiles/cmTC_417b7.dir/cmake_hdf5_test.c.o: in function `main':
         cmake_hdf5_test.c:(.text.startup.main+0x15): undefined reference to `H5check_version'
         /home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0/../../../../x86_64-conda-linux-gnu/bin/ld: cmake_hdf5_test.c:(.text.startup.main+0x1b): undefined reference to `H5open'
         /home/angel/anaconda3/envs/geant-root-env/bin/../lib/gcc/x86_64-conda-linux-gnu/13.3.0/../../../../x86_64-conda-linux-gnu/bin/ld: cmake_hdf5_test.c:(.text.startup.main+0x31): undefined reference to `H5Fcreate'
         collect2: error: ld returned 1 exit status
-        gmake[1]: *** [CMakeFiles/cmTC_9385f.dir/build.make:99: cmTC_9385f] Error 1
-        gmake[1]: Leaving directory '/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-O6wBNj'
-        gmake: *** [Makefile:127: cmTC_9385f/fast] Error 2
+        gmake[1]: *** [CMakeFiles/cmTC_417b7.dir/build.make:99: cmTC_417b7] Error 1
+        gmake[1]: Leaving directory '/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-dO4Ya7'
+        gmake: *** [Makefile:127: cmTC_417b7/fast] Error 2
         
       exitCode: 2
   -
@@ -696,8 +696,8 @@ events:
     checks:
       - "Looking for H5_HAVE_THREADSAFE"
     directories:
-      source: "/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-A8F58E"
-      binary: "/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-A8F58E"
+      source: "/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-vKbuMv"
+      binary: "/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-vKbuMv"
     cmakeVariables:
       CMAKE_CXX_FLAGS: "-fvisibility-inlines-hidden -fmessage-length=0 -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe -isystem /home/angel/anaconda3/envs/geant-root-env/include"
       CMAKE_CXX_FLAGS_DEBUG: "-g"
@@ -707,17 +707,17 @@ events:
       variable: "GEANT4_HAVE_H5_HAVE_THREADSAFE"
       cached: true
       stdout: |
-        Change Dir: '/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-A8F58E'
+        Change Dir: '/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-vKbuMv'
         
-        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_eb3f5/fast
-        /usr/bin/gmake  -f CMakeFiles/cmTC_eb3f5.dir/build.make CMakeFiles/cmTC_eb3f5.dir/build
-        gmake[1]: Entering directory '/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-A8F58E'
-        Building CXX object CMakeFiles/cmTC_eb3f5.dir/CheckSymbolExists.cxx.o
-        /home/angel/anaconda3/envs/geant-root-env/bin/x86_64-conda-linux-gnu-c++   -fvisibility-inlines-hidden -fmessage-length=0 -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe -isystem /home/angel/anaconda3/envs/geant-root-env/include  -o CMakeFiles/cmTC_eb3f5.dir/CheckSymbolExists.cxx.o -c /media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-A8F58E/CheckSymbolExists.cxx
-        Linking CXX executable cmTC_eb3f5
-        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_eb3f5.dir/link.txt --verbose=1
-        /home/angel/anaconda3/envs/geant-root-env/bin/x86_64-conda-linux-gnu-c++ -fvisibility-inlines-hidden -fmessage-length=0 -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe -isystem /home/angel/anaconda3/envs/geant-root-env/include  -Wl,-O2 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--disable-new-dtags -Wl,--gc-sections -Wl,--allow-shlib-undefined -Wl,-rpath,/home/angel/anaconda3/envs/geant-root-env/lib -Wl,-rpath-link,/home/angel/anaconda3/envs/geant-root-env/lib -L/home/angel/anaconda3/envs/geant-root-env/lib  CMakeFiles/cmTC_eb3f5.dir/CheckSymbolExists.cxx.o -o cmTC_eb3f5 
-        gmake[1]: Leaving directory '/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-A8F58E'
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_00b8b/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_00b8b.dir/build.make CMakeFiles/cmTC_00b8b.dir/build
+        gmake[1]: Entering directory '/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-vKbuMv'
+        Building CXX object CMakeFiles/cmTC_00b8b.dir/CheckSymbolExists.cxx.o
+        /home/angel/anaconda3/envs/geant-root-env/bin/x86_64-conda-linux-gnu-c++   -fvisibility-inlines-hidden -fmessage-length=0 -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe -isystem /home/angel/anaconda3/envs/geant-root-env/include  -o CMakeFiles/cmTC_00b8b.dir/CheckSymbolExists.cxx.o -c /media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-vKbuMv/CheckSymbolExists.cxx
+        Linking CXX executable cmTC_00b8b
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_00b8b.dir/link.txt --verbose=1
+        /home/angel/anaconda3/envs/geant-root-env/bin/x86_64-conda-linux-gnu-c++ -fvisibility-inlines-hidden -fmessage-length=0 -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe -isystem /home/angel/anaconda3/envs/geant-root-env/include  -Wl,-O2 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--disable-new-dtags -Wl,--gc-sections -Wl,--allow-shlib-undefined -Wl,-rpath,/home/angel/anaconda3/envs/geant-root-env/lib -Wl,-rpath-link,/home/angel/anaconda3/envs/geant-root-env/lib -L/home/angel/anaconda3/envs/geant-root-env/lib  CMakeFiles/cmTC_00b8b.dir/CheckSymbolExists.cxx.o -o cmTC_00b8b 
+        gmake[1]: Leaving directory '/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-vKbuMv'
         
       exitCode: 0
   -
@@ -731,8 +731,8 @@ events:
     checks:
       - "Looking for XOpenDisplay in /home/angel/anaconda3/envs/geant-root-env/lib/libX11.so;/home/angel/anaconda3/envs/geant-root-env/lib/libXext.so"
     directories:
-      source: "/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-ZW03LI"
-      binary: "/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-ZW03LI"
+      source: "/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-A94jox"
+      binary: "/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-A94jox"
     cmakeVariables:
       CMAKE_C_FLAGS: "-march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe -isystem /home/angel/anaconda3/envs/geant-root-env/include"
       CMAKE_C_FLAGS_DEBUG: "-g"
@@ -742,17 +742,17 @@ events:
       variable: "X11_LIB_X11_SOLO"
       cached: true
       stdout: |
-        Change Dir: '/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-ZW03LI'
+        Change Dir: '/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-A94jox'
         
-        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_5947d/fast
-        /usr/bin/gmake  -f CMakeFiles/cmTC_5947d.dir/build.make CMakeFiles/cmTC_5947d.dir/build
-        gmake[1]: Entering directory '/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-ZW03LI'
-        Building C object CMakeFiles/cmTC_5947d.dir/CheckFunctionExists.c.o
-        /home/angel/anaconda3/envs/geant-root-env/bin/x86_64-conda-linux-gnu-cc   -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe -isystem /home/angel/anaconda3/envs/geant-root-env/include -DCHECK_FUNCTION_EXISTS=XOpenDisplay -o CMakeFiles/cmTC_5947d.dir/CheckFunctionExists.c.o -c /media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-ZW03LI/CheckFunctionExists.c
-        Linking C executable cmTC_5947d
-        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_5947d.dir/link.txt --verbose=1
-        /home/angel/anaconda3/envs/geant-root-env/bin/x86_64-conda-linux-gnu-cc -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe -isystem /home/angel/anaconda3/envs/geant-root-env/include -DCHECK_FUNCTION_EXISTS=XOpenDisplay -Wl,-O2 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--disable-new-dtags -Wl,--gc-sections -Wl,--allow-shlib-undefined -Wl,-rpath,/home/angel/anaconda3/envs/geant-root-env/lib -Wl,-rpath-link,/home/angel/anaconda3/envs/geant-root-env/lib -L/home/angel/anaconda3/envs/geant-root-env/lib  CMakeFiles/cmTC_5947d.dir/CheckFunctionExists.c.o -o cmTC_5947d  /home/angel/anaconda3/envs/geant-root-env/lib/libX11.so /home/angel/anaconda3/envs/geant-root-env/lib/libXext.so 
-        gmake[1]: Leaving directory '/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-ZW03LI'
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_55b31/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_55b31.dir/build.make CMakeFiles/cmTC_55b31.dir/build
+        gmake[1]: Entering directory '/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-A94jox'
+        Building C object CMakeFiles/cmTC_55b31.dir/CheckFunctionExists.c.o
+        /home/angel/anaconda3/envs/geant-root-env/bin/x86_64-conda-linux-gnu-cc   -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe -isystem /home/angel/anaconda3/envs/geant-root-env/include -DCHECK_FUNCTION_EXISTS=XOpenDisplay -o CMakeFiles/cmTC_55b31.dir/CheckFunctionExists.c.o -c /media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-A94jox/CheckFunctionExists.c
+        Linking C executable cmTC_55b31
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_55b31.dir/link.txt --verbose=1
+        /home/angel/anaconda3/envs/geant-root-env/bin/x86_64-conda-linux-gnu-cc -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe -isystem /home/angel/anaconda3/envs/geant-root-env/include -DCHECK_FUNCTION_EXISTS=XOpenDisplay -Wl,-O2 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--disable-new-dtags -Wl,--gc-sections -Wl,--allow-shlib-undefined -Wl,-rpath,/home/angel/anaconda3/envs/geant-root-env/lib -Wl,-rpath-link,/home/angel/anaconda3/envs/geant-root-env/lib -L/home/angel/anaconda3/envs/geant-root-env/lib  CMakeFiles/cmTC_55b31.dir/CheckFunctionExists.c.o -o cmTC_55b31  /home/angel/anaconda3/envs/geant-root-env/lib/libX11.so /home/angel/anaconda3/envs/geant-root-env/lib/libXext.so 
+        gmake[1]: Leaving directory '/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-A94jox'
         
       exitCode: 0
   -
@@ -766,8 +766,8 @@ events:
     checks:
       - "Looking for gethostbyname"
     directories:
-      source: "/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-vdmCX5"
-      binary: "/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-vdmCX5"
+      source: "/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-cNdRfc"
+      binary: "/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-cNdRfc"
     cmakeVariables:
       CMAKE_C_FLAGS: "-march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe -isystem /home/angel/anaconda3/envs/geant-root-env/include"
       CMAKE_C_FLAGS_DEBUG: "-g"
@@ -777,17 +777,17 @@ events:
       variable: "CMAKE_HAVE_GETHOSTBYNAME"
       cached: true
       stdout: |
-        Change Dir: '/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-vdmCX5'
+        Change Dir: '/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-cNdRfc'
         
-        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_486eb/fast
-        /usr/bin/gmake  -f CMakeFiles/cmTC_486eb.dir/build.make CMakeFiles/cmTC_486eb.dir/build
-        gmake[1]: Entering directory '/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-vdmCX5'
-        Building C object CMakeFiles/cmTC_486eb.dir/CheckFunctionExists.c.o
-        /home/angel/anaconda3/envs/geant-root-env/bin/x86_64-conda-linux-gnu-cc   -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe -isystem /home/angel/anaconda3/envs/geant-root-env/include -DCHECK_FUNCTION_EXISTS=gethostbyname -o CMakeFiles/cmTC_486eb.dir/CheckFunctionExists.c.o -c /media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-vdmCX5/CheckFunctionExists.c
-        Linking C executable cmTC_486eb
-        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_486eb.dir/link.txt --verbose=1
-        /home/angel/anaconda3/envs/geant-root-env/bin/x86_64-conda-linux-gnu-cc -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe -isystem /home/angel/anaconda3/envs/geant-root-env/include -DCHECK_FUNCTION_EXISTS=gethostbyname -Wl,-O2 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--disable-new-dtags -Wl,--gc-sections -Wl,--allow-shlib-undefined -Wl,-rpath,/home/angel/anaconda3/envs/geant-root-env/lib -Wl,-rpath-link,/home/angel/anaconda3/envs/geant-root-env/lib -L/home/angel/anaconda3/envs/geant-root-env/lib  CMakeFiles/cmTC_486eb.dir/CheckFunctionExists.c.o -o cmTC_486eb 
-        gmake[1]: Leaving directory '/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-vdmCX5'
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_dcaba/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_dcaba.dir/build.make CMakeFiles/cmTC_dcaba.dir/build
+        gmake[1]: Entering directory '/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-cNdRfc'
+        Building C object CMakeFiles/cmTC_dcaba.dir/CheckFunctionExists.c.o
+        /home/angel/anaconda3/envs/geant-root-env/bin/x86_64-conda-linux-gnu-cc   -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe -isystem /home/angel/anaconda3/envs/geant-root-env/include -DCHECK_FUNCTION_EXISTS=gethostbyname -o CMakeFiles/cmTC_dcaba.dir/CheckFunctionExists.c.o -c /media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-cNdRfc/CheckFunctionExists.c
+        Linking C executable cmTC_dcaba
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_dcaba.dir/link.txt --verbose=1
+        /home/angel/anaconda3/envs/geant-root-env/bin/x86_64-conda-linux-gnu-cc -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe -isystem /home/angel/anaconda3/envs/geant-root-env/include -DCHECK_FUNCTION_EXISTS=gethostbyname -Wl,-O2 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--disable-new-dtags -Wl,--gc-sections -Wl,--allow-shlib-undefined -Wl,-rpath,/home/angel/anaconda3/envs/geant-root-env/lib -Wl,-rpath-link,/home/angel/anaconda3/envs/geant-root-env/lib -L/home/angel/anaconda3/envs/geant-root-env/lib  CMakeFiles/cmTC_dcaba.dir/CheckFunctionExists.c.o -o cmTC_dcaba 
+        gmake[1]: Leaving directory '/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-cNdRfc'
         
       exitCode: 0
   -
@@ -801,8 +801,8 @@ events:
     checks:
       - "Looking for connect"
     directories:
-      source: "/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-Aa9SRk"
-      binary: "/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-Aa9SRk"
+      source: "/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-fI2smx"
+      binary: "/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-fI2smx"
     cmakeVariables:
       CMAKE_C_FLAGS: "-march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe -isystem /home/angel/anaconda3/envs/geant-root-env/include"
       CMAKE_C_FLAGS_DEBUG: "-g"
@@ -812,17 +812,17 @@ events:
       variable: "CMAKE_HAVE_CONNECT"
       cached: true
       stdout: |
-        Change Dir: '/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-Aa9SRk'
+        Change Dir: '/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-fI2smx'
         
-        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_415c5/fast
-        /usr/bin/gmake  -f CMakeFiles/cmTC_415c5.dir/build.make CMakeFiles/cmTC_415c5.dir/build
-        gmake[1]: Entering directory '/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-Aa9SRk'
-        Building C object CMakeFiles/cmTC_415c5.dir/CheckFunctionExists.c.o
-        /home/angel/anaconda3/envs/geant-root-env/bin/x86_64-conda-linux-gnu-cc   -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe -isystem /home/angel/anaconda3/envs/geant-root-env/include -DCHECK_FUNCTION_EXISTS=connect -o CMakeFiles/cmTC_415c5.dir/CheckFunctionExists.c.o -c /media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-Aa9SRk/CheckFunctionExists.c
-        Linking C executable cmTC_415c5
-        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_415c5.dir/link.txt --verbose=1
-        /home/angel/anaconda3/envs/geant-root-env/bin/x86_64-conda-linux-gnu-cc -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe -isystem /home/angel/anaconda3/envs/geant-root-env/include -DCHECK_FUNCTION_EXISTS=connect -Wl,-O2 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--disable-new-dtags -Wl,--gc-sections -Wl,--allow-shlib-undefined -Wl,-rpath,/home/angel/anaconda3/envs/geant-root-env/lib -Wl,-rpath-link,/home/angel/anaconda3/envs/geant-root-env/lib -L/home/angel/anaconda3/envs/geant-root-env/lib  CMakeFiles/cmTC_415c5.dir/CheckFunctionExists.c.o -o cmTC_415c5 
-        gmake[1]: Leaving directory '/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-Aa9SRk'
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_17c0c/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_17c0c.dir/build.make CMakeFiles/cmTC_17c0c.dir/build
+        gmake[1]: Entering directory '/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-fI2smx'
+        Building C object CMakeFiles/cmTC_17c0c.dir/CheckFunctionExists.c.o
+        /home/angel/anaconda3/envs/geant-root-env/bin/x86_64-conda-linux-gnu-cc   -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe -isystem /home/angel/anaconda3/envs/geant-root-env/include -DCHECK_FUNCTION_EXISTS=connect -o CMakeFiles/cmTC_17c0c.dir/CheckFunctionExists.c.o -c /media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-fI2smx/CheckFunctionExists.c
+        Linking C executable cmTC_17c0c
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_17c0c.dir/link.txt --verbose=1
+        /home/angel/anaconda3/envs/geant-root-env/bin/x86_64-conda-linux-gnu-cc -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe -isystem /home/angel/anaconda3/envs/geant-root-env/include -DCHECK_FUNCTION_EXISTS=connect -Wl,-O2 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--disable-new-dtags -Wl,--gc-sections -Wl,--allow-shlib-undefined -Wl,-rpath,/home/angel/anaconda3/envs/geant-root-env/lib -Wl,-rpath-link,/home/angel/anaconda3/envs/geant-root-env/lib -L/home/angel/anaconda3/envs/geant-root-env/lib  CMakeFiles/cmTC_17c0c.dir/CheckFunctionExists.c.o -o cmTC_17c0c 
+        gmake[1]: Leaving directory '/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-fI2smx'
         
       exitCode: 0
   -
@@ -836,8 +836,8 @@ events:
     checks:
       - "Looking for remove"
     directories:
-      source: "/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-eHriKS"
-      binary: "/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-eHriKS"
+      source: "/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-O3K0mO"
+      binary: "/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-O3K0mO"
     cmakeVariables:
       CMAKE_C_FLAGS: "-march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe -isystem /home/angel/anaconda3/envs/geant-root-env/include"
       CMAKE_C_FLAGS_DEBUG: "-g"
@@ -847,17 +847,17 @@ events:
       variable: "CMAKE_HAVE_REMOVE"
       cached: true
       stdout: |
-        Change Dir: '/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-eHriKS'
+        Change Dir: '/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-O3K0mO'
         
-        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_0ec24/fast
-        /usr/bin/gmake  -f CMakeFiles/cmTC_0ec24.dir/build.make CMakeFiles/cmTC_0ec24.dir/build
-        gmake[1]: Entering directory '/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-eHriKS'
-        Building C object CMakeFiles/cmTC_0ec24.dir/CheckFunctionExists.c.o
-        /home/angel/anaconda3/envs/geant-root-env/bin/x86_64-conda-linux-gnu-cc   -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe -isystem /home/angel/anaconda3/envs/geant-root-env/include -DCHECK_FUNCTION_EXISTS=remove -o CMakeFiles/cmTC_0ec24.dir/CheckFunctionExists.c.o -c /media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-eHriKS/CheckFunctionExists.c
-        Linking C executable cmTC_0ec24
-        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_0ec24.dir/link.txt --verbose=1
-        /home/angel/anaconda3/envs/geant-root-env/bin/x86_64-conda-linux-gnu-cc -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe -isystem /home/angel/anaconda3/envs/geant-root-env/include -DCHECK_FUNCTION_EXISTS=remove -Wl,-O2 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--disable-new-dtags -Wl,--gc-sections -Wl,--allow-shlib-undefined -Wl,-rpath,/home/angel/anaconda3/envs/geant-root-env/lib -Wl,-rpath-link,/home/angel/anaconda3/envs/geant-root-env/lib -L/home/angel/anaconda3/envs/geant-root-env/lib  CMakeFiles/cmTC_0ec24.dir/CheckFunctionExists.c.o -o cmTC_0ec24 
-        gmake[1]: Leaving directory '/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-eHriKS'
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_672bc/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_672bc.dir/build.make CMakeFiles/cmTC_672bc.dir/build
+        gmake[1]: Entering directory '/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-O3K0mO'
+        Building C object CMakeFiles/cmTC_672bc.dir/CheckFunctionExists.c.o
+        /home/angel/anaconda3/envs/geant-root-env/bin/x86_64-conda-linux-gnu-cc   -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe -isystem /home/angel/anaconda3/envs/geant-root-env/include -DCHECK_FUNCTION_EXISTS=remove -o CMakeFiles/cmTC_672bc.dir/CheckFunctionExists.c.o -c /media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-O3K0mO/CheckFunctionExists.c
+        Linking C executable cmTC_672bc
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_672bc.dir/link.txt --verbose=1
+        /home/angel/anaconda3/envs/geant-root-env/bin/x86_64-conda-linux-gnu-cc -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe -isystem /home/angel/anaconda3/envs/geant-root-env/include -DCHECK_FUNCTION_EXISTS=remove -Wl,-O2 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--disable-new-dtags -Wl,--gc-sections -Wl,--allow-shlib-undefined -Wl,-rpath,/home/angel/anaconda3/envs/geant-root-env/lib -Wl,-rpath-link,/home/angel/anaconda3/envs/geant-root-env/lib -L/home/angel/anaconda3/envs/geant-root-env/lib  CMakeFiles/cmTC_672bc.dir/CheckFunctionExists.c.o -o cmTC_672bc 
+        gmake[1]: Leaving directory '/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-O3K0mO'
         
       exitCode: 0
   -
@@ -871,8 +871,8 @@ events:
     checks:
       - "Looking for shmat"
     directories:
-      source: "/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-dWZGpG"
-      binary: "/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-dWZGpG"
+      source: "/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-wV4nYc"
+      binary: "/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-wV4nYc"
     cmakeVariables:
       CMAKE_C_FLAGS: "-march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe -isystem /home/angel/anaconda3/envs/geant-root-env/include"
       CMAKE_C_FLAGS_DEBUG: "-g"
@@ -882,17 +882,17 @@ events:
       variable: "CMAKE_HAVE_SHMAT"
       cached: true
       stdout: |
-        Change Dir: '/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-dWZGpG'
+        Change Dir: '/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-wV4nYc'
         
-        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_dc440/fast
-        /usr/bin/gmake  -f CMakeFiles/cmTC_dc440.dir/build.make CMakeFiles/cmTC_dc440.dir/build
-        gmake[1]: Entering directory '/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-dWZGpG'
-        Building C object CMakeFiles/cmTC_dc440.dir/CheckFunctionExists.c.o
-        /home/angel/anaconda3/envs/geant-root-env/bin/x86_64-conda-linux-gnu-cc   -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe -isystem /home/angel/anaconda3/envs/geant-root-env/include -DCHECK_FUNCTION_EXISTS=shmat -o CMakeFiles/cmTC_dc440.dir/CheckFunctionExists.c.o -c /media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-dWZGpG/CheckFunctionExists.c
-        Linking C executable cmTC_dc440
-        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_dc440.dir/link.txt --verbose=1
-        /home/angel/anaconda3/envs/geant-root-env/bin/x86_64-conda-linux-gnu-cc -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe -isystem /home/angel/anaconda3/envs/geant-root-env/include -DCHECK_FUNCTION_EXISTS=shmat -Wl,-O2 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--disable-new-dtags -Wl,--gc-sections -Wl,--allow-shlib-undefined -Wl,-rpath,/home/angel/anaconda3/envs/geant-root-env/lib -Wl,-rpath-link,/home/angel/anaconda3/envs/geant-root-env/lib -L/home/angel/anaconda3/envs/geant-root-env/lib  CMakeFiles/cmTC_dc440.dir/CheckFunctionExists.c.o -o cmTC_dc440 
-        gmake[1]: Leaving directory '/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-dWZGpG'
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_c5a73/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_c5a73.dir/build.make CMakeFiles/cmTC_c5a73.dir/build
+        gmake[1]: Entering directory '/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-wV4nYc'
+        Building C object CMakeFiles/cmTC_c5a73.dir/CheckFunctionExists.c.o
+        /home/angel/anaconda3/envs/geant-root-env/bin/x86_64-conda-linux-gnu-cc   -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe -isystem /home/angel/anaconda3/envs/geant-root-env/include -DCHECK_FUNCTION_EXISTS=shmat -o CMakeFiles/cmTC_c5a73.dir/CheckFunctionExists.c.o -c /media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-wV4nYc/CheckFunctionExists.c
+        Linking C executable cmTC_c5a73
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c5a73.dir/link.txt --verbose=1
+        /home/angel/anaconda3/envs/geant-root-env/bin/x86_64-conda-linux-gnu-cc -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe -isystem /home/angel/anaconda3/envs/geant-root-env/include -DCHECK_FUNCTION_EXISTS=shmat -Wl,-O2 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--disable-new-dtags -Wl,--gc-sections -Wl,--allow-shlib-undefined -Wl,-rpath,/home/angel/anaconda3/envs/geant-root-env/lib -Wl,-rpath-link,/home/angel/anaconda3/envs/geant-root-env/lib -L/home/angel/anaconda3/envs/geant-root-env/lib  CMakeFiles/cmTC_c5a73.dir/CheckFunctionExists.c.o -o cmTC_c5a73 
+        gmake[1]: Leaving directory '/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-wV4nYc'
         
       exitCode: 0
   -
@@ -906,8 +906,8 @@ events:
     checks:
       - "Looking for IceConnectionNumber in ICE"
     directories:
-      source: "/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-J2mvhx"
-      binary: "/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-J2mvhx"
+      source: "/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-njRgsJ"
+      binary: "/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-njRgsJ"
     cmakeVariables:
       CMAKE_C_FLAGS: "-march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe -isystem /home/angel/anaconda3/envs/geant-root-env/include"
       CMAKE_C_FLAGS_DEBUG: "-g"
@@ -917,17 +917,17 @@ events:
       variable: "CMAKE_LIB_ICE_HAS_ICECONNECTIONNUMBER"
       cached: true
       stdout: |
-        Change Dir: '/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-J2mvhx'
+        Change Dir: '/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-njRgsJ'
         
-        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_b3503/fast
-        /usr/bin/gmake  -f CMakeFiles/cmTC_b3503.dir/build.make CMakeFiles/cmTC_b3503.dir/build
-        gmake[1]: Entering directory '/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-J2mvhx'
-        Building C object CMakeFiles/cmTC_b3503.dir/CheckFunctionExists.c.o
-        /home/angel/anaconda3/envs/geant-root-env/bin/x86_64-conda-linux-gnu-cc   -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe -isystem /home/angel/anaconda3/envs/geant-root-env/include -DCHECK_FUNCTION_EXISTS=IceConnectionNumber -o CMakeFiles/cmTC_b3503.dir/CheckFunctionExists.c.o -c /media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-J2mvhx/CheckFunctionExists.c
-        Linking C executable cmTC_b3503
-        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_b3503.dir/link.txt --verbose=1
-        /home/angel/anaconda3/envs/geant-root-env/bin/x86_64-conda-linux-gnu-cc -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe -isystem /home/angel/anaconda3/envs/geant-root-env/include -DCHECK_FUNCTION_EXISTS=IceConnectionNumber -Wl,-O2 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--disable-new-dtags -Wl,--gc-sections -Wl,--allow-shlib-undefined -Wl,-rpath,/home/angel/anaconda3/envs/geant-root-env/lib -Wl,-rpath-link,/home/angel/anaconda3/envs/geant-root-env/lib -L/home/angel/anaconda3/envs/geant-root-env/lib  CMakeFiles/cmTC_b3503.dir/CheckFunctionExists.c.o -o cmTC_b3503  -lICE 
-        gmake[1]: Leaving directory '/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-J2mvhx'
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_ff821/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_ff821.dir/build.make CMakeFiles/cmTC_ff821.dir/build
+        gmake[1]: Entering directory '/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-njRgsJ'
+        Building C object CMakeFiles/cmTC_ff821.dir/CheckFunctionExists.c.o
+        /home/angel/anaconda3/envs/geant-root-env/bin/x86_64-conda-linux-gnu-cc   -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe -isystem /home/angel/anaconda3/envs/geant-root-env/include -DCHECK_FUNCTION_EXISTS=IceConnectionNumber -o CMakeFiles/cmTC_ff821.dir/CheckFunctionExists.c.o -c /media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-njRgsJ/CheckFunctionExists.c
+        Linking C executable cmTC_ff821
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ff821.dir/link.txt --verbose=1
+        /home/angel/anaconda3/envs/geant-root-env/bin/x86_64-conda-linux-gnu-cc -march=nocona -mtune=haswell -ftree-vectorize -fPIC -fstack-protector-strong -fno-plt -O2 -ffunction-sections -pipe -isystem /home/angel/anaconda3/envs/geant-root-env/include -DCHECK_FUNCTION_EXISTS=IceConnectionNumber -Wl,-O2 -Wl,--sort-common -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,--disable-new-dtags -Wl,--gc-sections -Wl,--allow-shlib-undefined -Wl,-rpath,/home/angel/anaconda3/envs/geant-root-env/lib -Wl,-rpath-link,/home/angel/anaconda3/envs/geant-root-env/lib -L/home/angel/anaconda3/envs/geant-root-env/lib  CMakeFiles/cmTC_ff821.dir/CheckFunctionExists.c.o -o cmTC_ff821  -lICE 
+        gmake[1]: Leaving directory '/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles/CMakeScratch/TryCompile-njRgsJ'
         
       exitCode: 0
 ...

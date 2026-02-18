@@ -5,6 +5,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/startG4.dir/src/ActionInitialization.cc.o.d"
   "CMakeFiles/startG4.dir/src/DetectorConstruction.cc.o"
   "CMakeFiles/startG4.dir/src/DetectorConstruction.cc.o.d"
+  "CMakeFiles/startG4.dir/src/MyMaterials.cc.o"
+  "CMakeFiles/startG4.dir/src/MyMaterials.cc.o.d"
   "CMakeFiles/startG4.dir/src/PhysicsList.cc.o"
   "CMakeFiles/startG4.dir/src/PhysicsList.cc.o.d"
   "CMakeFiles/startG4.dir/src/PrimaryGeneratorAction.cc.o"

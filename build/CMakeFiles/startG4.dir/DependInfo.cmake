@@ -11,6 +11,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/main.cc" "CMakeFiles/startG4.dir/main.cc.o" "gcc" "CMakeFiles/startG4.dir/main.cc.o.d"
   "/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/src/ActionInitialization.cc" "CMakeFiles/startG4.dir/src/ActionInitialization.cc.o" "gcc" "CMakeFiles/startG4.dir/src/ActionInitialization.cc.o.d"
   "/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/src/DetectorConstruction.cc" "CMakeFiles/startG4.dir/src/DetectorConstruction.cc.o" "gcc" "CMakeFiles/startG4.dir/src/DetectorConstruction.cc.o.d"
+  "/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/src/MyMaterials.cc" "CMakeFiles/startG4.dir/src/MyMaterials.cc.o" "gcc" "CMakeFiles/startG4.dir/src/MyMaterials.cc.o.d"
   "/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/src/PhysicsList.cc" "CMakeFiles/startG4.dir/src/PhysicsList.cc.o" "gcc" "CMakeFiles/startG4.dir/src/PhysicsList.cc.o.d"
   "/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/src/PrimaryGeneratorAction.cc" "CMakeFiles/startG4.dir/src/PrimaryGeneratorAction.cc.o" "gcc" "CMakeFiles/startG4.dir/src/PrimaryGeneratorAction.cc.o.d"
   "/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/src/SteppingAction.cc" "CMakeFiles/startG4.dir/src/SteppingAction.cc.o" "gcc" "CMakeFiles/startG4.dir/src/SteppingAction.cc.o.d"

@@ -201,6 +201,30 @@ src/DetectorConstruction.cc.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/startG4.dir/build.make CMakeFiles/startG4.dir/src/DetectorConstruction.cc.s
 .PHONY : src/DetectorConstruction.cc.s
 
+src/MyMaterials.o: src/MyMaterials.cc.o
+.PHONY : src/MyMaterials.o
+
+# target to build an object file
+src/MyMaterials.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/startG4.dir/build.make CMakeFiles/startG4.dir/src/MyMaterials.cc.o
+.PHONY : src/MyMaterials.cc.o
+
+src/MyMaterials.i: src/MyMaterials.cc.i
+.PHONY : src/MyMaterials.i
+
+# target to preprocess a source file
+src/MyMaterials.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/startG4.dir/build.make CMakeFiles/startG4.dir/src/MyMaterials.cc.i
+.PHONY : src/MyMaterials.cc.i
+
+src/MyMaterials.s: src/MyMaterials.cc.s
+.PHONY : src/MyMaterials.s
+
+# target to generate assembly for a file
+src/MyMaterials.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/startG4.dir/build.make CMakeFiles/startG4.dir/src/MyMaterials.cc.s
+.PHONY : src/MyMaterials.cc.s
+
 src/PhysicsList.o: src/PhysicsList.cc.o
 .PHONY : src/PhysicsList.o
 
@@ -291,6 +315,9 @@ help:
 	@echo "... src/DetectorConstruction.o"
 	@echo "... src/DetectorConstruction.i"
 	@echo "... src/DetectorConstruction.s"
+	@echo "... src/MyMaterials.o"
+	@echo "... src/MyMaterials.i"
+	@echo "... src/MyMaterials.s"
 	@echo "... src/PhysicsList.o"
 	@echo "... src/PhysicsList.i"
 	@echo "... src/PhysicsList.s"

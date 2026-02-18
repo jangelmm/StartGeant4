@@ -111,10 +111,24 @@ CMakeFiles/startG4.dir/src/DetectorConstruction.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/startG4.dir/src/DetectorConstruction.cc.s"
 	/home/angel/anaconda3/envs/geant-root-env/bin/x86_64-conda-linux-gnu-c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/src/DetectorConstruction.cc -o CMakeFiles/startG4.dir/src/DetectorConstruction.cc.s
 
+CMakeFiles/startG4.dir/src/MyMaterials.cc.o: CMakeFiles/startG4.dir/flags.make
+CMakeFiles/startG4.dir/src/MyMaterials.cc.o: /media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/src/MyMaterials.cc
+CMakeFiles/startG4.dir/src/MyMaterials.cc.o: CMakeFiles/startG4.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/startG4.dir/src/MyMaterials.cc.o"
+	/home/angel/anaconda3/envs/geant-root-env/bin/x86_64-conda-linux-gnu-c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/startG4.dir/src/MyMaterials.cc.o -MF CMakeFiles/startG4.dir/src/MyMaterials.cc.o.d -o CMakeFiles/startG4.dir/src/MyMaterials.cc.o -c /media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/src/MyMaterials.cc
+
+CMakeFiles/startG4.dir/src/MyMaterials.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/startG4.dir/src/MyMaterials.cc.i"
+	/home/angel/anaconda3/envs/geant-root-env/bin/x86_64-conda-linux-gnu-c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/src/MyMaterials.cc > CMakeFiles/startG4.dir/src/MyMaterials.cc.i
+
+CMakeFiles/startG4.dir/src/MyMaterials.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/startG4.dir/src/MyMaterials.cc.s"
+	/home/angel/anaconda3/envs/geant-root-env/bin/x86_64-conda-linux-gnu-c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/src/MyMaterials.cc -o CMakeFiles/startG4.dir/src/MyMaterials.cc.s
+
 CMakeFiles/startG4.dir/src/PhysicsList.cc.o: CMakeFiles/startG4.dir/flags.make
 CMakeFiles/startG4.dir/src/PhysicsList.cc.o: /media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/src/PhysicsList.cc
 CMakeFiles/startG4.dir/src/PhysicsList.cc.o: CMakeFiles/startG4.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/startG4.dir/src/PhysicsList.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/startG4.dir/src/PhysicsList.cc.o"
 	/home/angel/anaconda3/envs/geant-root-env/bin/x86_64-conda-linux-gnu-c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/startG4.dir/src/PhysicsList.cc.o -MF CMakeFiles/startG4.dir/src/PhysicsList.cc.o.d -o CMakeFiles/startG4.dir/src/PhysicsList.cc.o -c /media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/src/PhysicsList.cc
 
 CMakeFiles/startG4.dir/src/PhysicsList.cc.i: cmake_force
@@ -128,7 +142,7 @@ CMakeFiles/startG4.dir/src/PhysicsList.cc.s: cmake_force
 CMakeFiles/startG4.dir/src/PrimaryGeneratorAction.cc.o: CMakeFiles/startG4.dir/flags.make
 CMakeFiles/startG4.dir/src/PrimaryGeneratorAction.cc.o: /media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/src/PrimaryGeneratorAction.cc
 CMakeFiles/startG4.dir/src/PrimaryGeneratorAction.cc.o: CMakeFiles/startG4.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/startG4.dir/src/PrimaryGeneratorAction.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/startG4.dir/src/PrimaryGeneratorAction.cc.o"
 	/home/angel/anaconda3/envs/geant-root-env/bin/x86_64-conda-linux-gnu-c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/startG4.dir/src/PrimaryGeneratorAction.cc.o -MF CMakeFiles/startG4.dir/src/PrimaryGeneratorAction.cc.o.d -o CMakeFiles/startG4.dir/src/PrimaryGeneratorAction.cc.o -c /media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/src/PrimaryGeneratorAction.cc
 
 CMakeFiles/startG4.dir/src/PrimaryGeneratorAction.cc.i: cmake_force
@@ -142,7 +156,7 @@ CMakeFiles/startG4.dir/src/PrimaryGeneratorAction.cc.s: cmake_force
 CMakeFiles/startG4.dir/src/SteppingAction.cc.o: CMakeFiles/startG4.dir/flags.make
 CMakeFiles/startG4.dir/src/SteppingAction.cc.o: /media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/src/SteppingAction.cc
 CMakeFiles/startG4.dir/src/SteppingAction.cc.o: CMakeFiles/startG4.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/startG4.dir/src/SteppingAction.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/startG4.dir/src/SteppingAction.cc.o"
 	/home/angel/anaconda3/envs/geant-root-env/bin/x86_64-conda-linux-gnu-c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/startG4.dir/src/SteppingAction.cc.o -MF CMakeFiles/startG4.dir/src/SteppingAction.cc.o.d -o CMakeFiles/startG4.dir/src/SteppingAction.cc.o -c /media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/src/SteppingAction.cc
 
 CMakeFiles/startG4.dir/src/SteppingAction.cc.i: cmake_force
@@ -158,6 +172,7 @@ startG4_OBJECTS = \
 "CMakeFiles/startG4.dir/main.cc.o" \
 "CMakeFiles/startG4.dir/src/ActionInitialization.cc.o" \
 "CMakeFiles/startG4.dir/src/DetectorConstruction.cc.o" \
+"CMakeFiles/startG4.dir/src/MyMaterials.cc.o" \
 "CMakeFiles/startG4.dir/src/PhysicsList.cc.o" \
 "CMakeFiles/startG4.dir/src/PrimaryGeneratorAction.cc.o" \
 "CMakeFiles/startG4.dir/src/SteppingAction.cc.o"
@@ -168,6 +183,7 @@ startG4_EXTERNAL_OBJECTS =
 startG4: CMakeFiles/startG4.dir/main.cc.o
 startG4: CMakeFiles/startG4.dir/src/ActionInitialization.cc.o
 startG4: CMakeFiles/startG4.dir/src/DetectorConstruction.cc.o
+startG4: CMakeFiles/startG4.dir/src/MyMaterials.cc.o
 startG4: CMakeFiles/startG4.dir/src/PhysicsList.cc.o
 startG4: CMakeFiles/startG4.dir/src/PrimaryGeneratorAction.cc.o
 startG4: CMakeFiles/startG4.dir/src/SteppingAction.cc.o
@@ -234,7 +250,7 @@ startG4: /home/angel/anaconda3/envs/geant-root-env/lib/libG4global.so
 startG4: /home/angel/anaconda3/envs/geant-root-env/lib/libG4ptl.so.3.0.0
 startG4: /home/angel/anaconda3/envs/geant-root-env/lib/libCLHEP-2.4.7.1.so
 startG4: CMakeFiles/startG4.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable startG4"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable startG4"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/startG4.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
