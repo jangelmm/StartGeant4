@@ -13,6 +13,10 @@ DetectorConstruction::~DetectorConstruction() = default;
 
 G4VPhysicalVolume* DetectorConstruction::Construct() {
 
+
+    auto* nist = G4NistManager::Instance();
+    auto* vaccum = nist->FindOrBuildMaterial("G4_Galactic");
+
     //Obtenemos la instancia única de materiales
     MyMaterials* materials = MyMaterials::GetInstance();
 
@@ -20,13 +24,11 @@ G4VPhysicalVolume* DetectorConstruction::Construct() {
     auto* air         = materials->GetAir();
     auto* polystyrene = materials->GetPolystyrene();
     //auto* puma        = materials->GetPMMA();
-
-
     
     // ================================= MUNDO ====================================
     G4double worldSize = 2.0 * m;                                                        //worldSize será el - Tamaño total 1m
     auto* worldSolid = new G4Box("World", worldSize/2, worldSize/2, worldSize/2);        //worlSolid será el - Cubo(nombre, mitad anchoX , mitad alturaY, mitad profundidadZ)
-    auto* worldLV = new G4LogicalVolume(worldSolid, air, "World");                       //worldLV será el   - VolumenLogico(Cubo, elemento, nombre)
+    auto* worldLV = new G4LogicalVolume(worldSolid, vaccum, "World");                       //worldLV será el   - VolumenLogico(Cubo, elemento, nombre)
     auto* worldPV = new G4PVPlacement(nullptr, {}, worldLV, "World", nullptr, false, 0); //worldPV será el   - Espacio(rotacion, posicion {} es default, VolumenLogico, nombre, PL_madre, copia_multiple, numero_copia)
 
     

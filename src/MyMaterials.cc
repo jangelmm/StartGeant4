@@ -38,6 +38,7 @@ void MyMaterials::CreateMaterials(){
     G4double density = 1.050 * g / cm3;
     std::vector<G4String> elem_ps = {"C", "H"};
     std::vector<G4int> nat_ps = {8, 8};
+    
     fPolystyrene = fNistMan->ConstructNewMaterial("Polystyrene", elem_ps, nat_ps, density);
 
     // 3. PMMA (para fibras ópticas)
@@ -47,16 +48,36 @@ void MyMaterials::CreateMaterials(){
 
     // Opcional: Agregar más propiedades ópticas (RINDEX, ABSLENGTH, SCINTILATIONCOMPONENT1, etc.)
     // Ejemplo básico para Polystyrene:
-    auto* mpt = new G4MaterialPropertiesTable();
+    std::vector<G4double> energy = {
+    2.00 * eV, 2.03 * eV, 2.06 * eV, 2.09 * eV, 2.12 * eV, 2.15 * eV, 2.18 * eV, 2.21 * eV,
+    2.24 * eV, 2.27 * eV, 2.30 * eV, 2.33 * eV, 2.36 * eV, 2.39 * eV, 2.42 * eV, 2.45 * eV,
+    2.48 * eV, 2.51 * eV, 2.54 * eV, 2.57 * eV, 2.60 * eV, 2.63 * eV, 2.66 * eV, 2.69 * eV,
+    2.72 * eV, 2.75 * eV, 2.78 * eV, 2.81 * eV, 2.84 * eV, 2.87 * eV, 2.90 * eV, 2.93 * eV,
+    2.96 * eV, 2.99 * eV, 3.02 * eV, 3.05 * eV, 3.08 * eV, 3.11 * eV, 3.14 * eV, 3.17 * eV,
+    3.20 * eV, 3.23 * eV, 3.26 * eV, 3.29 * eV, 3.32 * eV, 3.35 * eV, 3.38 * eV, 3.41 * eV,
+    3.44 * eV, 3.47 * eV};
+    std::vector<G4double> energySmall = {2.0 * eV, 3.47 * eV};
+    std::vector<G4double> refractiveIndexPS = {1.50, 1.50};
+    std::vector<G4double> absPS = {2. * cm, 2. * cm};
+    std::vector<G4double> scintilFast = {
+    0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
+    0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 1.0, 1.0, 1.0,
+    1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0};
 
-    std::vector<G4double> energy = {2.0*eV, 3.5*eV};
-    std::vector<G4double> rindex = {1.59, 1.59};
 
-    mpt->AddProperty("RINDEX", energy, rindex);
-    std::vector<G4double> scint = {0.0, 1.0};
-    mpt->AddProperty("SCINTILLATIONCOMPONENT1", energy, scint);
-    mpt->AddConstProperty("SCINTILLATIONYIELD", 10000./MeV);
-    fPolystyrene->SetMaterialPropertiesTable(mpt);
+
+    auto mptPolystyrene = new G4MaterialPropertiesTable();
+    mptPolystyrene->AddProperty("RINDEX", energySmall, refractiveIndexPS);
+    mptPolystyrene->AddProperty("ABSLENGTH", energySmall, absPS);
+    mptPolystyrene->AddProperty("SCINTILLATIONCOMPONENT1", energy, scintilFast);
+    mptPolystyrene->AddConstProperty("SCINTILLATIONYIELD", 10. / keV);
+    mptPolystyrene->AddConstProperty("RESOLUTIONSCALE", 1.0);
+    mptPolystyrene->AddConstProperty("SCINTILLATIONTIMECONSTANT1", 10. * ns);
+
+    fPolystyrene->SetMaterialPropertiesTable(mptPolystyrene);
+
+    // Set the Birks Constant for the Polystyrene scintillator
+    fPolystyrene->GetIonisation()->SetBirksConstant(0.126 * mm / MeV);
 
     //Se puede hacer lo mismo para PMMA, etc...
 }

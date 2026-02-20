@@ -3,6 +3,11 @@
 # 1. Inicializar
 /run/initialize
 
+# 1.1 Verbose
+#/tracking/verbose 1
+#/hits/verbose 1
+#/run/verbose 1 
+
 # 2. Abrir visor
 /vis/open OGLIQt 800x600-0+0
 
@@ -20,9 +25,17 @@
 # 6. Crear modelo
 /vis/modeling/trajectories/create/drawByCharge
 
-# 7. CONFIGURAR (¡CORREGIDO!)
+# 7. CONFIGURAR
+/vis/modeling/trajectories/create/drawByParticleID
 /vis/modeling/trajectories/drawByCharge-0/default/setDrawStepPts true
 /vis/modeling/trajectories/drawByCharge-0/default/setStepPtsSize 2
 
+# Colores
+ /vis/modeling/trajectories/drawByParticleID-0/set e- red
+ /vis/modeling/trajectories/drawByParticleID-0/set opticalphoton cyan
+
+# 8. Hacer el cubo semitransparente (para ver fotones dentro)
+ /vis/geometry/set/colour Target 0 0.5 0.8 1.0 0.35
+
 # 8. Ejecutar
-/run/beamOn 100
+/run/beamOn 1
