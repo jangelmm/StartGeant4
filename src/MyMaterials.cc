@@ -64,7 +64,7 @@ void MyMaterials::CreateMaterials(){
     0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 1.0, 1.0, 1.0,
     1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0};
 
-
+    std::vector<G4double> scint {0.0, 0.4, 1.0, 0.3};
 
     auto mptPolystyrene = new G4MaterialPropertiesTable();
     mptPolystyrene->AddProperty("RINDEX", energySmall, refractiveIndexPS);

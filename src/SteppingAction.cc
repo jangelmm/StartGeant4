@@ -15,7 +15,7 @@ void SteppingAction::UserSteppingAction(const G4Step* step)
     if (step->GetPreStepPoint()->GetPhysicalVolume()->GetName() != "Target") return;
     
     if (step->GetTrack()->GetDefinition()->GetParticleName() == "opticalphoton") {
-    G4cout << "Fotondetectado - Energia = " 
+    G4cout << "#Fotondetectado - Energia = " 
            << step->GetTrack()->GetKineticEnergy()/eV << " eV" << G4endl;
 }
     G4double edep = step->GetTotalEnergyDeposit();
