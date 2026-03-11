@@ -38,4 +38,4 @@
  /vis/geometry/set/colour Target 0 0.5 0.8 1.0 0.35
 
 # 8. Ejecutar
-/run/beamOn 100
+/run/beamOn 1

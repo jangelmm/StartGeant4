@@ -70,7 +70,7 @@ void MyMaterials::CreateMaterials(){
     mptPolystyrene->AddProperty("RINDEX", energySmall, refractiveIndexPS);
     mptPolystyrene->AddProperty("ABSLENGTH", energySmall, absPS);
     mptPolystyrene->AddProperty("SCINTILLATIONCOMPONENT1", energy, scintilFast);
-    mptPolystyrene->AddConstProperty("SCINTILLATIONYIELD", 10. / keV);
+    mptPolystyrene->AddConstProperty("SCINTILLATIONYIELD", 8000. / MeV);
     mptPolystyrene->AddConstProperty("RESOLUTIONSCALE", 1.0);
     mptPolystyrene->AddConstProperty("SCINTILLATIONTIMECONSTANT1", 10. * ns);
 

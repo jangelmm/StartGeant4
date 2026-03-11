@@ -10,6 +10,8 @@ public:
     ~DetectorConstruction() override;
     G4VPhysicalVolume* Construct() override;
 
+    void ConstructSDandField() override;  
+
 private:
     G4LogicalVolume* fLogicTarget = nullptr;
 };

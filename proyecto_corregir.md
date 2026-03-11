@@ -1,0 +1,2500 @@
+# Estructura del proyecto
+
+```
+StartG4
+├── cmake-build-debug
+│   ├── CMakeFiles
+│   │   ├── 4.1.2
+│   │   │   ├── CompilerIdC
+│   │   │   │   ├── tmp
+│   │   │   │   ├── CMakeCCompilerId.c
+│   │   │   │   └── a.out
+│   │   │   ├── CompilerIdCXX
+│   │   │   │   ├── tmp
+│   │   │   │   ├── CMakeCXXCompilerId.cpp
+│   │   │   │   └── a.out
+│   │   │   ├── CMakeCCompiler.cmake
+│   │   │   ├── CMakeCXXCompiler.cmake
+│   │   │   ├── CMakeDetermineCompilerABI_C.bin
+│   │   │   ├── CMakeDetermineCompilerABI_CXX.bin
+│   │   │   └── CMakeSystem.cmake
+│   │   ├── CMakeScratch
+│   │   ├── hdf5
+│   │   │   └── cmake_hdf5_test.c
+│   │   ├── pkgRedirects
+│   │   ├── simpleG4.dir
+│   │   │   └── src
+│   │   ├── CMakeConfigureLog.yaml
+│   │   ├── InstallScripts.json
+│   │   ├── TargetDirectories.txt
+│   │   ├── clion-Debug-log.txt
+│   │   ├── clion-environment.txt
+│   │   ├── cmake.check_cache
+│   │   └── rules.ninja
+│   ├── Testing
+│   │   └── Temporary
+│   │       └── LastTest.log
+│   ├── .gitignore
+│   ├── CMakeCache.txt
+│   ├── build.ninja
+│   ├── cmake_install.cmake
+│   ├── compile_commands.json
+│   └── run.mac
+├── include
+│   ├── ActionInitialization.hh
+│   ├── DetectorConstruction.hh
+│   ├── EventAction.hh
+│   ├── MyMaterials.hh
+│   ├── PhysicsList.hh
+│   ├── PrimaryGeneratorAction.hh
+│   ├── RunAction.hh
+│   ├── SteppingAction.hh
+│   └── TargetSD.hh
+├── src
+│   ├── ActionInitialization.cc
+│   ├── DetectorConstruction.cc
+│   ├── EventAction.cc
+│   ├── MyMaterials.cc
+│   ├── PhysicsList.cc
+│   ├── PrimaryGeneratorAction.cc
+│   ├── RunAction.cc
+│   ├── SteppingAction.cc
+│   └── TargetSD.cc
+├── CMakeLists.txt
+├── main.cc
+├── run.mac
+└── script.py
+```
+
+## `CMakeLists.txt`
+
+```text
+cmake_minimum_required(VERSION 3.10)
+project(startG4)
+
+# Busca Geant4 con visualización
+find_package(Geant4 REQUIRED ui_all vis_all)
+include(${Geant4_USE_FILE})
+
+# ROOT (opcional)
+find_package(ROOT)
+if(ROOT_FOUND)
+    include(${ROOT_USE_FILE})
+    add_definitions(-DWITH_ROOT)
+endif()
+
+# Fuentes y cabeceras
+file(GLOB sources ${PROJECT_SOURCE_DIR}/src/*.cc)
+file(GLOB headers ${PROJECT_SOURCE_DIR}/include/*.hh)
+
+# Crea ejecutable
+add_executable(startG4 main.cc ${sources} ${headers})
+target_include_directories(startG4 PRIVATE ${PROJECT_SOURCE_DIR}/include)
+target_link_libraries(startG4 PRIVATE ${Geant4_LIBRARIES} ${ROOT_LIBRARIES})
+
+# Copia run.mac al build/
+set(SCRIPTS run.mac)
+foreach(_script ${SCRIPTS})
+    configure_file(${PROJECT_SOURCE_DIR}/${_script} ${PROJECT_BINARY_DIR}/${_script} COPYONLY)
+endforeach()```
+
+## `main.cc`
+
+```text
+#include "G4RunManagerFactory.hh"
+#include "G4UImanager.hh"
+#include "G4VisExecutive.hh"
+#include "G4UIExecutive.hh"
+
+#include "DetectorConstruction.hh"
+#include "PhysicsList.hh"
+#include "ActionInitialization.hh"
+
+int main(int argc, char** argv) {
+    // Modo multi-hilo
+    auto* runManager = G4RunManagerFactory::CreateRunManager(G4RunManagerType::MT);
+
+    // Inicializa clases
+    runManager->SetUserInitialization(new DetectorConstruction());
+    runManager->SetUserInitialization(new PhysicsList());
+    runManager->SetUserInitialization(new ActionInitialization());  // ← NUEVO
+
+    runManager->Initialize();
+
+    // Visualización
+    auto* visManager = new G4VisExecutive();
+    visManager->Initialize();
+
+    // UI
+    auto* UImanager = G4UImanager::GetUIpointer();
+
+    if (argc == 1) {
+        auto* ui = new G4UIExecutive(argc, argv);
+        UImanager->ApplyCommand("/control/execute run.mac");
+        ui->SessionStart();
+        delete ui;
+    } else {
+        G4String command = "/control/execute ";
+        UImanager->ApplyCommand(command + argv[1]);
+    }
+
+    delete visManager;
+    delete runManager;
+    return 0;
+}```
+
+## `run.mac`
+
+```text
+# === run.mac ===
+
+# 1. Inicializar
+/run/initialize
+
+# 1.1 Verbose
+#/tracking/verbose 1
+#/hits/verbose 1
+#/run/verbose 1 
+
+# 2. Abrir visor
+/vis/open OGLIQt 800x600-0+0
+
+# 3. Dibujar geometría
+/vis/drawVolume
+
+# 4. Configurar vista
+/vis/viewer/set/viewpointVector -1 0.5 0.5
+/vis/viewer/zoom 1.8
+/vis/viewer/set/style surface
+
+# 5. Agregar trayectorias
+/vis/scene/add/trajectories smooth
+/vis/scene/endOfEventAction accumulate
+# 6. Crear modelo
+/vis/modeling/trajectories/create/drawByCharge
+
+# 7. CONFIGURAR
+/vis/modeling/trajectories/create/drawByParticleID
+/vis/modeling/trajectories/drawByCharge-0/default/setDrawStepPts true
+/vis/modeling/trajectories/drawByCharge-0/default/setStepPtsSize 2
+
+# Colores
+ /vis/modeling/trajectories/drawByParticleID-0/set e- red
+ /vis/modeling/trajectories/drawByParticleID-0/set opticalphoton cyan
+
+# 8. Hacer el cubo semitransparente (para ver fotones dentro)
+ /vis/geometry/set/colour Target 0 0.5 0.8 1.0 0.35
+
+# 8. Ejecutar
+/run/beamOn 100```
+
+## `.idea/.gitignore`
+
+```text
+# Default ignored files
+/shelf/
+/workspace.xml
+# Editor-based HTTP Client requests
+/httpRequests/
+# Datasource local storage ignored files
+/dataSources/
+/dataSources.local.xml
+```
+
+## `cmake-build-debug/.gitignore`
+
+```text
+# This file is autogenerated by CLion. If you change or delete it, it won't be recreated unless the whole directory is removed.
+*
+```
+
+## `cmake-build-debug/CMakeCache.txt`
+
+```text
+# This is the CMakeCache file.
+# For build in directory: /media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/SimpleG4/cmake-build-debug
+# It was generated by CMake: /snap/clion/415/bin/cmake/linux/x64/bin/cmake
+# You can edit this file to change values found and used by cmake.
+# If you do not want to change any of the values, simply exit the editor.
+# If you do want to change a value, simply edit, save, and exit the editor.
+# The syntax for the file is as follows:
+# KEY:TYPE=VALUE
+# KEY is the name of a variable in the cache.
+# TYPE is a hint to GUIs for the type of VALUE, DO NOT EDIT TYPE!.
+# VALUE is the current value for the KEY.
+
+########################
+# EXTERNAL cache entries
+########################
+
+//The directory containing a CMake configuration file for CLHEP.
+CLHEP_DIR:PATH=/home/angel/anaconda3/envs/geant-root-env/lib/CLHEP-2.4.7.1
+
+//Path to a program.
+CMAKE_ADDR2LINE:FILEPATH=/home/angel/anaconda3/envs/geant-root-env/bin/addr2line
+
+//Path to a program.
+CMAKE_AR:FILEPATH=/home/angel/anaconda3/envs/geant-root-env/bin/ar
+
+//Choose the type of build, options are: None Debug Release RelWithDebInfo
+// MinSizeRel ...
+CMAKE_BUILD_TYPE:STRING=Debug
+
+//Enable colored diagnostics throughout.
+CMAKE_COLOR_DIAGNOSTICS:BOOL=ON
+
+//CXX compiler
+CMAKE_CXX_COMPILER:FILEPATH=/home/angel/anaconda3/envs/geant-root-env/bin/c++
+
+//A wrapper around 'ar' adding the appropriate '--plugin' option
+// for the GCC compiler
+CMAKE_CXX_COMPILER_AR:FILEPATH=/usr/bin/gcc-ar-13
+
+//A wrapper around 'ranlib' adding the appropriate '--plugin' option
+// for the GCC compiler
+CMAKE_CXX_COMPILER_RANLIB:FILEPATH=/usr/bin/gcc-ranlib-13
+
+//Flags used by the CXX compiler during all build types.
+CMAKE_CXX_FLAGS:STRING=
+
+//Flags used by the CXX compiler during DEBUG builds.
+CMAKE_CXX_FLAGS_DEBUG:STRING=-g
+
+//Flags used by the CXX compiler during MINSIZEREL builds.
+CMAKE_CXX_FLAGS_MINSIZEREL:STRING=-Os -DNDEBUG
+
+//Flags used by the CXX compiler during RELEASE builds.
+CMAKE_CXX_FLAGS_RELEASE:STRING=-O3 -DNDEBUG
+
+//Flags used by the CXX compiler during RELWITHDEBINFO builds.
+CMAKE_CXX_FLAGS_RELWITHDEBINFO:STRING=-O2 -g -DNDEBUG
+
+//C compiler
+CMAKE_C_COMPILER:FILEPATH=/home/angel/anaconda3/envs/geant-root-env/bin/cc
+
+//A wrapper around 'ar' adding the appropriate '--plugin' option
+// for the GCC compiler
+CMAKE_C_COMPILER_AR:FILEPATH=/usr/bin/gcc-ar-13
+
+//A wrapper around 'ranlib' adding the appropriate '--plugin' option
+// for the GCC compiler
+CMAKE_C_COMPILER_RANLIB:FILEPATH=/usr/bin/gcc-ranlib-13
+
+//Flags used by the C compiler during all build types.
+CMAKE_C_FLAGS:STRING=
+
+//Flags used by the C compiler during DEBUG builds.
+CMAKE_C_FLAGS_DEBUG:STRING=-g
+
+//Flags used by the C compiler during MINSIZEREL builds.
+CMAKE_C_FLAGS_MINSIZEREL:STRING=-Os -DNDEBUG
+
+//Flags used by the C compiler during RELEASE builds.
+CMAKE_C_FLAGS_RELEASE:STRING=-O3 -DNDEBUG
+
+//Flags used by the C compiler during RELWITHDEBINFO builds.
+CMAKE_C_FLAGS_RELWITHDEBINFO:STRING=-O2 -g -DNDEBUG
+
+//Path to a program.
+CMAKE_DLLTOOL:FILEPATH=CMAKE_DLLTOOL-NOTFOUND
+
+//Flags used by the linker during all build types.
+CMAKE_EXE_LINKER_FLAGS:STRING=
+
+//Flags used by the linker during DEBUG builds.
+CMAKE_EXE_LINKER_FLAGS_DEBUG:STRING=
+
+//Flags used by the linker during MINSIZEREL builds.
+CMAKE_EXE_LINKER_FLAGS_MINSIZEREL:STRING=
+
+//Flags used by the linker during RELEASE builds.
+CMAKE_EXE_LINKER_FLAGS_RELEASE:STRING=
+
+//Flags used by the linker during RELWITHDEBINFO builds.
+CMAKE_EXE_LINKER_FLAGS_RELWITHDEBINFO:STRING=
+
+//Enable/Disable output of build database during the build.
+CMAKE_EXPORT_BUILD_DATABASE:BOOL=
+
+//Enable/Disable output of compile commands during generation.
+CMAKE_EXPORT_COMPILE_COMMANDS:BOOL=1
+
+//Value Computed by CMake.
+CMAKE_FIND_PACKAGE_REDIRECTS_DIR:STATIC=/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/SimpleG4/cmake-build-debug/CMakeFiles/pkgRedirects
+
+//Install path prefix, prepended onto install directories.
+CMAKE_INSTALL_PREFIX:PATH=/usr/local
+
+//Path to a program.
+CMAKE_LINKER:FILEPATH=/home/angel/anaconda3/envs/geant-root-env/bin/ld
+
+//No help, variable specified on the command line.
+CMAKE_MAKE_PROGRAM:UNINITIALIZED=/snap/clion/415/bin/ninja/linux/x64/ninja
+
+//Flags used by the linker during the creation of modules during
+// all build types.
+CMAKE_MODULE_LINKER_FLAGS:STRING=
+
+//Flags used by the linker during the creation of modules during
+// DEBUG builds.
+CMAKE_MODULE_LINKER_FLAGS_DEBUG:STRING=
+
+//Flags used by the linker during the creation of modules during
+// MINSIZEREL builds.
+CMAKE_MODULE_LINKER_FLAGS_MINSIZEREL:STRING=
+
+//Flags used by the linker during the creation of modules during
+// RELEASE builds.
+CMAKE_MODULE_LINKER_FLAGS_RELEASE:STRING=
+
+//Flags used by the linker during the creation of modules during
+// RELWITHDEBINFO builds.
+CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO:STRING=
+
+//Path to a program.
+CMAKE_NM:FILEPATH=/home/angel/anaconda3/envs/geant-root-env/bin/nm
+
+//Path to a program.
+CMAKE_OBJCOPY:FILEPATH=/home/angel/anaconda3/envs/geant-root-env/bin/objcopy
+
+//Path to a program.
+CMAKE_OBJDUMP:FILEPATH=/home/angel/anaconda3/envs/geant-root-env/bin/objdump
+
+//No help, variable specified on the command line.
+CMAKE_PREFIX_PATH:UNINITIALIZED=/home/angel/anaconda3/envs/geant-root-env
+
+//Value Computed by CMake
+CMAKE_PROJECT_COMPAT_VERSION:STATIC=
+
+//Value Computed by CMake
+CMAKE_PROJECT_DESCRIPTION:STATIC=
+
+//Value Computed by CMake
+CMAKE_PROJECT_HOMEPAGE_URL:STATIC=
+
+//Value Computed by CMake
+CMAKE_PROJECT_NAME:STATIC=SimpleG4
+
+//Path to a program.
+CMAKE_RANLIB:FILEPATH=/home/angel/anaconda3/envs/geant-root-env/bin/ranlib
+
+//Path to a program.
+CMAKE_READELF:FILEPATH=/home/angel/anaconda3/envs/geant-root-env/bin/readelf
+
+//Flags used by the linker during the creation of shared libraries
+// during all build types.
+CMAKE_SHARED_LINKER_FLAGS:STRING=
+
+//Flags used by the linker during the creation of shared libraries
+// during DEBUG builds.
+CMAKE_SHARED_LINKER_FLAGS_DEBUG:STRING=
+
+//Flags used by the linker during the creation of shared libraries
+// during MINSIZEREL builds.
+CMAKE_SHARED_LINKER_FLAGS_MINSIZEREL:STRING=
+
+//Flags used by the linker during the creation of shared libraries
+// during RELEASE builds.
+CMAKE_SHARED_LINKER_FLAGS_RELEASE:STRING=
+
+//Flags used by the linker during the creation of shared libraries
+// during RELWITHDEBINFO builds.
+CMAKE_SHARED_LINKER_FLAGS_RELWITHDEBINFO:STRING=
+
+//If set, runtime paths are not added when installing shared libraries,
+// but are added when building.
+CMAKE_SKIP_INSTALL_RPATH:BOOL=NO
+
+//If set, runtime paths are not added when using shared libraries.
+CMAKE_SKIP_RPATH:BOOL=NO
+
+//Flags used by the archiver during the creation of static libraries
+// during all build types.
+CMAKE_STATIC_LINKER_FLAGS:STRING=
+
+//Flags used by the archiver during the creation of static libraries
+// during DEBUG builds.
+CMAKE_STATIC_LINKER_FLAGS_DEBUG:STRING=
+
+//Flags used by the archiver during the creation of static libraries
+// during MINSIZEREL builds.
+CMAKE_STATIC_LINKER_FLAGS_MINSIZEREL:STRING=
+
+//Flags used by the archiver during the creation of static libraries
+// during RELEASE builds.
+CMAKE_STATIC_LINKER_FLAGS_RELEASE:STRING=
+
+//Flags used by the archiver during the creation of static libraries
+// during RELWITHDEBINFO builds.
+CMAKE_STATIC_LINKER_FLAGS_RELWITHDEBINFO:STRING=
+
+//Path to a program.
+CMAKE_STRIP:FILEPATH=/home/angel/anaconda3/envs/geant-root-env/bin/strip
+
+//Path to a program.
+CMAKE_TAPI:FILEPATH=CMAKE_TAPI-NOTFOUND
+
+//If this value is on, makefiles will be generated without the
+// .SILENT directive, and all commands will be echoed to the console
+// during the make.  This is useful for debugging only. With Visual
+// Studio IDE projects all commands are done without /nologo.
+CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
+
+//Path to a file.
+EXPAT_INCLUDE_DIR:PATH=/home/angel/anaconda3/envs/geant-root-env/include
+
+//Path to a library.
+EXPAT_LIBRARY_DEBUG:FILEPATH=EXPAT_LIBRARY_DEBUG-NOTFOUND
+
+//Path to a library.
+EXPAT_LIBRARY_RELEASE:FILEPATH=/home/angel/anaconda3/envs/geant-root-env/lib/libexpat.so
+
+//Path to a file.
+FREETYPE_INCLUDE_DIR_freetype2:PATH=/home/angel/anaconda3/envs/geant-root-env/include/freetype2
+
+//Path to a file.
+FREETYPE_INCLUDE_DIR_ft2build:PATH=/home/angel/anaconda3/envs/geant-root-env/include/freetype2
+
+//Path to a library.
+FREETYPE_LIBRARY_DEBUG:FILEPATH=FREETYPE_LIBRARY_DEBUG-NOTFOUND
+
+//Path to a library.
+FREETYPE_LIBRARY_RELEASE:FILEPATH=/home/angel/anaconda3/envs/geant-root-env/lib/libfreetype.so
+
+//Path to a file.
+Fontconfig_INCLUDE_DIR:PATH=/home/angel/anaconda3/envs/geant-root-env/include
+
+//Path to a library.
+Fontconfig_LIBRARY:FILEPATH=/home/angel/anaconda3/envs/geant-root-env/lib/libfontconfig.so
+
+//No help, variable specified on the command line.
+Geant4_DIR:UNINITIALIZED=/home/angel/anaconda3/envs/geant-root-env/lib/cmake/Geant4
+
+//HDF5 C Wrapper compiler.  Used only to detect HDF5 compile flags.
+HDF5_C_COMPILER_EXECUTABLE:FILEPATH=/home/angel/anaconda3/envs/geant-root-env/bin/h5cc
+
+//Path to a file.
+HDF5_C_INCLUDE_DIR:PATH=/home/angel/anaconda3/envs/geant-root-env/include
+
+//HDF5 file differencing tool.
+HDF5_DIFF_EXECUTABLE:FILEPATH=/home/angel/anaconda3/envs/geant-root-env/bin/h5diff
+
+//The directory containing a CMake configuration file for HDF5.
+HDF5_DIR:PATH=HDF5_DIR-NOTFOUND
+
+//HDF5 library compiled with parallel IO support
+HDF5_IS_PARALLEL:BOOL=FALSE
+
+//Path to a library.
+HDF5_hdf5_LIBRARY_DEBUG:FILEPATH=HDF5_hdf5_LIBRARY_DEBUG-NOTFOUND
+
+//Path to a library.
+HDF5_hdf5_LIBRARY_RELEASE:FILEPATH=/home/angel/anaconda3/envs/geant-root-env/lib/libhdf5.so
+
+//Path to a file.
+OPENGL_EGL_INCLUDE_DIR:PATH=OPENGL_EGL_INCLUDE_DIR-NOTFOUND
+
+//Path to a file.
+OPENGL_GLES2_INCLUDE_DIR:PATH=OPENGL_GLES2_INCLUDE_DIR-NOTFOUND
+
+//Path to a file.
+OPENGL_GLES3_INCLUDE_DIR:PATH=OPENGL_GLES3_INCLUDE_DIR-NOTFOUND
+
+//Path to a file.
+OPENGL_GLU_INCLUDE_DIR:PATH=/home/angel/anaconda3/envs/geant-root-env/include
+
+//Path to a file.
+OPENGL_GLX_INCLUDE_DIR:PATH=/home/angel/anaconda3/envs/geant-root-env/include
+
+//Path to a file.
+OPENGL_INCLUDE_DIR:PATH=/home/angel/anaconda3/envs/geant-root-env/include
+
+//Path to a library.
+OPENGL_egl_LIBRARY:FILEPATH=OPENGL_egl_LIBRARY-NOTFOUND
+
+//Path to a library.
+OPENGL_gl_LIBRARY:FILEPATH=/home/angel/anaconda3/envs/geant-root-env/lib/libGL.so
+
+//Path to a library.
+OPENGL_gles2_LIBRARY:FILEPATH=OPENGL_gles2_LIBRARY-NOTFOUND
+
+//Path to a library.
+OPENGL_gles3_LIBRARY:FILEPATH=OPENGL_gles3_LIBRARY-NOTFOUND
+
+//Path to a library.
+OPENGL_glu_LIBRARY:FILEPATH=/home/angel/anaconda3/envs/geant-root-env/lib/libGLU.so
+
+//Path to a library.
+OPENGL_glx_LIBRARY:FILEPATH=/home/angel/anaconda3/envs/geant-root-env/lib/libGLX.so
+
+//Path to a library.
+OPENGL_opengl_LIBRARY:FILEPATH=OPENGL_opengl_LIBRARY-NOTFOUND
+
+//Path to a file.
+OPENGL_xmesa_INCLUDE_DIR:PATH=OPENGL_xmesa_INCLUDE_DIR-NOTFOUND
+
+//Arguments to supply to pkg-config
+PKG_CONFIG_ARGN:STRING=
+
+//pkg-config executable
+PKG_CONFIG_EXECUTABLE:FILEPATH=/usr/bin/pkg-config
+
+//The directory containing a CMake configuration file for PTL.
+PTL_DIR:PATH=/home/angel/anaconda3/envs/geant-root-env/lib/cmake/Geant4/PTL
+
+//The directory containing a CMake configuration file for Qt53DCore.
+Qt53DCore_DIR:PATH=/home/angel/anaconda3/envs/geant-root-env/lib/cmake/Qt53DCore
+
+//The directory containing a CMake configuration file for Qt53DExtras.
+Qt53DExtras_DIR:PATH=/home/angel/anaconda3/envs/geant-root-env/lib/cmake/Qt53DExtras
+
+//The directory containing a CMake configuration file for Qt53DInput.
+Qt53DInput_DIR:PATH=/home/angel/anaconda3/envs/geant-root-env/lib/cmake/Qt53DInput
+
+//The directory containing a CMake configuration file for Qt53DLogic.
+Qt53DLogic_DIR:PATH=/home/angel/anaconda3/envs/geant-root-env/lib/cmake/Qt53DLogic
+
+//The directory containing a CMake configuration file for Qt53DRender.
+Qt53DRender_DIR:PATH=/home/angel/anaconda3/envs/geant-root-env/lib/cmake/Qt53DRender
+
+//The directory containing a CMake configuration file for Qt5Core.
+Qt5Core_DIR:PATH=/home/angel/anaconda3/envs/geant-root-env/lib/cmake/Qt5Core
+
+//The directory containing a CMake configuration file for Qt5Gamepad.
+Qt5Gamepad_DIR:PATH=/home/angel/anaconda3/envs/geant-root-env/lib/cmake/Qt5Gamepad
+
+//The directory containing a CMake configuration file for Qt5Gui.
+Qt5Gui_DIR:PATH=/home/angel/anaconda3/envs/geant-root-env/lib/cmake/Qt5Gui
+
+//The directory containing a CMake configuration file for Qt5Network.
+Qt5Network_DIR:PATH=/home/angel/anaconda3/envs/geant-root-env/lib/cmake/Qt5Network
+
+//The directory containing a CMake configuration file for Qt5OpenGL.
+Qt5OpenGL_DIR:PATH=/home/angel/anaconda3/envs/geant-root-env/lib/cmake/Qt5OpenGL
+
+//The directory containing a CMake configuration file for Qt5Widgets.
+Qt5Widgets_DIR:PATH=/home/angel/anaconda3/envs/geant-root-env/lib/cmake/Qt5Widgets
+
+//Path to a library.
+ROOT_Core_LIBRARY:FILEPATH=/home/angel/anaconda3/envs/geant-root-env/lib/libCore.so
+
+//The directory containing a CMake configuration file for ROOT.
+ROOT_DIR:PATH=/home/angel/anaconda3/envs/geant-root-env/cmake
+
+//Path to a library.
+ROOT_Gpad_LIBRARY:FILEPATH=/home/angel/anaconda3/envs/geant-root-env/lib/libGpad.so
+
+//Path to a library.
+ROOT_Graf3d_LIBRARY:FILEPATH=/home/angel/anaconda3/envs/geant-root-env/lib/libGraf3d.so
+
+//Path to a library.
+ROOT_Graf_LIBRARY:FILEPATH=/home/angel/anaconda3/envs/geant-root-env/lib/libGraf.so
+
+//Path to a library.
+ROOT_Hist_LIBRARY:FILEPATH=/home/angel/anaconda3/envs/geant-root-env/lib/libHist.so
+
+//Path to a library.
+ROOT_Imt_LIBRARY:FILEPATH=/home/angel/anaconda3/envs/geant-root-env/lib/libImt.so
+
+//Path to a library.
+ROOT_MathCore_LIBRARY:FILEPATH=/home/angel/anaconda3/envs/geant-root-env/lib/libMathCore.so
+
+//Path to a library.
+ROOT_Matrix_LIBRARY:FILEPATH=/home/angel/anaconda3/envs/geant-root-env/lib/libMatrix.so
+
+//Path to a library.
+ROOT_MultiProc_LIBRARY:FILEPATH=/home/angel/anaconda3/envs/geant-root-env/lib/libMultiProc.so
+
+//Path to a library.
+ROOT_Net_LIBRARY:FILEPATH=/home/angel/anaconda3/envs/geant-root-env/lib/libNet.so
+
+//Path to a library.
+ROOT_Physics_LIBRARY:FILEPATH=/home/angel/anaconda3/envs/geant-root-env/lib/libPhysics.so
+
+//Path to a library.
+ROOT_Postscript_LIBRARY:FILEPATH=/home/angel/anaconda3/envs/geant-root-env/lib/libPostscript.so
+
+//Path to a library.
+ROOT_RIO_LIBRARY:FILEPATH=/home/angel/anaconda3/envs/geant-root-env/lib/libRIO.so
+
+//Path to a library.
+ROOT_ROOTDataFrame_LIBRARY:FILEPATH=/home/angel/anaconda3/envs/geant-root-env/lib/libROOTDataFrame.so
+
+//Path to a library.
+ROOT_ROOTVecOps_LIBRARY:FILEPATH=/home/angel/anaconda3/envs/geant-root-env/lib/libROOTVecOps.so
+
+//Path to a library.
+ROOT_Rint_LIBRARY:FILEPATH=/home/angel/anaconda3/envs/geant-root-env/lib/libRint.so
+
+//Path to a library.
+ROOT_Thread_LIBRARY:FILEPATH=/home/angel/anaconda3/envs/geant-root-env/lib/libThread.so
+
+//Path to a library.
+ROOT_TreePlayer_LIBRARY:FILEPATH=/home/angel/anaconda3/envs/geant-root-env/lib/libTreePlayer.so
+
+//Path to a library.
+ROOT_Tree_LIBRARY:FILEPATH=/home/angel/anaconda3/envs/geant-root-env/lib/libTree.so
+
+//Path to a program.
+ROOT_genmap_CMD:FILEPATH=ROOT_genmap_CMD-NOTFOUND
+
+//Path to a program.
+ROOT_genreflex_CMD:FILEPATH=/home/angel/anaconda3/envs/geant-root-env/bin/genreflex
+
+//Path to a program.
+ROOT_hadd_CMD:FILEPATH=/home/angel/anaconda3/envs/geant-root-env/bin/hadd
+
+//Path to a program.
+ROOT_root_CMD:FILEPATH=/home/angel/anaconda3/envs/geant-root-env/bin/root
+
+//Path to a program.
+ROOT_rootbrowse_CMD:FILEPATH=/home/angel/anaconda3/envs/geant-root-env/bin/rootbrowse
+
+//Path to a program.
+ROOT_rootcint_CMD:FILEPATH=/home/angel/anaconda3/envs/geant-root-env/bin/rootcint
+
+//Path to a program.
+ROOT_rootcling_CMD:FILEPATH=/home/angel/anaconda3/envs/geant-root-env/bin/rootcling
+
+//Path to a program.
+ROOT_rootcp_CMD:FILEPATH=/home/angel/anaconda3/envs/geant-root-env/bin/rootcp
+
+//Path to a program.
+ROOT_rootdraw_CMD:FILEPATH=ROOT_rootdraw_CMD-NOTFOUND
+
+//Path to a program.
+ROOT_rootls_CMD:FILEPATH=/home/angel/anaconda3/envs/geant-root-env/bin/rootls
+
+//Path to a program.
+ROOT_rootmkdir_CMD:FILEPATH=/home/angel/anaconda3/envs/geant-root-env/bin/rootmkdir
+
+//Path to a program.
+ROOT_rootmv_CMD:FILEPATH=/home/angel/anaconda3/envs/geant-root-env/bin/rootmv
+
+//Path to a program.
+ROOT_rootrm_CMD:FILEPATH=/home/angel/anaconda3/envs/geant-root-env/bin/rootrm
+
+//Value Computed by CMake
+SimpleG4_BINARY_DIR:STATIC=/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/SimpleG4/cmake-build-debug
+
+//Value Computed by CMake
+SimpleG4_IS_TOP_LEVEL:STATIC=ON
+
+//Value Computed by CMake
+SimpleG4_SOURCE_DIR:STATIC=/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/SimpleG4
+
+//Path to a file.
+VDT_INCLUDE_DIR:PATH=/home/angel/anaconda3/envs/geant-root-env/include
+
+//Path to a library.
+VDT_LIBRARY:FILEPATH=/home/angel/anaconda3/envs/geant-root-env/lib/libvdt.so
+
+//Path to a file.
+X11_ICE_INCLUDE_PATH:PATH=/home/angel/anaconda3/envs/geant-root-env/include
+
+//Path to a library.
+X11_ICE_LIB:FILEPATH=/home/angel/anaconda3/envs/geant-root-env/lib/libICE.so
+
+//Path to a file.
+X11_SM_INCLUDE_PATH:PATH=/home/angel/anaconda3/envs/geant-root-env/include
+
+//Path to a library.
+X11_SM_LIB:FILEPATH=/home/angel/anaconda3/envs/geant-root-env/lib/libSM.so
+
+//Path to a file.
+X11_X11_INCLUDE_PATH:PATH=/home/angel/anaconda3/envs/geant-root-env/include
+
+//Path to a library.
+X11_X11_LIB:FILEPATH=/home/angel/anaconda3/envs/geant-root-env/lib/libX11.so
+
+//Path to a file.
+X11_X11_xcb_INCLUDE_PATH:PATH=/home/angel/anaconda3/envs/geant-root-env/include
+
+//Path to a library.
+X11_X11_xcb_LIB:FILEPATH=/home/angel/anaconda3/envs/geant-root-env/lib/libX11-xcb.so
+
+//Path to a file.
+X11_XRes_INCLUDE_PATH:PATH=X11_XRes_INCLUDE_PATH-NOTFOUND
+
+//Path to a library.
+X11_XRes_LIB:FILEPATH=X11_XRes_LIB-NOTFOUND
+
+//Path to a file.
+X11_XShm_INCLUDE_PATH:PATH=/home/angel/anaconda3/envs/geant-root-env/include
+
+//Path to a file.
+X11_XSync_INCLUDE_PATH:PATH=/home/angel/anaconda3/envs/geant-root-env/include
+
+//Path to a file.
+X11_Xaccessrules_INCLUDE_PATH:PATH=X11_Xaccessrules_INCLUDE_PATH-NOTFOUND
+
+//Path to a file.
+X11_Xaccessstr_INCLUDE_PATH:PATH=/home/angel/anaconda3/envs/geant-root-env/include
+
+//Path to a file.
+X11_Xau_INCLUDE_PATH:PATH=/home/angel/anaconda3/envs/geant-root-env/include
+
+//Path to a library.
+X11_Xau_LIB:FILEPATH=/home/angel/anaconda3/envs/geant-root-env/lib/libXau.so
+
+//Path to a file.
+X11_Xaw_INCLUDE_PATH:PATH=X11_Xaw_INCLUDE_PATH-NOTFOUND
+
+//Path to a library.
+X11_Xaw_LIB:FILEPATH=X11_Xaw_LIB-NOTFOUND
+
+//Path to a file.
+X11_Xcomposite_INCLUDE_PATH:PATH=/home/angel/anaconda3/envs/geant-root-env/include
+
+//Path to a library.
+X11_Xcomposite_LIB:FILEPATH=/home/angel/anaconda3/envs/geant-root-env/lib/libXcomposite.so
+
+//Path to a file.
+X11_Xcursor_INCLUDE_PATH:PATH=/home/angel/anaconda3/envs/geant-root-env/include
+
+//Path to a library.
+X11_Xcursor_LIB:FILEPATH=/home/angel/anaconda3/envs/geant-root-env/lib/libXcursor.so
+
+//Path to a file.
+X11_Xdamage_INCLUDE_PATH:PATH=/home/angel/anaconda3/envs/geant-root-env/include
+
+//Path to a library.
+X11_Xdamage_LIB:FILEPATH=/home/angel/anaconda3/envs/geant-root-env/lib/libXdamage.so
+
+//Path to a file.
+X11_Xdbe_INCLUDE_PATH:PATH=/home/angel/anaconda3/envs/geant-root-env/include
+
+//Path to a file.
+X11_Xdmcp_INCLUDE_PATH:PATH=/home/angel/anaconda3/envs/geant-root-env/include
+
+//Path to a library.
+X11_Xdmcp_LIB:FILEPATH=/home/angel/anaconda3/envs/geant-root-env/lib/libXdmcp.so
+
+//Path to a file.
+X11_Xext_INCLUDE_PATH:PATH=/home/angel/anaconda3/envs/geant-root-env/include
+
+//Path to a library.
+X11_Xext_LIB:FILEPATH=/home/angel/anaconda3/envs/geant-root-env/lib/libXext.so
+
+//Path to a file.
+X11_Xfixes_INCLUDE_PATH:PATH=/home/angel/anaconda3/envs/geant-root-env/include
+
+//Path to a library.
+X11_Xfixes_LIB:FILEPATH=/home/angel/anaconda3/envs/geant-root-env/lib/libXfixes.so
+
+//Path to a file.
+X11_Xft_INCLUDE_PATH:PATH=/home/angel/anaconda3/envs/geant-root-env/include
+
+//Path to a library.
+X11_Xft_LIB:FILEPATH=/home/angel/anaconda3/envs/geant-root-env/lib/libXft.so
+
+//Path to a file.
+X11_Xi_INCLUDE_PATH:PATH=/home/angel/anaconda3/envs/geant-root-env/include
+
+//Path to a library.
+X11_Xi_LIB:FILEPATH=/home/angel/anaconda3/envs/geant-root-env/lib/libXi.so
+
+//Path to a file.
+X11_Xinerama_INCLUDE_PATH:PATH=/home/angel/anaconda3/envs/geant-root-env/include
+
+//Path to a library.
+X11_Xinerama_LIB:FILEPATH=/home/angel/anaconda3/envs/geant-root-env/lib/libXinerama.so
+
+//Path to a file.
+X11_Xkb_INCLUDE_PATH:PATH=/home/angel/anaconda3/envs/geant-root-env/include
+
+//Path to a file.
+X11_Xkblib_INCLUDE_PATH:PATH=/home/angel/anaconda3/envs/geant-root-env/include
+
+//Path to a file.
+X11_Xlib_INCLUDE_PATH:PATH=/home/angel/anaconda3/envs/geant-root-env/include
+
+//Path to a file.
+X11_Xmu_INCLUDE_PATH:PATH=/home/angel/anaconda3/envs/geant-root-env/include
+
+//Path to a library.
+X11_Xmu_LIB:FILEPATH=/home/angel/anaconda3/envs/geant-root-env/lib/libXmu.so
+
+//Path to a file.
+X11_Xpm_INCLUDE_PATH:PATH=/home/angel/anaconda3/envs/geant-root-env/include
+
+//Path to a library.
+X11_Xpm_LIB:FILEPATH=/home/angel/anaconda3/envs/geant-root-env/lib/libXpm.so
+
+//Path to a file.
+X11_Xpresent_INCLUDE_PATH:PATH=X11_Xpresent_INCLUDE_PATH-NOTFOUND
+
+//Path to a library.
+X11_Xpresent_LIB:FILEPATH=X11_Xpresent_LIB-NOTFOUND
+
+//Path to a file.
+X11_Xrandr_INCLUDE_PATH:PATH=/home/angel/anaconda3/envs/geant-root-env/include
+
+//Path to a library.
+X11_Xrandr_LIB:FILEPATH=/home/angel/anaconda3/envs/geant-root-env/lib/libXrandr.so
+
+//Path to a file.
+X11_Xrender_INCLUDE_PATH:PATH=/home/angel/anaconda3/envs/geant-root-env/include
+
+//Path to a library.
+X11_Xrender_LIB:FILEPATH=/home/angel/anaconda3/envs/geant-root-env/lib/libXrender.so
+
+//Path to a file.
+X11_Xshape_INCLUDE_PATH:PATH=/home/angel/anaconda3/envs/geant-root-env/include
+
+//Path to a file.
+X11_Xss_INCLUDE_PATH:PATH=X11_Xss_INCLUDE_PATH-NOTFOUND
+
+//Path to a library.
+X11_Xss_LIB:FILEPATH=X11_Xss_LIB-NOTFOUND
+
+//Path to a file.
+X11_Xt_INCLUDE_PATH:PATH=/home/angel/anaconda3/envs/geant-root-env/include
+
+//Path to a library.
+X11_Xt_LIB:FILEPATH=/home/angel/anaconda3/envs/geant-root-env/lib/libXt.so
+
+//Path to a file.
+X11_Xtst_INCLUDE_PATH:PATH=/home/angel/anaconda3/envs/geant-root-env/include
+
+//Path to a library.
+X11_Xtst_LIB:FILEPATH=/home/angel/anaconda3/envs/geant-root-env/lib/libXtst.so
+
+//Path to a file.
+X11_Xutil_INCLUDE_PATH:PATH=/home/angel/anaconda3/envs/geant-root-env/include
+
+//Path to a file.
+X11_Xv_INCLUDE_PATH:PATH=X11_Xv_INCLUDE_PATH-NOTFOUND
+
+//Path to a library.
+X11_Xv_LIB:FILEPATH=X11_Xv_LIB-NOTFOUND
+
+//Path to a file.
+X11_Xxf86misc_INCLUDE_PATH:PATH=X11_Xxf86misc_INCLUDE_PATH-NOTFOUND
+
+//Path to a library.
+X11_Xxf86misc_LIB:FILEPATH=X11_Xxf86misc_LIB-NOTFOUND
+
+//Path to a file.
+X11_Xxf86vm_INCLUDE_PATH:PATH=/home/angel/anaconda3/envs/geant-root-env/include
+
+//Path to a library.
+X11_Xxf86vm_LIB:FILEPATH=/home/angel/anaconda3/envs/geant-root-env/lib/libXxf86vm.so
+
+//Path to a file.
+X11_dpms_INCLUDE_PATH:PATH=/home/angel/anaconda3/envs/geant-root-env/include
+
+//Path to a file.
+X11_xcb_INCLUDE_PATH:PATH=/home/angel/anaconda3/envs/geant-root-env/include
+
+//Path to a library.
+X11_xcb_LIB:FILEPATH=/home/angel/anaconda3/envs/geant-root-env/lib/libxcb.so
+
+//Path to a file.
+X11_xcb_composite_INCLUDE_PATH:PATH=/home/angel/anaconda3/envs/geant-root-env/include
+
+//Path to a library.
+X11_xcb_composite_LIB:FILEPATH=/home/angel/anaconda3/envs/geant-root-env/lib/libxcb-composite.so
+
+//Path to a file.
+X11_xcb_cursor_INCLUDE_PATH:PATH=X11_xcb_cursor_INCLUDE_PATH-NOTFOUND
+
+//Path to a library.
+X11_xcb_cursor_LIB:FILEPATH=X11_xcb_cursor_LIB-NOTFOUND
+
+//Path to a file.
+X11_xcb_damage_INCLUDE_PATH:PATH=/home/angel/anaconda3/envs/geant-root-env/include
+
+//Path to a library.
+X11_xcb_damage_LIB:FILEPATH=/home/angel/anaconda3/envs/geant-root-env/lib/libxcb-damage.so
+
+//Path to a file.
+X11_xcb_dpms_INCLUDE_PATH:PATH=/home/angel/anaconda3/envs/geant-root-env/include
+
+//Path to a library.
+X11_xcb_dpms_LIB:FILEPATH=/home/angel/anaconda3/envs/geant-root-env/lib/libxcb-dpms.so
+
+//Path to a file.
+X11_xcb_dri2_INCLUDE_PATH:PATH=/home/angel/anaconda3/envs/geant-root-env/include
+
+//Path to a library.
+X11_xcb_dri2_LIB:FILEPATH=/home/angel/anaconda3/envs/geant-root-env/lib/libxcb-dri2.so
+
+//Path to a file.
+X11_xcb_dri3_INCLUDE_PATH:PATH=/home/angel/anaconda3/envs/geant-root-env/include
+
+//Path to a library.
+X11_xcb_dri3_LIB:FILEPATH=/home/angel/anaconda3/envs/geant-root-env/lib/libxcb-dri3.so
+
+//Path to a file.
+X11_xcb_errors_INCLUDE_PATH:PATH=X11_xcb_errors_INCLUDE_PATH-NOTFOUND
+
+//Path to a library.
+X11_xcb_errors_LIB:FILEPATH=X11_xcb_errors_LIB-NOTFOUND
+
+//Path to a file.
+X11_xcb_ewmh_INCLUDE_PATH:PATH=/home/angel/anaconda3/envs/geant-root-env/include
+
+//Path to a library.
+X11_xcb_ewmh_LIB:FILEPATH=/home/angel/anaconda3/envs/geant-root-env/lib/libxcb-ewmh.so
+
+//Path to a file.
+X11_xcb_glx_INCLUDE_PATH:PATH=/home/angel/anaconda3/envs/geant-root-env/include
+
+//Path to a library.
+X11_xcb_glx_LIB:FILEPATH=/home/angel/anaconda3/envs/geant-root-env/lib/libxcb-glx.so
+
+//Path to a file.
+X11_xcb_icccm_INCLUDE_PATH:PATH=/home/angel/anaconda3/envs/geant-root-env/include
+
+//Path to a library.
+X11_xcb_icccm_LIB:FILEPATH=/home/angel/anaconda3/envs/geant-root-env/lib/libxcb-icccm.so
+
+//Path to a file.
+X11_xcb_image_INCLUDE_PATH:PATH=/home/angel/anaconda3/envs/geant-root-env/include
+
+//Path to a library.
+X11_xcb_image_LIB:FILEPATH=/home/angel/anaconda3/envs/geant-root-env/lib/libxcb-image.so
+
+//Path to a file.
+X11_xcb_keysyms_INCLUDE_PATH:PATH=/home/angel/anaconda3/envs/geant-root-env/include
+
+//Path to a library.
+X11_xcb_keysyms_LIB:FILEPATH=/home/angel/anaconda3/envs/geant-root-env/lib/libxcb-keysyms.so
+
+//Path to a file.
+X11_xcb_present_INCLUDE_PATH:PATH=/home/angel/anaconda3/envs/geant-root-env/include
+
+//Path to a library.
+X11_xcb_present_LIB:FILEPATH=/home/angel/anaconda3/envs/geant-root-env/lib/libxcb-present.so
+
+//Path to a file.
+X11_xcb_randr_INCLUDE_PATH:PATH=/home/angel/anaconda3/envs/geant-root-env/include
+
+//Path to a library.
+X11_xcb_randr_LIB:FILEPATH=/home/angel/anaconda3/envs/geant-root-env/lib/libxcb-randr.so
+
+//Path to a file.
+X11_xcb_record_INCLUDE_PATH:PATH=/home/angel/anaconda3/envs/geant-root-env/include
+
+//Path to a library.
+X11_xcb_record_LIB:FILEPATH=/home/angel/anaconda3/envs/geant-root-env/lib/libxcb-record.so
+
+//Path to a file.
+X11_xcb_render_INCLUDE_PATH:PATH=/home/angel/anaconda3/envs/geant-root-env/include
+
+//Path to a library.
+X11_xcb_render_LIB:FILEPATH=/home/angel/anaconda3/envs/geant-root-env/lib/libxcb-render.so
+
+//Path to a file.
+X11_xcb_render_util_INCLUDE_PATH:PATH=/home/angel/anaconda3/envs/geant-root-env/include
+
+//Path to a library.
+X11_xcb_render_util_LIB:FILEPATH=/home/angel/anaconda3/envs/geant-root-env/lib/libxcb-render-util.so
+
+//Path to a file.
+X11_xcb_res_INCLUDE_PATH:PATH=/home/angel/anaconda3/envs/geant-root-env/include
+
+//Path to a library.
+X11_xcb_res_LIB:FILEPATH=/home/angel/anaconda3/envs/geant-root-env/lib/libxcb-res.so
+
+//Path to a file.
+X11_xcb_screensaver_INCLUDE_PATH:PATH=/home/angel/anaconda3/envs/geant-root-env/include
+
+//Path to a library.
+X11_xcb_screensaver_LIB:FILEPATH=/home/angel/anaconda3/envs/geant-root-env/lib/libxcb-screensaver.so
+
+//Path to a file.
+X11_xcb_shape_INCLUDE_PATH:PATH=/home/angel/anaconda3/envs/geant-root-env/include
+
+//Path to a library.
+X11_xcb_shape_LIB:FILEPATH=/home/angel/anaconda3/envs/geant-root-env/lib/libxcb-shape.so
+
+//Path to a file.
+X11_xcb_shm_INCLUDE_PATH:PATH=/home/angel/anaconda3/envs/geant-root-env/include
+
+//Path to a library.
+X11_xcb_shm_LIB:FILEPATH=/home/angel/anaconda3/envs/geant-root-env/lib/libxcb-shm.so
+
+//Path to a file.
+X11_xcb_sync_INCLUDE_PATH:PATH=/home/angel/anaconda3/envs/geant-root-env/include
+
+//Path to a library.
+X11_xcb_sync_LIB:FILEPATH=/home/angel/anaconda3/envs/geant-root-env/lib/libxcb-sync.so
+
+//Path to a file.
+X11_xcb_util_INCLUDE_PATH:PATH=/home/angel/anaconda3/envs/geant-root-env/include
+
+//Path to a library.
+X11_xcb_util_LIB:FILEPATH=/home/angel/anaconda3/envs/geant-root-env/lib/libxcb-util.so
+
+//Path to a file.
+X11_xcb_xf86dri_INCLUDE_PATH:PATH=/home/angel/anaconda3/envs/geant-root-env/include
+
+//Path to a library.
+X11_xcb_xf86dri_LIB:FILEPATH=/home/angel/anaconda3/envs/geant-root-env/lib/libxcb-xf86dri.so
+
+//Path to a file.
+X11_xcb_xfixes_INCLUDE_PATH:PATH=/home/angel/anaconda3/envs/geant-root-env/include
+
+//Path to a library.
+X11_xcb_xfixes_LIB:FILEPATH=/home/angel/anaconda3/envs/geant-root-env/lib/libxcb-xfixes.so
+
+//Path to a file.
+X11_xcb_xinerama_INCLUDE_PATH:PATH=/home/angel/anaconda3/envs/geant-root-env/include
+
+//Path to a library.
+X11_xcb_xinerama_LIB:FILEPATH=/home/angel/anaconda3/envs/geant-root-env/lib/libxcb-xinerama.so
+
+//Path to a file.
+X11_xcb_xinput_INCLUDE_PATH:PATH=/home/angel/anaconda3/envs/geant-root-env/include
+
+//Path to a library.
+X11_xcb_xinput_LIB:FILEPATH=/home/angel/anaconda3/envs/geant-root-env/lib/libxcb-xinput.so
+
+//Path to a file.
+X11_xcb_xkb_INCLUDE_PATH:PATH=/home/angel/anaconda3/envs/geant-root-env/include
+
+//Path to a library.
+X11_xcb_xkb_LIB:FILEPATH=/home/angel/anaconda3/envs/geant-root-env/lib/libxcb-xkb.so
+
+//Path to a file.
+X11_xcb_xrm_INCLUDE_PATH:PATH=X11_xcb_xrm_INCLUDE_PATH-NOTFOUND
+
+//Path to a library.
+X11_xcb_xrm_LIB:FILEPATH=X11_xcb_xrm_LIB-NOTFOUND
+
+//Path to a file.
+X11_xcb_xtest_INCLUDE_PATH:PATH=/home/angel/anaconda3/envs/geant-root-env/include
+
+//Path to a library.
+X11_xcb_xtest_LIB:FILEPATH=/home/angel/anaconda3/envs/geant-root-env/lib/libxcb-xtest.so
+
+//Path to a file.
+X11_xcb_xv_INCLUDE_PATH:PATH=/home/angel/anaconda3/envs/geant-root-env/include
+
+//Path to a library.
+X11_xcb_xv_LIB:FILEPATH=/home/angel/anaconda3/envs/geant-root-env/lib/libxcb-xv.so
+
+//Path to a file.
+X11_xcb_xvmc_INCLUDE_PATH:PATH=/home/angel/anaconda3/envs/geant-root-env/include
+
+//Path to a library.
+X11_xcb_xvmc_LIB:FILEPATH=/home/angel/anaconda3/envs/geant-root-env/lib/libxcb-xvmc.so
+
+//Path to a file.
+X11_xkbcommon_INCLUDE_PATH:PATH=/home/angel/anaconda3/envs/geant-root-env/include
+
+//Path to a library.
+X11_xkbcommon_LIB:FILEPATH=/home/angel/anaconda3/envs/geant-root-env/lib/libxkbcommon.so
+
+//Path to a file.
+X11_xkbcommon_X11_INCLUDE_PATH:PATH=/home/angel/anaconda3/envs/geant-root-env/include
+
+//Path to a library.
+X11_xkbcommon_X11_LIB:FILEPATH=/home/angel/anaconda3/envs/geant-root-env/lib/libxkbcommon-x11.so
+
+//Path to a file.
+X11_xkbfile_INCLUDE_PATH:PATH=X11_xkbfile_INCLUDE_PATH-NOTFOUND
+
+//Path to a library.
+X11_xkbfile_LIB:FILEPATH=X11_xkbfile_LIB-NOTFOUND
+
+//Xerces-C++ include directory
+XercesC_INCLUDE_DIR:PATH=/home/angel/anaconda3/envs/geant-root-env/include
+
+//Xerces-C++ libraries (debug)
+XercesC_LIBRARY_DEBUG:FILEPATH=XercesC_LIBRARY_DEBUG-NOTFOUND
+
+//Xerces-C++ libraries (release)
+XercesC_LIBRARY_RELEASE:FILEPATH=/home/angel/anaconda3/envs/geant-root-env/lib/libxerces-c.so
+
+//Path to a file.
+ZLIB_INCLUDE_DIR:PATH=/home/angel/anaconda3/envs/geant-root-env/include
+
+//Path to a library.
+ZLIB_LIBRARY_DEBUG:FILEPATH=ZLIB_LIBRARY_DEBUG-NOTFOUND
+
+//Path to a library.
+ZLIB_LIBRARY_RELEASE:FILEPATH=/home/angel/anaconda3/envs/geant-root-env/lib/libz.so
+
+//Path to a library.
+pkgcfg_lib_PC_EXPAT_expat:FILEPATH=/home/angel/anaconda3/envs/geant-root-env/lib/libexpat.so
+
+//Path to a library.
+pkgcfg_lib_PKG_FONTCONFIG_fontconfig:FILEPATH=/home/angel/anaconda3/envs/geant-root-env/lib/libfontconfig.so
+
+//Path to a library.
+pkgcfg_lib_PKG_FONTCONFIG_freetype:FILEPATH=/home/angel/anaconda3/envs/geant-root-env/lib/libfreetype.so
+
+
+########################
+# INTERNAL cache entries
+########################
+
+//ADVANCED property for variable: CMAKE_ADDR2LINE
+CMAKE_ADDR2LINE-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_AR
+CMAKE_AR-ADVANCED:INTERNAL=1
+//This is the directory where this CMakeCache.txt was created
+CMAKE_CACHEFILE_DIR:INTERNAL=/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/SimpleG4/cmake-build-debug
+//Major version of cmake used to create the current loaded cache
+CMAKE_CACHE_MAJOR_VERSION:INTERNAL=4
+//Minor version of cmake used to create the current loaded cache
+CMAKE_CACHE_MINOR_VERSION:INTERNAL=1
+//Patch version of cmake used to create the current loaded cache
+CMAKE_CACHE_PATCH_VERSION:INTERNAL=2
+//Path to CMake executable.
+CMAKE_COMMAND:INTERNAL=/snap/clion/415/bin/cmake/linux/x64/bin/cmake
+//Path to cpack program executable.
+CMAKE_CPACK_COMMAND:INTERNAL=/snap/clion/415/bin/cmake/linux/x64/bin/cpack
+//Path to ctest program executable.
+CMAKE_CTEST_COMMAND:INTERNAL=/snap/clion/415/bin/cmake/linux/x64/bin/ctest
+//ADVANCED property for variable: CMAKE_CXX_COMPILER
+CMAKE_CXX_COMPILER-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_CXX_COMPILER_AR
+CMAKE_CXX_COMPILER_AR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_CXX_COMPILER_RANLIB
+CMAKE_CXX_COMPILER_RANLIB-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_CXX_FLAGS
+CMAKE_CXX_FLAGS-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_CXX_FLAGS_DEBUG
+CMAKE_CXX_FLAGS_DEBUG-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_CXX_FLAGS_MINSIZEREL
+CMAKE_CXX_FLAGS_MINSIZEREL-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_CXX_FLAGS_RELEASE
+CMAKE_CXX_FLAGS_RELEASE-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_CXX_FLAGS_RELWITHDEBINFO
+CMAKE_CXX_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_C_COMPILER
+CMAKE_C_COMPILER-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_C_COMPILER_AR
+CMAKE_C_COMPILER_AR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_C_COMPILER_RANLIB
+CMAKE_C_COMPILER_RANLIB-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_C_FLAGS
+CMAKE_C_FLAGS-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_C_FLAGS_DEBUG
+CMAKE_C_FLAGS_DEBUG-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_C_FLAGS_MINSIZEREL
+CMAKE_C_FLAGS_MINSIZEREL-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_C_FLAGS_RELEASE
+CMAKE_C_FLAGS_RELEASE-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_C_FLAGS_RELWITHDEBINFO
+CMAKE_C_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_DLLTOOL
+CMAKE_DLLTOOL-ADVANCED:INTERNAL=1
+//Executable file format
+CMAKE_EXECUTABLE_FORMAT:INTERNAL=ELF
+//ADVANCED property for variable: CMAKE_EXE_LINKER_FLAGS
+CMAKE_EXE_LINKER_FLAGS-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_EXE_LINKER_FLAGS_DEBUG
+CMAKE_EXE_LINKER_FLAGS_DEBUG-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_EXE_LINKER_FLAGS_MINSIZEREL
+CMAKE_EXE_LINKER_FLAGS_MINSIZEREL-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_EXE_LINKER_FLAGS_RELEASE
+CMAKE_EXE_LINKER_FLAGS_RELEASE-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_EXE_LINKER_FLAGS_RELWITHDEBINFO
+CMAKE_EXE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_EXPORT_BUILD_DATABASE
+CMAKE_EXPORT_BUILD_DATABASE-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_EXPORT_COMPILE_COMMANDS
+CMAKE_EXPORT_COMPILE_COMMANDS-ADVANCED:INTERNAL=1
+//Name of external makefile project generator.
+CMAKE_EXTRA_GENERATOR:INTERNAL=
+//Name of generator.
+CMAKE_GENERATOR:INTERNAL=Ninja
+//Generator instance identifier.
+CMAKE_GENERATOR_INSTANCE:INTERNAL=
+//Name of generator platform.
+CMAKE_GENERATOR_PLATFORM:INTERNAL=
+//Name of generator toolset.
+CMAKE_GENERATOR_TOOLSET:INTERNAL=
+//Have function connect
+CMAKE_HAVE_CONNECT:INTERNAL=1
+//Have function gethostbyname
+CMAKE_HAVE_GETHOSTBYNAME:INTERNAL=1
+//Test CMAKE_HAVE_LIBC_PTHREAD
+CMAKE_HAVE_LIBC_PTHREAD:INTERNAL=
+//Have function remove
+CMAKE_HAVE_REMOVE:INTERNAL=1
+//Have function shmat
+CMAKE_HAVE_SHMAT:INTERNAL=1
+//Source directory with the top level CMakeLists.txt file for this
+// project
+CMAKE_HOME_DIRECTORY:INTERNAL=/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/SimpleG4
+//Install .so files without execute permission.
+CMAKE_INSTALL_SO_NO_EXE:INTERNAL=1
+//Have library ICE
+CMAKE_LIB_ICE_HAS_ICECONNECTIONNUMBER:INTERNAL=1
+//ADVANCED property for variable: CMAKE_LINKER
+CMAKE_LINKER-ADVANCED:INTERNAL=1
+//Name of CMakeLists files to read
+CMAKE_LIST_FILE_NAME:INTERNAL=CMakeLists.txt
+//ADVANCED property for variable: CMAKE_MODULE_LINKER_FLAGS
+CMAKE_MODULE_LINKER_FLAGS-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_MODULE_LINKER_FLAGS_DEBUG
+CMAKE_MODULE_LINKER_FLAGS_DEBUG-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_MODULE_LINKER_FLAGS_MINSIZEREL
+CMAKE_MODULE_LINKER_FLAGS_MINSIZEREL-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_MODULE_LINKER_FLAGS_RELEASE
+CMAKE_MODULE_LINKER_FLAGS_RELEASE-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO
+CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_NM
+CMAKE_NM-ADVANCED:INTERNAL=1
+//number of local generators
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=1
+//ADVANCED property for variable: CMAKE_OBJCOPY
+CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_OBJDUMP
+CMAKE_OBJDUMP-ADVANCED:INTERNAL=1
+//Platform information initialized
+CMAKE_PLATFORM_INFO_INITIALIZED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_RANLIB
+CMAKE_RANLIB-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_READELF
+CMAKE_READELF-ADVANCED:INTERNAL=1
+//Path to CMake installation.
+CMAKE_ROOT:INTERNAL=/snap/clion/415/bin/cmake/linux/x64/share/cmake-4.1
+//ADVANCED property for variable: CMAKE_SHARED_LINKER_FLAGS
+CMAKE_SHARED_LINKER_FLAGS-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_SHARED_LINKER_FLAGS_DEBUG
+CMAKE_SHARED_LINKER_FLAGS_DEBUG-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_SHARED_LINKER_FLAGS_MINSIZEREL
+CMAKE_SHARED_LINKER_FLAGS_MINSIZEREL-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_SHARED_LINKER_FLAGS_RELEASE
+CMAKE_SHARED_LINKER_FLAGS_RELEASE-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_SHARED_LINKER_FLAGS_RELWITHDEBINFO
+CMAKE_SHARED_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_SKIP_INSTALL_RPATH
+CMAKE_SKIP_INSTALL_RPATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_SKIP_RPATH
+CMAKE_SKIP_RPATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_STATIC_LINKER_FLAGS
+CMAKE_STATIC_LINKER_FLAGS-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_STATIC_LINKER_FLAGS_DEBUG
+CMAKE_STATIC_LINKER_FLAGS_DEBUG-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_STATIC_LINKER_FLAGS_MINSIZEREL
+CMAKE_STATIC_LINKER_FLAGS_MINSIZEREL-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_STATIC_LINKER_FLAGS_RELEASE
+CMAKE_STATIC_LINKER_FLAGS_RELEASE-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_STATIC_LINKER_FLAGS_RELWITHDEBINFO
+CMAKE_STATIC_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_STRIP
+CMAKE_STRIP-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_TAPI
+CMAKE_TAPI-ADVANCED:INTERNAL=1
+//uname command
+CMAKE_UNAME:INTERNAL=/usr/bin/uname
+//ADVANCED property for variable: CMAKE_VERBOSE_MAKEFILE
+CMAKE_VERBOSE_MAKEFILE-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: EXPAT_INCLUDE_DIR
+EXPAT_INCLUDE_DIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: EXPAT_LIBRARY_DEBUG
+EXPAT_LIBRARY_DEBUG-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: EXPAT_LIBRARY_RELEASE
+EXPAT_LIBRARY_RELEASE-ADVANCED:INTERNAL=1
+//Details about finding EXPAT
+FIND_PACKAGE_MESSAGE_DETAILS_EXPAT:INTERNAL=[/home/angel/anaconda3/envs/geant-root-env/lib/libexpat.so][/home/angel/anaconda3/envs/geant-root-env/include][v2.7.0(2.7.0)]
+//Details about finding Freetype
+FIND_PACKAGE_MESSAGE_DETAILS_Freetype:INTERNAL=[/home/angel/anaconda3/envs/geant-root-env/lib/libfreetype.so][/home/angel/anaconda3/envs/geant-root-env/include/freetype2][v2.13.3(2.13.3)]
+//Details about finding Geant4
+FIND_PACKAGE_MESSAGE_DETAILS_Geant4:INTERNAL=[/home/angel/anaconda3/envs/geant-root-env/lib/cmake/Geant4/Geant4Config.cmake][v11.3.2()]
+//Details about finding HDF5
+FIND_PACKAGE_MESSAGE_DETAILS_HDF5:INTERNAL=[/home/angel/anaconda3/envs/geant-root-env/lib/libhdf5.so][/home/angel/anaconda3/envs/geant-root-env/include][ ][v1.14.6()]
+//Details about finding OpenGL
+FIND_PACKAGE_MESSAGE_DETAILS_OpenGL:INTERNAL=[/home/angel/anaconda3/envs/geant-root-env/lib/libGL.so][/home/angel/anaconda3/envs/geant-root-env/include][ ][v()]
+//Details about finding Threads
+FIND_PACKAGE_MESSAGE_DETAILS_Threads:INTERNAL=[TRUE][v()]
+//Details about finding Vdt
+FIND_PACKAGE_MESSAGE_DETAILS_Vdt:INTERNAL=[/home/angel/anaconda3/envs/geant-root-env/include][/home/angel/anaconda3/envs/geant-root-env/lib/libvdt.so][v0.4()]
+//Details about finding X11
+FIND_PACKAGE_MESSAGE_DETAILS_X11:INTERNAL=[/home/angel/anaconda3/envs/geant-root-env/include][/home/angel/anaconda3/envs/geant-root-env/lib/libX11.so][ ][v()]
+//Details about finding XercesC
+FIND_PACKAGE_MESSAGE_DETAILS_XercesC:INTERNAL=[/home/angel/anaconda3/envs/geant-root-env/lib/libxerces-c.so][/home/angel/anaconda3/envs/geant-root-env/include][3.2.5][v3.2.5(3.2.5)]
+//Details about finding ZLIB
+FIND_PACKAGE_MESSAGE_DETAILS_ZLIB:INTERNAL=[/home/angel/anaconda3/envs/geant-root-env/lib/libz.so][/home/angel/anaconda3/envs/geant-root-env/include][ ][v1.3.1(1.3.1)]
+//ADVANCED property for variable: FREETYPE_INCLUDE_DIR_freetype2
+FREETYPE_INCLUDE_DIR_freetype2-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: FREETYPE_INCLUDE_DIR_ft2build
+FREETYPE_INCLUDE_DIR_ft2build-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: FREETYPE_LIBRARY_DEBUG
+FREETYPE_LIBRARY_DEBUG-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: FREETYPE_LIBRARY_RELEASE
+FREETYPE_LIBRARY_RELEASE-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: Fontconfig_INCLUDE_DIR
+Fontconfig_INCLUDE_DIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: Fontconfig_LIBRARY
+Fontconfig_LIBRARY-ADVANCED:INTERNAL=1
+//Have symbol H5_HAVE_THREADSAFE
+GEANT4_HAVE_H5_HAVE_THREADSAFE:INTERNAL=1
+//ADVANCED property for variable: HDF5_C_COMPILER_EXECUTABLE
+HDF5_C_COMPILER_EXECUTABLE-ADVANCED:INTERNAL=1
+//Result of TRY_COMPILE
+HDF5_C_COMPILER_NO_INTERROGATE:INTERNAL=FALSE
+//ADVANCED property for variable: HDF5_C_INCLUDE_DIR
+HDF5_C_INCLUDE_DIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: HDF5_DIFF_EXECUTABLE
+HDF5_DIFF_EXECUTABLE-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: HDF5_DIR
+HDF5_DIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: HDF5_IS_PARALLEL
+HDF5_IS_PARALLEL-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: HDF5_hdf5_LIBRARY_DEBUG
+HDF5_hdf5_LIBRARY_DEBUG-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: HDF5_hdf5_LIBRARY_RELEASE
+HDF5_hdf5_LIBRARY_RELEASE-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: OPENGL_EGL_INCLUDE_DIR
+OPENGL_EGL_INCLUDE_DIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: OPENGL_GLES2_INCLUDE_DIR
+OPENGL_GLES2_INCLUDE_DIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: OPENGL_GLES3_INCLUDE_DIR
+OPENGL_GLES3_INCLUDE_DIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: OPENGL_GLU_INCLUDE_DIR
+OPENGL_GLU_INCLUDE_DIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: OPENGL_GLX_INCLUDE_DIR
+OPENGL_GLX_INCLUDE_DIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: OPENGL_INCLUDE_DIR
+OPENGL_INCLUDE_DIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: OPENGL_egl_LIBRARY
+OPENGL_egl_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: OPENGL_gl_LIBRARY
+OPENGL_gl_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: OPENGL_gles2_LIBRARY
+OPENGL_gles2_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: OPENGL_gles3_LIBRARY
+OPENGL_gles3_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: OPENGL_glu_LIBRARY
+OPENGL_glu_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: OPENGL_glx_LIBRARY
+OPENGL_glx_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: OPENGL_opengl_LIBRARY
+OPENGL_opengl_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: OPENGL_xmesa_INCLUDE_DIR
+OPENGL_xmesa_INCLUDE_DIR-ADVANCED:INTERNAL=1
+PC_EXPAT_CFLAGS:INTERNAL=-I/home/angel/anaconda3/envs/geant-root-env/include
+PC_EXPAT_CFLAGS_I:INTERNAL=
+PC_EXPAT_CFLAGS_OTHER:INTERNAL=
+PC_EXPAT_FOUND:INTERNAL=1
+PC_EXPAT_INCLUDEDIR:INTERNAL=/home/angel/anaconda3/envs/geant-root-env/include
+PC_EXPAT_INCLUDE_DIRS:INTERNAL=/home/angel/anaconda3/envs/geant-root-env/include
+PC_EXPAT_LDFLAGS:INTERNAL=-L/home/angel/anaconda3/envs/geant-root-env/lib;-lexpat
+PC_EXPAT_LDFLAGS_OTHER:INTERNAL=
+PC_EXPAT_LIBDIR:INTERNAL=/home/angel/anaconda3/envs/geant-root-env/lib
+PC_EXPAT_LIBRARIES:INTERNAL=expat
+PC_EXPAT_LIBRARY_DIRS:INTERNAL=/home/angel/anaconda3/envs/geant-root-env/lib
+PC_EXPAT_LIBS:INTERNAL=
+PC_EXPAT_LIBS_L:INTERNAL=
+PC_EXPAT_LIBS_OTHER:INTERNAL=
+PC_EXPAT_LIBS_PATHS:INTERNAL=
+PC_EXPAT_MODULE_NAME:INTERNAL=expat
+PC_EXPAT_PREFIX:INTERNAL=/home/angel/anaconda3/envs/geant-root-env
+PC_EXPAT_STATIC_CFLAGS:INTERNAL=-I/home/angel/anaconda3/envs/geant-root-env/include;-DXML_STATIC
+PC_EXPAT_STATIC_CFLAGS_I:INTERNAL=
+PC_EXPAT_STATIC_CFLAGS_OTHER:INTERNAL=-DXML_STATIC
+PC_EXPAT_STATIC_INCLUDE_DIRS:INTERNAL=/home/angel/anaconda3/envs/geant-root-env/include
+PC_EXPAT_STATIC_LDFLAGS:INTERNAL=-L/home/angel/anaconda3/envs/geant-root-env/lib;-lexpat;-lm
+PC_EXPAT_STATIC_LDFLAGS_OTHER:INTERNAL=
+PC_EXPAT_STATIC_LIBDIR:INTERNAL=
+PC_EXPAT_STATIC_LIBRARIES:INTERNAL=expat;m
+PC_EXPAT_STATIC_LIBRARY_DIRS:INTERNAL=/home/angel/anaconda3/envs/geant-root-env/lib
+PC_EXPAT_STATIC_LIBS:INTERNAL=
+PC_EXPAT_STATIC_LIBS_L:INTERNAL=
+PC_EXPAT_STATIC_LIBS_OTHER:INTERNAL=
+PC_EXPAT_STATIC_LIBS_PATHS:INTERNAL=
+PC_EXPAT_VERSION:INTERNAL=2.7.0
+PC_EXPAT_expat_INCLUDEDIR:INTERNAL=
+PC_EXPAT_expat_LIBDIR:INTERNAL=
+PC_EXPAT_expat_PREFIX:INTERNAL=
+PC_EXPAT_expat_VERSION:INTERNAL=
+//ADVANCED property for variable: PKG_CONFIG_ARGN
+PKG_CONFIG_ARGN-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: PKG_CONFIG_EXECUTABLE
+PKG_CONFIG_EXECUTABLE-ADVANCED:INTERNAL=1
+PKG_FONTCONFIG_CFLAGS:INTERNAL=-I/home/angel/anaconda3/envs/geant-root-env/include;-I/home/angel/anaconda3/envs/geant-root-env/include/freetype2
+PKG_FONTCONFIG_CFLAGS_I:INTERNAL=
+PKG_FONTCONFIG_CFLAGS_OTHER:INTERNAL=
+PKG_FONTCONFIG_FOUND:INTERNAL=1
+PKG_FONTCONFIG_INCLUDEDIR:INTERNAL=/home/angel/anaconda3/envs/geant-root-env/include
+PKG_FONTCONFIG_INCLUDE_DIRS:INTERNAL=/home/angel/anaconda3/envs/geant-root-env/include;/home/angel/anaconda3/envs/geant-root-env/include/freetype2
+PKG_FONTCONFIG_LDFLAGS:INTERNAL=-L/home/angel/anaconda3/envs/geant-root-env/lib;-lfontconfig;-lfreetype
+PKG_FONTCONFIG_LDFLAGS_OTHER:INTERNAL=
+PKG_FONTCONFIG_LIBDIR:INTERNAL=/home/angel/anaconda3/envs/geant-root-env/lib
+PKG_FONTCONFIG_LIBRARIES:INTERNAL=fontconfig;freetype
+PKG_FONTCONFIG_LIBRARY_DIRS:INTERNAL=/home/angel/anaconda3/envs/geant-root-env/lib
+PKG_FONTCONFIG_LIBS:INTERNAL=
+PKG_FONTCONFIG_LIBS_L:INTERNAL=
+PKG_FONTCONFIG_LIBS_OTHER:INTERNAL=
+PKG_FONTCONFIG_LIBS_PATHS:INTERNAL=
+PKG_FONTCONFIG_MODULE_NAME:INTERNAL=fontconfig
+PKG_FONTCONFIG_PREFIX:INTERNAL=/home/angel/anaconda3/envs/geant-root-env
+PKG_FONTCONFIG_STATIC_CFLAGS:INTERNAL=-I/home/angel/anaconda3/envs/geant-root-env/include;-I/home/angel/anaconda3/envs/geant-root-env/include/freetype2;-DXML_STATIC
+PKG_FONTCONFIG_STATIC_CFLAGS_I:INTERNAL=
+PKG_FONTCONFIG_STATIC_CFLAGS_OTHER:INTERNAL=-DXML_STATIC
+PKG_FONTCONFIG_STATIC_INCLUDE_DIRS:INTERNAL=/home/angel/anaconda3/envs/geant-root-env/include;/home/angel/anaconda3/envs/geant-root-env/include/freetype2
+PKG_FONTCONFIG_STATIC_LDFLAGS:INTERNAL=-L/home/angel/anaconda3/envs/geant-root-env/lib;-lfontconfig;-pthread;-lfreetype;-L/home/angel/anaconda3/envs/geant-root-env/lib;-lexpat;-lm
+PKG_FONTCONFIG_STATIC_LDFLAGS_OTHER:INTERNAL=-pthread
+PKG_FONTCONFIG_STATIC_LIBDIR:INTERNAL=
+PKG_FONTCONFIG_STATIC_LIBRARIES:INTERNAL=fontconfig;freetype;expat;m
+PKG_FONTCONFIG_STATIC_LIBRARY_DIRS:INTERNAL=/home/angel/anaconda3/envs/geant-root-env/lib;/home/angel/anaconda3/envs/geant-root-env/lib
+PKG_FONTCONFIG_STATIC_LIBS:INTERNAL=
+PKG_FONTCONFIG_STATIC_LIBS_L:INTERNAL=
+PKG_FONTCONFIG_STATIC_LIBS_OTHER:INTERNAL=
+PKG_FONTCONFIG_STATIC_LIBS_PATHS:INTERNAL=
+PKG_FONTCONFIG_VERSION:INTERNAL=2.15.0
+PKG_FONTCONFIG_fontconfig_INCLUDEDIR:INTERNAL=
+PKG_FONTCONFIG_fontconfig_LIBDIR:INTERNAL=
+PKG_FONTCONFIG_fontconfig_PREFIX:INTERNAL=
+PKG_FONTCONFIG_fontconfig_VERSION:INTERNAL=
+//ADVANCED property for variable: ROOT_Core_LIBRARY
+ROOT_Core_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: ROOT_Gpad_LIBRARY
+ROOT_Gpad_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: ROOT_Graf3d_LIBRARY
+ROOT_Graf3d_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: ROOT_Graf_LIBRARY
+ROOT_Graf_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: ROOT_Hist_LIBRARY
+ROOT_Hist_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: ROOT_Imt_LIBRARY
+ROOT_Imt_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: ROOT_MathCore_LIBRARY
+ROOT_MathCore_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: ROOT_Matrix_LIBRARY
+ROOT_Matrix_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: ROOT_MultiProc_LIBRARY
+ROOT_MultiProc_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: ROOT_Net_LIBRARY
+ROOT_Net_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: ROOT_Physics_LIBRARY
+ROOT_Physics_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: ROOT_Postscript_LIBRARY
+ROOT_Postscript_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: ROOT_RIO_LIBRARY
+ROOT_RIO_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: ROOT_ROOTDataFrame_LIBRARY
+ROOT_ROOTDataFrame_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: ROOT_ROOTVecOps_LIBRARY
+ROOT_ROOTVecOps_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: ROOT_Rint_LIBRARY
+ROOT_Rint_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: ROOT_Thread_LIBRARY
+ROOT_Thread_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: ROOT_TreePlayer_LIBRARY
+ROOT_TreePlayer_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: ROOT_Tree_LIBRARY
+ROOT_Tree_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: ROOT_genreflex_CMD
+ROOT_genreflex_CMD-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: ROOT_hadd_CMD
+ROOT_hadd_CMD-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: ROOT_root_CMD
+ROOT_root_CMD-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: ROOT_rootbrowse_CMD
+ROOT_rootbrowse_CMD-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: ROOT_rootcint_CMD
+ROOT_rootcint_CMD-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: ROOT_rootcling_CMD
+ROOT_rootcling_CMD-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: ROOT_rootcp_CMD
+ROOT_rootcp_CMD-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: ROOT_rootls_CMD
+ROOT_rootls_CMD-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: ROOT_rootmkdir_CMD
+ROOT_rootmkdir_CMD-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: ROOT_rootmv_CMD
+ROOT_rootmv_CMD-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: ROOT_rootrm_CMD
+ROOT_rootrm_CMD-ADVANCED:INTERNAL=1
+//Result of TRY_COMPILE
+THREADS_HAVE_PTHREAD_ARG:INTERNAL=TRUE
+//ADVANCED property for variable: VDT_INCLUDE_DIR
+VDT_INCLUDE_DIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: VDT_LIBRARY
+VDT_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_ICE_INCLUDE_PATH
+X11_ICE_INCLUDE_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_ICE_LIB
+X11_ICE_LIB-ADVANCED:INTERNAL=1
+//Have library /home/angel/anaconda3/envs/geant-root-env/lib/libX11.so;/home/angel/anaconda3/envs/geant-root-env/lib/libXext.so
+X11_LIB_X11_SOLO:INTERNAL=1
+//ADVANCED property for variable: X11_SM_INCLUDE_PATH
+X11_SM_INCLUDE_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_SM_LIB
+X11_SM_LIB-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_X11_INCLUDE_PATH
+X11_X11_INCLUDE_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_X11_LIB
+X11_X11_LIB-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_X11_xcb_INCLUDE_PATH
+X11_X11_xcb_INCLUDE_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_X11_xcb_LIB
+X11_X11_xcb_LIB-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_XRes_INCLUDE_PATH
+X11_XRes_INCLUDE_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_XRes_LIB
+X11_XRes_LIB-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_XShm_INCLUDE_PATH
+X11_XShm_INCLUDE_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_XSync_INCLUDE_PATH
+X11_XSync_INCLUDE_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_Xaccessrules_INCLUDE_PATH
+X11_Xaccessrules_INCLUDE_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_Xaccessstr_INCLUDE_PATH
+X11_Xaccessstr_INCLUDE_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_Xau_INCLUDE_PATH
+X11_Xau_INCLUDE_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_Xau_LIB
+X11_Xau_LIB-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_Xaw_INCLUDE_PATH
+X11_Xaw_INCLUDE_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_Xaw_LIB
+X11_Xaw_LIB-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_Xcomposite_INCLUDE_PATH
+X11_Xcomposite_INCLUDE_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_Xcomposite_LIB
+X11_Xcomposite_LIB-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_Xcursor_INCLUDE_PATH
+X11_Xcursor_INCLUDE_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_Xcursor_LIB
+X11_Xcursor_LIB-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_Xdamage_INCLUDE_PATH
+X11_Xdamage_INCLUDE_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_Xdamage_LIB
+X11_Xdamage_LIB-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_Xdbe_INCLUDE_PATH
+X11_Xdbe_INCLUDE_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_Xdmcp_INCLUDE_PATH
+X11_Xdmcp_INCLUDE_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_Xdmcp_LIB
+X11_Xdmcp_LIB-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_Xext_INCLUDE_PATH
+X11_Xext_INCLUDE_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_Xext_LIB
+X11_Xext_LIB-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_Xfixes_INCLUDE_PATH
+X11_Xfixes_INCLUDE_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_Xfixes_LIB
+X11_Xfixes_LIB-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_Xft_INCLUDE_PATH
+X11_Xft_INCLUDE_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_Xft_LIB
+X11_Xft_LIB-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_Xi_INCLUDE_PATH
+X11_Xi_INCLUDE_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_Xi_LIB
+X11_Xi_LIB-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_Xinerama_INCLUDE_PATH
+X11_Xinerama_INCLUDE_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_Xinerama_LIB
+X11_Xinerama_LIB-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_Xkb_INCLUDE_PATH
+X11_Xkb_INCLUDE_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_Xkblib_INCLUDE_PATH
+X11_Xkblib_INCLUDE_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_Xlib_INCLUDE_PATH
+X11_Xlib_INCLUDE_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_Xmu_INCLUDE_PATH
+X11_Xmu_INCLUDE_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_Xmu_LIB
+X11_Xmu_LIB-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_Xpm_INCLUDE_PATH
+X11_Xpm_INCLUDE_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_Xpm_LIB
+X11_Xpm_LIB-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_Xpresent_INCLUDE_PATH
+X11_Xpresent_INCLUDE_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_Xpresent_LIB
+X11_Xpresent_LIB-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_Xrandr_INCLUDE_PATH
+X11_Xrandr_INCLUDE_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_Xrandr_LIB
+X11_Xrandr_LIB-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_Xrender_INCLUDE_PATH
+X11_Xrender_INCLUDE_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_Xrender_LIB
+X11_Xrender_LIB-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_Xshape_INCLUDE_PATH
+X11_Xshape_INCLUDE_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_Xss_INCLUDE_PATH
+X11_Xss_INCLUDE_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_Xss_LIB
+X11_Xss_LIB-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_Xt_INCLUDE_PATH
+X11_Xt_INCLUDE_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_Xt_LIB
+X11_Xt_LIB-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_Xtst_INCLUDE_PATH
+X11_Xtst_INCLUDE_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_Xtst_LIB
+X11_Xtst_LIB-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_Xutil_INCLUDE_PATH
+X11_Xutil_INCLUDE_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_Xv_INCLUDE_PATH
+X11_Xv_INCLUDE_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_Xv_LIB
+X11_Xv_LIB-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_Xxf86misc_INCLUDE_PATH
+X11_Xxf86misc_INCLUDE_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_Xxf86misc_LIB
+X11_Xxf86misc_LIB-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_Xxf86vm_INCLUDE_PATH
+X11_Xxf86vm_INCLUDE_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_Xxf86vm_LIB
+X11_Xxf86vm_LIB-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_dpms_INCLUDE_PATH
+X11_dpms_INCLUDE_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_xcb_INCLUDE_PATH
+X11_xcb_INCLUDE_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_xcb_LIB
+X11_xcb_LIB-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_xcb_composite_INCLUDE_PATH
+X11_xcb_composite_INCLUDE_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_xcb_composite_LIB
+X11_xcb_composite_LIB-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_xcb_cursor_INCLUDE_PATH
+X11_xcb_cursor_INCLUDE_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_xcb_cursor_LIB
+X11_xcb_cursor_LIB-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_xcb_damage_INCLUDE_PATH
+X11_xcb_damage_INCLUDE_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_xcb_damage_LIB
+X11_xcb_damage_LIB-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_xcb_dpms_INCLUDE_PATH
+X11_xcb_dpms_INCLUDE_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_xcb_dpms_LIB
+X11_xcb_dpms_LIB-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_xcb_dri2_INCLUDE_PATH
+X11_xcb_dri2_INCLUDE_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_xcb_dri2_LIB
+X11_xcb_dri2_LIB-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_xcb_dri3_INCLUDE_PATH
+X11_xcb_dri3_INCLUDE_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_xcb_dri3_LIB
+X11_xcb_dri3_LIB-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_xcb_errors_INCLUDE_PATH
+X11_xcb_errors_INCLUDE_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_xcb_errors_LIB
+X11_xcb_errors_LIB-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_xcb_ewmh_INCLUDE_PATH
+X11_xcb_ewmh_INCLUDE_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_xcb_ewmh_LIB
+X11_xcb_ewmh_LIB-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_xcb_glx_INCLUDE_PATH
+X11_xcb_glx_INCLUDE_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_xcb_glx_LIB
+X11_xcb_glx_LIB-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_xcb_icccm_INCLUDE_PATH
+X11_xcb_icccm_INCLUDE_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_xcb_icccm_LIB
+X11_xcb_icccm_LIB-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_xcb_image_INCLUDE_PATH
+X11_xcb_image_INCLUDE_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_xcb_image_LIB
+X11_xcb_image_LIB-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_xcb_keysyms_INCLUDE_PATH
+X11_xcb_keysyms_INCLUDE_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_xcb_keysyms_LIB
+X11_xcb_keysyms_LIB-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_xcb_present_INCLUDE_PATH
+X11_xcb_present_INCLUDE_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_xcb_present_LIB
+X11_xcb_present_LIB-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_xcb_randr_INCLUDE_PATH
+X11_xcb_randr_INCLUDE_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_xcb_randr_LIB
+X11_xcb_randr_LIB-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_xcb_record_INCLUDE_PATH
+X11_xcb_record_INCLUDE_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_xcb_record_LIB
+X11_xcb_record_LIB-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_xcb_render_INCLUDE_PATH
+X11_xcb_render_INCLUDE_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_xcb_render_LIB
+X11_xcb_render_LIB-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_xcb_render_util_INCLUDE_PATH
+X11_xcb_render_util_INCLUDE_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_xcb_render_util_LIB
+X11_xcb_render_util_LIB-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_xcb_res_INCLUDE_PATH
+X11_xcb_res_INCLUDE_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_xcb_res_LIB
+X11_xcb_res_LIB-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_xcb_screensaver_INCLUDE_PATH
+X11_xcb_screensaver_INCLUDE_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_xcb_screensaver_LIB
+X11_xcb_screensaver_LIB-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_xcb_shape_INCLUDE_PATH
+X11_xcb_shape_INCLUDE_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_xcb_shape_LIB
+X11_xcb_shape_LIB-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_xcb_shm_INCLUDE_PATH
+X11_xcb_shm_INCLUDE_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_xcb_shm_LIB
+X11_xcb_shm_LIB-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_xcb_sync_INCLUDE_PATH
+X11_xcb_sync_INCLUDE_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_xcb_sync_LIB
+X11_xcb_sync_LIB-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_xcb_util_INCLUDE_PATH
+X11_xcb_util_INCLUDE_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_xcb_util_LIB
+X11_xcb_util_LIB-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_xcb_xf86dri_INCLUDE_PATH
+X11_xcb_xf86dri_INCLUDE_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_xcb_xf86dri_LIB
+X11_xcb_xf86dri_LIB-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_xcb_xfixes_INCLUDE_PATH
+X11_xcb_xfixes_INCLUDE_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_xcb_xfixes_LIB
+X11_xcb_xfixes_LIB-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_xcb_xinerama_INCLUDE_PATH
+X11_xcb_xinerama_INCLUDE_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_xcb_xinerama_LIB
+X11_xcb_xinerama_LIB-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_xcb_xinput_INCLUDE_PATH
+X11_xcb_xinput_INCLUDE_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_xcb_xinput_LIB
+X11_xcb_xinput_LIB-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_xcb_xkb_LIB
+X11_xcb_xkb_LIB-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_xcb_xrm_INCLUDE_PATH
+X11_xcb_xrm_INCLUDE_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_xcb_xrm_LIB
+X11_xcb_xrm_LIB-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_xcb_xtest_INCLUDE_PATH
+X11_xcb_xtest_INCLUDE_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_xcb_xtest_LIB
+X11_xcb_xtest_LIB-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_xcb_xv_INCLUDE_PATH
+X11_xcb_xv_INCLUDE_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_xcb_xv_LIB
+X11_xcb_xv_LIB-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_xcb_xvmc_INCLUDE_PATH
+X11_xcb_xvmc_INCLUDE_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_xcb_xvmc_LIB
+X11_xcb_xvmc_LIB-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_xkbcommon_INCLUDE_PATH
+X11_xkbcommon_INCLUDE_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_xkbcommon_LIB
+X11_xkbcommon_LIB-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_xkbcommon_X11_INCLUDE_PATH
+X11_xkbcommon_X11_INCLUDE_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_xkbcommon_X11_LIB
+X11_xkbcommon_X11_LIB-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_xkbfile_INCLUDE_PATH
+X11_xkbfile_INCLUDE_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: X11_xkbfile_LIB
+X11_xkbfile_LIB-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: XercesC_INCLUDE_DIR
+XercesC_INCLUDE_DIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: XercesC_LIBRARY_DEBUG
+XercesC_LIBRARY_DEBUG-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: XercesC_LIBRARY_RELEASE
+XercesC_LIBRARY_RELEASE-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: ZLIB_INCLUDE_DIR
+ZLIB_INCLUDE_DIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: ZLIB_LIBRARY_DEBUG
+ZLIB_LIBRARY_DEBUG-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: ZLIB_LIBRARY_RELEASE
+ZLIB_LIBRARY_RELEASE-ADVANCED:INTERNAL=1
+__pkg_config_arguments_PC_EXPAT:INTERNAL=QUIET;expat
+__pkg_config_arguments_PKG_FONTCONFIG:INTERNAL=QUIET;fontconfig
+__pkg_config_checked_PC_EXPAT:INTERNAL=1
+__pkg_config_checked_PKG_FONTCONFIG:INTERNAL=1
+//ADVANCED property for variable: pkgcfg_lib_PC_EXPAT_expat
+pkgcfg_lib_PC_EXPAT_expat-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: pkgcfg_lib_PKG_FONTCONFIG_fontconfig
+pkgcfg_lib_PKG_FONTCONFIG_fontconfig-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: pkgcfg_lib_PKG_FONTCONFIG_freetype
+pkgcfg_lib_PKG_FONTCONFIG_freetype-ADVANCED:INTERNAL=1
+prefix_result:INTERNAL=/home/angel/anaconda3/envs/geant-root-env/lib
+
+```
+
+## `cmake-build-debug/run.mac`
+
+```text
+# === run.mac ===
+
+# 1. Inicializar
+/run/initialize
+
+# 2. Abrir visor
+/vis/open OGLIQt 800x600-0+0
+
+# 3. Dibujar geometría
+/vis/drawVolume
+
+# 4. Configurar vista
+/vis/viewer/set/viewpointVector -1 0.5 0.5
+/vis/viewer/zoom 1.8
+/vis/viewer/set/style surface
+
+# 5. Agregar trayectorias
+/vis/scene/add/trajectories smooth
+
+# 6. Crear modelo
+/vis/modeling/trajectories/create/drawByCharge
+
+# 7. CONFIGURAR (¡CORREGIDO!)
+/vis/modeling/trajectories/drawByCharge-0/default/setDrawStepPts true
+/vis/modeling/trajectories/drawByCharge-0/default/setStepPtsSize 2
+
+# 8. Ejecutar
+# /run/beamOn 100```
+
+## `cmake-build-debug/CMakeFiles/TargetDirectories.txt`
+
+```text
+/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/SimpleG4/cmake-build-debug/CMakeFiles/simpleG4.dir
+/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/SimpleG4/cmake-build-debug/CMakeFiles/edit_cache.dir
+/media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/SimpleG4/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+```
+
+## `cmake-build-debug/CMakeFiles/clion-Debug-log.txt`
+
+```text
+/snap/clion/415/bin/cmake/linux/x64/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/snap/clion/415/bin/ninja/linux/x64/ninja -DGeant4_DIR=/home/angel/anaconda3/envs/geant-root-env/lib/cmake/Geant4 -DCLHEP_DIR=/home/angel/anaconda3/envs/geant-root-env/lib/cmake/CLHEP -DCMAKE_PREFIX_PATH=/home/angel/anaconda3/envs/geant-root-env -G Ninja -S /media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/SimpleG4 -B /media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/SimpleG4/cmake-build-debug
+-- The C compiler identification is GNU 13.3.0
+-- The CXX compiler identification is GNU 13.3.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /home/angel/anaconda3/envs/geant-root-env/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /home/angel/anaconda3/envs/geant-root-env/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found EXPAT: /home/angel/anaconda3/envs/geant-root-env/lib/libexpat.so (found suitable version "2.7.0", minimum required is "2.7.0")
+-- Found ZLIB: /home/angel/anaconda3/envs/geant-root-env/lib/libz.so (found suitable version "1.3.1", minimum required is "1.3.1")
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Failed
+-- Check if compiler accepts -pthread
+-- Check if compiler accepts -pthread - yes
+-- Found Threads: TRUE
+-- Found XercesC: /home/angel/anaconda3/envs/geant-root-env/lib/libxerces-c.so (found suitable version "3.2.5", minimum required is "3.2.5")
+-- Found Freetype: /home/angel/anaconda3/envs/geant-root-env/lib/libfreetype.so (found suitable version "2.13.3", minimum required is "2.13.3")
+-- HDF5 C compiler wrapper is unable to compile a minimal HDF5 program.
+-- Found HDF5: /home/angel/anaconda3/envs/geant-root-env/lib/libhdf5.so (found version "1.14.6")
+-- Looking for H5_HAVE_THREADSAFE
+-- Looking for H5_HAVE_THREADSAFE - found
+-- Found X11: /home/angel/anaconda3/envs/geant-root-env/include
+-- Looking for XOpenDisplay in /home/angel/anaconda3/envs/geant-root-env/lib/libX11.so;/home/angel/anaconda3/envs/geant-root-env/lib/libXext.so
+-- Looking for XOpenDisplay in /home/angel/anaconda3/envs/geant-root-env/lib/libX11.so;/home/angel/anaconda3/envs/geant-root-env/lib/libXext.so - found
+-- Looking for gethostbyname
+-- Looking for gethostbyname - found
+-- Looking for connect
+-- Looking for connect - found
+-- Looking for remove
+-- Looking for remove - found
+-- Looking for shmat
+-- Looking for shmat - found
+-- Looking for IceConnectionNumber in ICE
+-- Looking for IceConnectionNumber in ICE - found
+-- Found OpenGL: /home/angel/anaconda3/envs/geant-root-env/lib/libGL.so
+-- Found Geant4: /home/angel/anaconda3/envs/geant-root-env/lib/cmake/Geant4/Geant4Config.cmake (found version "11.3.2")
+-- Found Vdt: /home/angel/anaconda3/envs/geant-root-env/include (found version "0.4")
+-- Configuring done (13.3s)
+-- Generating done (0.1s)
+-- Build files have been written to: /media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/SimpleG4/cmake-build-debug
+```
+
+## `cmake-build-debug/CMakeFiles/clion-environment.txt`
+
+```text
+ToolSet: 1.0 (local)Ninja: 1.12.1@/snap/clion/415/bin/ninja/linux/x64/ninja
+Options: 
+
+Options:-DCMAKE_MAKE_PROGRAM=/snap/clion/415/bin/ninja/linux/x64/ninja -DGeant4_DIR=/home/angel/anaconda3/envs/geant-root-env/lib/cmake/Geant4 -DCLHEP_DIR=/home/angel/anaconda3/envs/geant-root-env/lib/cmake/CLHEP -DCMAKE_PREFIX_PATH=/home/angel/anaconda3/envs/geant-root-env```
+
+## `cmake-build-debug/CMakeFiles/4.1.2/CompilerIdC/a.out`
+
+```text
+# Error al leer el archivo: 'utf-8' codec can't decode byte 0xa8 in position 128: invalid start byte
+```
+
+## `cmake-build-debug/CMakeFiles/4.1.2/CompilerIdCXX/a.out`
+
+```text
+# Error al leer el archivo: 'utf-8' codec can't decode byte 0xa8 in position 128: invalid start byte
+```
+
+## `include/ActionInitialization.hh`
+
+```text
+#ifndef ACTION_INITIALIZATION_HH
+#define ACTION_INITIALIZATION_HH
+
+#include "G4VUserActionInitialization.hh"
+
+class ActionInitialization : public G4VUserActionInitialization {
+public:
+    ActionInitialization();
+    ~ActionInitialization() override;
+
+    void BuildForMaster() const override;
+    void Build() const override;
+};
+
+#endif```
+
+## `include/DetectorConstruction.hh`
+
+```text
+#ifndef DETECTOR_CONSTRUCTION_HH
+#define DETECTOR_CONSTRUCTION_HH
+
+#include "G4VUserDetectorConstruction.hh"
+#include "G4LogicalVolume.hh"
+
+class DetectorConstruction : public G4VUserDetectorConstruction {
+public:
+    DetectorConstruction();
+    ~DetectorConstruction() override;
+    G4VPhysicalVolume* Construct() override;
+
+private:
+    G4LogicalVolume* fLogicTarget = nullptr;
+};
+
+#endif```
+
+## `include/EventAction.hh`
+
+```text
+#ifndef EVENT_ACTION_HH
+#define EVENT_ACTION_HH
+
+#include "G4UserEventAction.hh"
+#include "G4Event.hh"
+#include "globals.hh"
+
+class EventAction : public G4UserEventAction {
+
+public:
+    EventAction();
+    ~EventAction() override = default;
+
+    void BeginOfEventAction(const G4Event*) override;
+    void EndOfEventAction(const G4Event*) override;
+
+    void AddPhoton() { fPhotonCount++; }
+
+private:
+    G4int fPhotonCount = 0; //Fotones por evento
+
+};
+
+#endif```
+
+## `include/MyMaterials.hh`
+
+```text
+#ifndef MY_MATERIALS_HH
+#define MY_MATERIALS_HH 1
+
+#include "globals.hh"
+#include "G4Material.hh"
+
+class G4NistManager;
+class MyMaterials{
+public: 
+    //Destructor
+    ~MyMaterials();
+
+    //Obtener la única instancia (Patrón Singleton)
+    static MyMaterials* GetInstance();
+
+    //Obtener un material por nombre (muy útil)
+    G4Material* GetMaterial(const G4String materialName);
+
+    //Getters directos para los materiales más usados
+    G4Material* GetAir()         const { return fAir;         }
+    G4Material* GetWater()       const { return fWater;       }
+    G4Material* GetPolystyrene() const { return fPolystyrene; }
+    G4Material* GetPMMA()        const { return fPMMA;        }
+
+private:
+    //Constructor privado (para que solo exista una instancia)
+    MyMaterials();
+
+    //Método donde definimos todos los materiales
+    void CreateMaterials();
+
+    // Única instancia (Singletón)
+    static MyMaterials* fInstance;
+
+    //Manager de NIST
+    G4NistManager* fNistMan = nullptr;
+
+    //Materiales (punteros que guardamos)
+    G4Material* fAir          = nullptr;
+    G4Material* fWater        = nullptr;
+    G4Material* fPolystyrene  = nullptr;
+    G4Material* fPMMA         = nullptr;
+    //Puedes agregar más aquí (fCoating, fTiO2, etc.)
+};
+
+#endif```
+
+## `include/PhysicsList.hh`
+
+```text
+#ifndef PHYSICS_LIST_HH
+#define PHYSICS_LIST_HH
+
+#include "G4VModularPhysicsList.hh"
+
+class PhysicsList : public G4VModularPhysicsList {
+public:
+    PhysicsList();
+    ~PhysicsList() override;
+};
+
+#endif```
+
+## `include/PrimaryGeneratorAction.hh`
+
+```text
+#ifndef PRIMARY_GENERATOR_ACTION_HH
+#define PRIMARY_GENERATOR_ACTION_HH
+
+#include "G4VUserPrimaryGeneratorAction.hh"
+#include "G4ParticleGun.hh"
+
+class PrimaryGeneratorAction : public G4VUserPrimaryGeneratorAction {
+public:
+    PrimaryGeneratorAction();
+    ~PrimaryGeneratorAction() override;
+    void GeneratePrimaries(G4Event*) override;
+
+private:
+    G4ParticleGun* fParticleGun = nullptr;
+};
+
+#endif```
+
+## `include/RunAction.hh`
+
+```text
+#ifndef RUN_ACTION_HH
+#define RUN_ACTION_HH
+
+#include "G4UserRunAction.hh"
+#include "G4AnalysisManager.hh"
+
+class RunAction : public G4UserRunAction
+{
+public:
+    RunAction();
+    ~RunAction() override;
+
+    void BeginOfRunAction(const G4Run*) override;
+    void EndOfRunAction(const G4Run*) override;
+};
+
+#endif```
+
+## `include/SteppingAction.hh`
+
+```text
+#ifndef STEPPING_ACTION_HH
+#define STEPPING_ACTION_HH
+
+#include "G4UserSteppingAction.hh"
+#include "G4Step.hh"
+#include <fstream>
+
+class SteppingAction : public G4UserSteppingAction
+{
+public:
+    SteppingAction();
+    ~SteppingAction() override = default;
+
+    void UserSteppingAction(const G4Step*) override;
+
+private:
+    std::ofstream fOutFile;
+    G4double fTotalEdepPerEvent = 0.0;
+    G4int fCurrentEventID = -1;
+};
+
+#endif```
+
+## `include/TargetSD.hh`
+
+```text
+#ifndef TARGET_SD_HH
+#define TARGET_SD_HH
+
+#include "G4VSensitiveDetector.hh"
+#include "G4AnalysisManager.hh"
+
+class TargetSD : public G4VSensitiveDetector
+{
+public:
+    TargetSD(const G4String& name);
+    ~TargetSD() override = default;
+
+    G4bool ProcessHits(G4Step* step, G4TouchableHistory* history) override;
+};
+
+#endif```
+
+## `src/ActionInitialization.cc`
+
+```text
+#include "ActionInitialization.hh"
+#include "PrimaryGeneratorAction.hh"
+#include "G4RunManager.hh"
+#include "SteppingAction.hh"
+#include "EventAction.hh"
+#include "RunAction.hh"
+
+ActionInitialization::ActionInitialization() : G4VUserActionInitialization() {}
+
+ActionInitialization::~ActionInitialization() {}
+
+void ActionInitialization::BuildForMaster() const {
+    // En modo multi-hilo, puedes definir acciones específicas para el hilo maestro si es necesario
+    // Por ahora, no necesitamos acciones específicas para el hilo maestro
+}
+
+void ActionInitialization::Build() const {
+    // Define las acciones del usuario para cada hilo
+    SetUserAction(new PrimaryGeneratorAction());
+    SetUserAction(new SteppingAction());
+    SetUserAction(new EventAction());
+    SetUserAction(new RunAction());
+}```
+
+## `src/DetectorConstruction.cc`
+
+```text
+#include "DetectorConstruction.hh"
+#include "MyMaterials.hh"
+
+#include "G4Box.hh"
+#include "G4LogicalVolume.hh"
+#include "G4PVPlacement.hh"
+#include "G4NistManager.hh"
+#include "G4SystemOfUnits.hh"
+#include "G4Element.hh" //Caso 2
+
+DetectorConstruction::DetectorConstruction() = default;
+DetectorConstruction::~DetectorConstruction() = default;
+
+G4VPhysicalVolume* DetectorConstruction::Construct() {
+
+
+    auto* nist = G4NistManager::Instance();
+    auto* vaccum = nist->FindOrBuildMaterial("G4_Galactic");
+
+    //Obtenemos la instancia única de materiales
+    MyMaterials* materials = MyMaterials::GetInstance();
+
+    //Pedimos los materiales que necesitamos
+    auto* air         = materials->GetAir();
+    auto* polystyrene = materials->GetPolystyrene();
+    //auto* puma        = materials->GetPMMA();
+    
+    // ================================= MUNDO ====================================
+    G4double worldSize = 2.0 * m;                                                        //worldSize será el - Tamaño total 1m
+    auto* worldSolid = new G4Box("World", worldSize/2, worldSize/2, worldSize/2);        //worlSolid será el - Cubo(nombre, mitad anchoX , mitad alturaY, mitad profundidadZ)
+    auto* worldLV = new G4LogicalVolume(worldSolid, vaccum, "World");                       //worldLV será el   - VolumenLogico(Cubo, elemento, nombre)
+    auto* worldPV = new G4PVPlacement(nullptr, {}, worldLV, "World", nullptr, false, 0); //worldPV será el   - Espacio(rotacion, posicion {} es default, VolumenLogico, nombre, PL_madre, copia_multiple, numero_copia)
+
+    
+    
+    // ================================= DETECTOR
+
+    // Detector (construido con Polysterene con centello)
+    G4double targetSize = 10.0 * cm;                                                     //targetSize será el  -  Tamaño total 10 cm
+    auto* targetSolid = new G4Box("Target", targetSize/2, targetSize/2, targetSize/2);   //targetSolid será el -  Cubo(nombre, mitad anchoX , mitad alturaY, mitad profundidadZ)
+    fLogicTarget = new G4LogicalVolume(targetSolid, polystyrene, "Target");                    //flogicalTarget será el-VolumenLogico(Cubo, elemento, nombre)
+    new G4PVPlacement(nullptr, {}, fLogicTarget, "Target", worldLV, false, 0);           //No se crea            - Espacio(rotacion, posicion {} es default, VolumenLogico, nombre, PL_madre, copia_multiple, numero_copia)
+
+
+    return worldPV; //Se devuelve el mundo
+}```
+
+## `src/EventAction.cc`
+
+```text
+#include "EventAction.hh"
+#include "G4RunManager.hh"
+#include "G4Event.hh"
+#include "G4AnalysisManager.hh"
+
+EventAction::EventAction() = default;
+
+void EventAction::BeginOfEventAction(const G4Event*){
+    fPhotonCount = 0;
+}
+
+void EventAction::EndOfEventAction(const G4Event* event){
+    //Guardar en Root usando G4AnalysisManager
+    auto analysisManager = G4AnalysisManager::Instance();
+    analysisManager->FillNtupleDColumn(0, 0, event->GetEventID());  //Columna: 0 EventID
+    analysisManager->FillNtupleDColumn(0, 1, fPhotonCount);         //Columna: 1 Numero de fotones
+    analysisManager->AddNtupleRow(0);
+
+    if (event->GetEventID() % 10 == 0){
+        G4cout << "# Event " << event->GetEventID() << " -> " << fPhotonCount << " fotones opticos generados" << G4endl;
+    }
+}```
+
+## `src/MyMaterials.cc`
+
+```text
+#include "MyMaterials.hh"
+
+#include "G4NistManager.hh"
+#include "G4SystemOfUnits.hh"
+#include "G4MaterialPropertiesTable.hh" //Propiedades ópticas
+
+MyMaterials* MyMaterials::fInstance = nullptr;
+
+//Constructor privado
+MyMaterials::MyMaterials(){
+    fNistMan = G4NistManager::Instance();
+    fNistMan->SetVerbose(1); //Muestra info útil al crear los materiales
+
+    CreateMaterials();
+}
+
+//Destructor: liberamos lo que creamos maunualmente (aunque Geant4 limpia al final)
+MyMaterials::~MyMaterials(){
+
+}
+
+// Obtener instancia única (thread-safe básico)
+MyMaterials* MyMaterials::GetInstance()
+{
+    if (fInstance == nullptr) {
+        fInstance = new MyMaterials();
+    }
+    return fInstance;
+}
+
+//Método principal: aquí creas todos los materiales
+void MyMaterials::CreateMaterials(){
+    // 1. Materiales de NIST (rápidos y estándar)
+    fAir =   fNistMan->FindOrBuildMaterial("G4_AIR");
+    fWater = fNistMan->FindOrBuildMaterial("G4_WATER");
+
+    // 2. Polystyrene (centellador clásico C8H8)
+    G4double density = 1.050 * g / cm3;
+    std::vector<G4String> elem_ps = {"C", "H"};
+    std::vector<G4int> nat_ps = {8, 8};
+    
+    fPolystyrene = fNistMan->ConstructNewMaterial("Polystyrene", elem_ps, nat_ps, density);
+
+    // 3. PMMA (para fibras ópticas)
+    std::vector<G4String> elem_pmma = {"C", "H", "O"};
+    std::vector<G4int>    nat_pmma  = {5, 8, 2};
+    fPMMA = fNistMan->ConstructNewMaterial("PMMA", elem_pmma, nat_pmma, 1.190 * g / cm3);
+
+    // Opcional: Agregar más propiedades ópticas (RINDEX, ABSLENGTH, SCINTILATIONCOMPONENT1, etc.)
+    // Ejemplo básico para Polystyrene:
+    std::vector<G4double> energy = {
+    2.00 * eV, 2.03 * eV, 2.06 * eV, 2.09 * eV, 2.12 * eV, 2.15 * eV, 2.18 * eV, 2.21 * eV,
+    2.24 * eV, 2.27 * eV, 2.30 * eV, 2.33 * eV, 2.36 * eV, 2.39 * eV, 2.42 * eV, 2.45 * eV,
+    2.48 * eV, 2.51 * eV, 2.54 * eV, 2.57 * eV, 2.60 * eV, 2.63 * eV, 2.66 * eV, 2.69 * eV,
+    2.72 * eV, 2.75 * eV, 2.78 * eV, 2.81 * eV, 2.84 * eV, 2.87 * eV, 2.90 * eV, 2.93 * eV,
+    2.96 * eV, 2.99 * eV, 3.02 * eV, 3.05 * eV, 3.08 * eV, 3.11 * eV, 3.14 * eV, 3.17 * eV,
+    3.20 * eV, 3.23 * eV, 3.26 * eV, 3.29 * eV, 3.32 * eV, 3.35 * eV, 3.38 * eV, 3.41 * eV,
+    3.44 * eV, 3.47 * eV};
+    std::vector<G4double> energySmall = {2.0 * eV, 3.47 * eV};
+    std::vector<G4double> refractiveIndexPS = {1.50, 1.50};
+    std::vector<G4double> absPS = {2. * cm, 2. * cm};
+    std::vector<G4double> scintilFast = {
+    0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
+    0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 1.0, 1.0, 1.0,
+    1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0};
+
+    std::vector<G4double> scint {0.0, 0.4, 1.0, 0.3};
+
+    auto mptPolystyrene = new G4MaterialPropertiesTable();
+    mptPolystyrene->AddProperty("RINDEX", energySmall, refractiveIndexPS);
+    mptPolystyrene->AddProperty("ABSLENGTH", energySmall, absPS);
+    mptPolystyrene->AddProperty("SCINTILLATIONCOMPONENT1", energy, scintilFast);
+    mptPolystyrene->AddConstProperty("SCINTILLATIONYIELD", 10. / keV);
+    mptPolystyrene->AddConstProperty("RESOLUTIONSCALE", 1.0);
+    mptPolystyrene->AddConstProperty("SCINTILLATIONTIMECONSTANT1", 10. * ns);
+
+    fPolystyrene->SetMaterialPropertiesTable(mptPolystyrene);
+
+    // Set the Birks Constant for the Polystyrene scintillator
+    fPolystyrene->GetIonisation()->SetBirksConstant(0.126 * mm / MeV);
+
+    //Se puede hacer lo mismo para PMMA, etc...
+}
+
+//Método para pedir cualquier material por nombre (múy útil)
+G4Material* MyMaterials::GetMaterial(const G4String materialName){
+    G4Material* mat = fNistMan->FindOrBuildMaterial(materialName);
+    
+    if(!mat) mat = G4Material::GetMaterial(materialName);
+
+    if(!mat){
+        G4ExceptionDescription ed;
+        ed << "Material '" << materialName << "' no encontrado!";
+        G4Exception("MyMaterials::GetMaterial", "", FatalException, ed);
+    }
+
+    return mat;
+}```
+
+## `src/PhysicsList.cc`
+
+```text
+#include "PhysicsList.hh"
+#include "G4EmStandardPhysics.hh"
+
+PhysicsList::PhysicsList() {
+    RegisterPhysics(new G4EmStandardPhysics());
+}
+
+PhysicsList::~PhysicsList() = default;```
+
+## `src/PrimaryGeneratorAction.cc`
+
+```text
+#include "PrimaryGeneratorAction.hh"
+#include "G4ParticleTable.hh"
+#include "G4SystemOfUnits.hh"
+
+PrimaryGeneratorAction::PrimaryGeneratorAction() {
+    fParticleGun = new G4ParticleGun(1);
+    auto* particle = G4ParticleTable::GetParticleTable()->FindParticle("e-");
+    if (!particle) {
+        G4cerr << "ERROR: Partícula 'e-' no encontrada!\n";
+        return;
+    }
+    fParticleGun->SetParticleDefinition(particle);
+    fParticleGun->SetParticleEnergy(42.0 * MeV);
+    fParticleGun->SetParticlePosition(G4ThreeVector(0, 0, -20*cm));
+    fParticleGun->SetParticleMomentumDirection(G4ThreeVector(0, 0, 1));
+}
+
+PrimaryGeneratorAction::~PrimaryGeneratorAction() { delete fParticleGun; }
+
+void PrimaryGeneratorAction::GeneratePrimaries(G4Event* event) {
+    fParticleGun->GeneratePrimaryVertex(event);  // ¡DISPARA!
+}```
+
+## `src/RunAction.cc`
+
+```text
+#include "RunAction.hh"
+#include "G4Run.hh"
+#include "G4AnalysisManager.hh"
+
+RunAction::RunAction()
+{
+    auto analysisManager = G4AnalysisManager::Instance();
+    analysisManager->SetDefaultFileType("root");
+    analysisManager->SetFileName("simulation_output");
+
+    // Crear ntuple para guardar datos por evento
+    analysisManager->CreateNtuple("Events", "Datos por evento");
+    analysisManager->CreateNtupleDColumn("EventID");
+    analysisManager->CreateNtupleDColumn("NPhotons");   // o lo que quieras contar
+    analysisManager->FinishNtuple();
+}
+
+RunAction::~RunAction() = default;
+
+void RunAction::BeginOfRunAction(const G4Run*)
+{
+    G4AnalysisManager::Instance()->OpenFile();
+}
+
+void RunAction::EndOfRunAction(const G4Run*)
+{
+    G4AnalysisManager::Instance()->Write();
+    G4AnalysisManager::Instance()->CloseFile();
+}```
+
+## `src/SteppingAction.cc`
+
+```text
+#include "SteppingAction.hh"
+#include "G4RunManager.hh"
+#include "G4Event.hh"
+#include "G4SystemOfUnits.hh"
+
+SteppingAction::SteppingAction()
+{
+    fOutFile.open("energy_deposit.csv");
+    fOutFile << "EventID,Edep_MeV\n";
+}
+
+void SteppingAction::UserSteppingAction(const G4Step* step)
+{
+    // Solo en el volumen que nos interesa (puedes filtrar por nombre)
+    if (step->GetPreStepPoint()->GetPhysicalVolume()->GetName() != "Target") return;
+    
+    if (step->GetTrack()->GetDefinition()->GetParticleName() == "opticalphoton") {
+    G4cout << "#Fotondetectado - Energia = " 
+           << step->GetTrack()->GetKineticEnergy()/eV << " eV" << G4endl;
+}
+    G4double edep = step->GetTotalEnergyDeposit();
+
+    if (edep > 0)
+    {
+        auto* event = G4RunManager::GetRunManager()->GetCurrentEvent();
+        G4int eventID = event->GetEventID();
+
+        // Si cambió de evento -> escribe el anterior y resetea
+        if (eventID != fCurrentEventID)
+        {
+            if (fCurrentEventID >= 0)
+            {
+                fOutFile << fCurrentEventID << "," << fTotalEdepPerEvent / MeV << "\n";
+            }
+            fTotalEdepPerEvent = 0.0;
+            fCurrentEventID = eventID;
+        }
+
+        fTotalEdepPerEvent += edep;
+    }
+}```
+
+## `src/TargetSD.cc`
+
+```text
+#include "TargetSD.hh"
+#include "G4Step.hh"
+#include "G4Track.hh"
+#include "G4OpticalPhoton.hh"
+
+TargetSD::TargetSD(const G4String& name)
+    : G4VSensitiveDetector(name)
+{}
+
+G4bool TargetSD::ProcessHits(G4Step* step, G4TouchableHistory*)
+{
+    const G4Track* track = step->GetTrack();
+
+    if (track->GetDefinition() == G4OpticalPhoton::OpticalPhotonDefinition())
+    {
+        auto analysisManager = G4AnalysisManager::Instance();
+
+        // Columna 1 = número de fotones (sumamos 1 por cada hit)
+        analysisManager->FillNtupleDColumn(0, 1, 1.0);
+        analysisManager->AddNtupleRow(0);
+
+        // Opcional: imprimir para debug
+        // G4cout << "Fotón óptico detectado en Target → Energía = " 
+        //        << track->GetKineticEnergy()/eV << " eV" << G4endl;
+    }
+
+    return true;
+}```
+

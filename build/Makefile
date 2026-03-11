@@ -345,6 +345,30 @@ src/SteppingAction.cc.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/startG4.dir/build.make CMakeFiles/startG4.dir/src/SteppingAction.cc.s
 .PHONY : src/SteppingAction.cc.s
 
+src/TargetSD.o: src/TargetSD.cc.o
+.PHONY : src/TargetSD.o
+
+# target to build an object file
+src/TargetSD.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/startG4.dir/build.make CMakeFiles/startG4.dir/src/TargetSD.cc.o
+.PHONY : src/TargetSD.cc.o
+
+src/TargetSD.i: src/TargetSD.cc.i
+.PHONY : src/TargetSD.i
+
+# target to preprocess a source file
+src/TargetSD.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/startG4.dir/build.make CMakeFiles/startG4.dir/src/TargetSD.cc.i
+.PHONY : src/TargetSD.cc.i
+
+src/TargetSD.s: src/TargetSD.cc.s
+.PHONY : src/TargetSD.s
+
+# target to generate assembly for a file
+src/TargetSD.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/startG4.dir/build.make CMakeFiles/startG4.dir/src/TargetSD.cc.s
+.PHONY : src/TargetSD.cc.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -381,6 +405,9 @@ help:
 	@echo "... src/SteppingAction.o"
 	@echo "... src/SteppingAction.i"
 	@echo "... src/SteppingAction.s"
+	@echo "... src/TargetSD.o"
+	@echo "... src/TargetSD.i"
+	@echo "... src/TargetSD.s"
 .PHONY : help
 
 

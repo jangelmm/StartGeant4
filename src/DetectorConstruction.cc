@@ -1,12 +1,14 @@
 #include "DetectorConstruction.hh"
 #include "MyMaterials.hh"
+#include "TargetSD.hh"
 
 #include "G4Box.hh"
 #include "G4LogicalVolume.hh"
 #include "G4PVPlacement.hh"
 #include "G4NistManager.hh"
 #include "G4SystemOfUnits.hh"
-#include "G4Element.hh" //Caso 2
+#include "G4Element.hh" 
+#include "G4SDManager.hh"
 
 DetectorConstruction::DetectorConstruction() = default;
 DetectorConstruction::~DetectorConstruction() = default;
@@ -43,4 +45,17 @@ G4VPhysicalVolume* DetectorConstruction::Construct() {
 
 
     return worldPV; //Se devuelve el mundo
+}
+
+void DetectorConstruction::ConstructSDandField()
+{
+    G4SDManager* sdman = G4SDManager::GetSDMpointer();
+
+    TargetSD* targetSD = new TargetSD("TargetSD");
+    sdman->AddNewDetector(targetSD);
+
+    if (fLogicTarget != nullptr) {
+        fLogicTarget->SetSensitiveDetector(targetSD);
+        G4cout << " TargetSD adjuntado correctamente al volumen 'Target'" << G4endl;
+    }
 }

@@ -3,10 +3,15 @@
 
 #include "G4VModularPhysicsList.hh"
 
-class PhysicsList : public G4VModularPhysicsList {
+class PhysicsList : public G4VModularPhysicsList
+{
 public:
     PhysicsList();
     ~PhysicsList() override;
+
+    // Opcional: si quieres sobreescribir métodos virtuales
+    // virtual void ConstructParticle() override;
+    // virtual void ConstructProcess() override;
 };
 
 #endif
