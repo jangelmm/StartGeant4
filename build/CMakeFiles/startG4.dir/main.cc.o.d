@@ -751,6 +751,19 @@ CMakeFiles/startG4.dir/main.cc.o: \
  /media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/include/DetectorConstruction.hh \
  /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4VUserDetectorConstruction.hh \
  /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4LogicalVolume.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4Cache.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4CacheDetails.hh \
+ /media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/include/TargetSD.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4VSensitiveDetector.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4CollectionNameVector.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4VReadOutGeometry.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4SensitiveVolumeList.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4VSDFilter.hh \
+ /media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/include/TargetHit.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4VHit.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4Allocator.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4ThreeVector.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4THitsCollection.hh \
  /media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/include/PhysicsList.hh \
  /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4VModularPhysicsList.hh \
  /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4VPhysicsConstructor.hh \
@@ -758,7 +771,6 @@ CMakeFiles/startG4.dir/main.cc.o: \
  /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4PhysicsListOrderingParameter.hh \
  /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4ThreadLocalSingleton.hh \
  /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4Cache.hh \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4CacheDetails.hh \
  /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4VUPLSplitter.hh \
  /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4VUserPhysicsList.hh \
  /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4ProductionCutsTable.hh \

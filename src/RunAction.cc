@@ -4,18 +4,15 @@
 
 RunAction::RunAction()
 {
-    auto analysisManager = G4AnalysisManager::Instance();
-    analysisManager->SetDefaultFileType("root");
-    analysisManager->SetFileName("simulation_output");
+    auto analysis = G4AnalysisManager::Instance();
+    analysis->SetDefaultFileType("root");
+    analysis->SetFileName("simulation_output");
 
-    // Crear ntuple para guardar datos por evento
-    analysisManager->CreateNtuple("Events", "Datos por evento");
-    analysisManager->CreateNtupleDColumn("EventID");
-    analysisManager->CreateNtupleDColumn("NPhotons");   // o lo que quieras contar
-    analysisManager->FinishNtuple();
+    analysis->CreateNtuple("Events", "Datos por evento");
+    analysis->CreateNtupleIColumn("EventID");
+    analysis->CreateNtupleIColumn("NPhotons");
+    analysis->FinishNtuple();
 }
-
-RunAction::~RunAction() = default;
 
 void RunAction::BeginOfRunAction(const G4Run*)
 {
@@ -27,3 +24,5 @@ void RunAction::EndOfRunAction(const G4Run*)
     G4AnalysisManager::Instance()->Write();
     G4AnalysisManager::Instance()->CloseFile();
 }
+
+RunAction::~RunAction() = default;

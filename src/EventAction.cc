@@ -1,22 +1,36 @@
 #include "EventAction.hh"
-#include "G4RunManager.hh"
 #include "G4Event.hh"
-#include "G4AnalysisManager.hh"
+#include "G4HCofThisEvent.hh"
+#include "G4SDManager.hh"
+#include "G4THitsCollection.hh"
+#include "TargetHit.hh"
 
 EventAction::EventAction() = default;
 
-void EventAction::BeginOfEventAction(const G4Event*){
+void EventAction::BeginOfEventAction(const G4Event*)
+{
     fPhotonCount = 0;
 }
 
-void EventAction::EndOfEventAction(const G4Event* event){
-    //Guardar en Root usando G4AnalysisManager
-    auto analysisManager = G4AnalysisManager::Instance();
-    analysisManager->FillNtupleDColumn(0, 0, event->GetEventID());  //Columna: 0 EventID
-    analysisManager->FillNtupleDColumn(0, 1, fPhotonCount);         //Columna: 1 Numero de fotones
-    analysisManager->AddNtupleRow(0);
+void EventAction::EndOfEventAction(const G4Event* event)
+{
+    G4HCofThisEvent* hce = event->GetHCofThisEvent();
+    if (!hce) return;
 
-    if (event->GetEventID() % 10 == 0){
-        G4cout << "# Event " << event->GetEventID() << " -> " << fPhotonCount << " fotones opticos generados" << G4endl;
+    auto hcID = G4SDManager::GetSDMpointer()->GetCollectionID("TargetSD/PhotonHits");
+    auto hitsCollection = static_cast<G4THitsCollection<TargetHit>*>(hce->GetHC(hcID));
+
+    G4int nPhotons = 0;
+    if (hitsCollection) {
+        nPhotons = hitsCollection->entries();
+    }
+
+    auto analysis = G4AnalysisManager::Instance();
+    analysis->FillNtupleIColumn(0, 0, event->GetEventID());
+    analysis->FillNtupleIColumn(0, 1, nPhotons);
+    analysis->AddNtupleRow(0);
+
+    if (event->GetEventID() % 10 == 0) {
+        G4cout << "Evento " << event->GetEventID() << " → " << nPhotons << " fotones ópticos detectados" << G4endl;
     }
 }

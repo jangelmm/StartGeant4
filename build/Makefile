@@ -345,6 +345,30 @@ src/SteppingAction.cc.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/startG4.dir/build.make CMakeFiles/startG4.dir/src/SteppingAction.cc.s
 .PHONY : src/SteppingAction.cc.s
 
+src/TargetHit.o: src/TargetHit.cc.o
+.PHONY : src/TargetHit.o
+
+# target to build an object file
+src/TargetHit.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/startG4.dir/build.make CMakeFiles/startG4.dir/src/TargetHit.cc.o
+.PHONY : src/TargetHit.cc.o
+
+src/TargetHit.i: src/TargetHit.cc.i
+.PHONY : src/TargetHit.i
+
+# target to preprocess a source file
+src/TargetHit.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/startG4.dir/build.make CMakeFiles/startG4.dir/src/TargetHit.cc.i
+.PHONY : src/TargetHit.cc.i
+
+src/TargetHit.s: src/TargetHit.cc.s
+.PHONY : src/TargetHit.s
+
+# target to generate assembly for a file
+src/TargetHit.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/startG4.dir/build.make CMakeFiles/startG4.dir/src/TargetHit.cc.s
+.PHONY : src/TargetHit.cc.s
+
 src/TargetSD.o: src/TargetSD.cc.o
 .PHONY : src/TargetSD.o
 
@@ -405,6 +429,9 @@ help:
 	@echo "... src/SteppingAction.o"
 	@echo "... src/SteppingAction.i"
 	@echo "... src/SteppingAction.s"
+	@echo "... src/TargetHit.o"
+	@echo "... src/TargetHit.i"
+	@echo "... src/TargetHit.s"
 	@echo "... src/TargetSD.o"
 	@echo "... src/TargetSD.i"
 	@echo "... src/TargetSD.s"

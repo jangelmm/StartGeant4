@@ -2,11 +2,10 @@
 #define EVENT_ACTION_HH
 
 #include "G4UserEventAction.hh"
-#include "G4Event.hh"
-#include "globals.hh"
+#include "G4AnalysisManager.hh"
 
-class EventAction : public G4UserEventAction {
-
+class EventAction : public G4UserEventAction
+{
 public:
     EventAction();
     ~EventAction() override = default;
@@ -14,11 +13,8 @@ public:
     void BeginOfEventAction(const G4Event*) override;
     void EndOfEventAction(const G4Event*) override;
 
-    void AddPhoton() { fPhotonCount++; }
-
 private:
-    G4int fPhotonCount = 0; //Fotones por evento
-
+    G4int fPhotonCount = 0;
 };
 
 #endif

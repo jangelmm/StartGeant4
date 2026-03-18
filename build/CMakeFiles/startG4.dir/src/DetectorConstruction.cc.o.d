@@ -340,8 +340,43 @@ CMakeFiles/startG4.dir/src/DetectorConstruction.cc.o: \
  /home/angel/anaconda3/envs/geant-root-env/include/CLHEP/Vector/Rotation.icc \
  /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4VPhysicalVolume.icc \
  /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4LogicalVolume.icc \
- /media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/include/MyMaterials.hh \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/globals.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4Cache.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4CacheDetails.hh \
+ /media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/include/TargetSD.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4VSensitiveDetector.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4CollectionNameVector.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4HCofThisEvent.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4Allocator.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4AllocatorPool.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4VHitsCollection.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4Step.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4StepPoint.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4SteppingControl.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4StepStatus.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4TouchableHandle.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4VTouchable.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4TouchableHistory.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4NavigationHistory.hh \
+ /home/angel/anaconda3/envs/geant-root-env/x86_64-conda-linux-gnu/sysroot/usr/include/assert.h \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4AffineTransform.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4Transform3D.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/CLHEP/Geometry/Transform3D.h \
+ /home/angel/anaconda3/envs/geant-root-env/include/CLHEP/Geometry/defs.h \
+ /home/angel/anaconda3/envs/geant-root-env/include/CLHEP/Geometry/Transform3D.icc \
+ /home/angel/anaconda3/envs/geant-root-env/include/CLHEP/Geometry/Point3D.h \
+ /home/angel/anaconda3/envs/geant-root-env/include/CLHEP/Geometry/BasicVector3D.h \
+ /home/angel/anaconda3/envs/geant-root-env/include/CLHEP/Geometry/Vector3D.h \
+ /home/angel/anaconda3/envs/geant-root-env/include/CLHEP/Geometry/Normal3D.h \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4AffineTransform.icc \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4NavigationLevel.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4NavigationLevelRep.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4NavigationLevelRep.icc \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4NavigationLevel.icc \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4NavigationHistoryPool.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4NavigationHistory.icc \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4LogicalVolume.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4TouchableHistory.icc \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4ReferenceCountedHandle.hh \
  /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4Material.hh \
  /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4Element.hh \
  /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4ElementTable.hh \
@@ -368,42 +403,6 @@ CMakeFiles/startG4.dir/src/DetectorConstruction.cc.o: \
  /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4OrderedTable.hh \
  /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4DataVector.hh \
  /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4DataVector.icc \
- /home/angel/anaconda3/envs/geant-root-env/x86_64-conda-linux-gnu/sysroot/usr/include/assert.h \
- /media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/include/TargetSD.hh \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4VSensitiveDetector.hh \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4CollectionNameVector.hh \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4HCofThisEvent.hh \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4Allocator.hh \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4AllocatorPool.hh \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4VHitsCollection.hh \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4Step.hh \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4StepPoint.hh \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4SteppingControl.hh \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4StepStatus.hh \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4TouchableHandle.hh \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4VTouchable.hh \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4TouchableHistory.hh \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4NavigationHistory.hh \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4AffineTransform.hh \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4Transform3D.hh \
- /home/angel/anaconda3/envs/geant-root-env/include/CLHEP/Geometry/Transform3D.h \
- /home/angel/anaconda3/envs/geant-root-env/include/CLHEP/Geometry/defs.h \
- /home/angel/anaconda3/envs/geant-root-env/include/CLHEP/Geometry/Transform3D.icc \
- /home/angel/anaconda3/envs/geant-root-env/include/CLHEP/Geometry/Point3D.h \
- /home/angel/anaconda3/envs/geant-root-env/include/CLHEP/Geometry/BasicVector3D.h \
- /home/angel/anaconda3/envs/geant-root-env/include/CLHEP/Geometry/Vector3D.h \
- /home/angel/anaconda3/envs/geant-root-env/include/CLHEP/Geometry/Normal3D.h \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4AffineTransform.icc \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4NavigationLevel.hh \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4NavigationLevelRep.hh \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4NavigationLevelRep.icc \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4NavigationLevel.icc \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4NavigationHistoryPool.hh \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4NavigationHistory.icc \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4LogicalVolume.hh \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4TouchableHistory.icc \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4ReferenceCountedHandle.hh \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4Material.hh \
  /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4StepPoint.icc \
  /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4TrackVector.hh \
  /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4Step.icc \
@@ -427,76 +426,15 @@ CMakeFiles/startG4.dir/src/DetectorConstruction.cc.o: \
  /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4VReadOutGeometry.hh \
  /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4SensitiveVolumeList.hh \
  /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4VSDFilter.hh \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4AnalysisManager.hh \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4GenericAnalysisManager.hh \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4ToolsAnalysisManager.hh \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4VAnalysisManager.hh \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4AnalysisManagerState.hh \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4AnalysisVerbose.hh \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4AnalysisUtilities.hh \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4VTBaseHnManager.hh \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4HnInformation.hh \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4BinScheme.hh \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4Fcn.hh \
- /home/angel/anaconda3/envs/geant-root-env/lib/gcc/x86_64-conda-linux-gnu/13.3.0/include/c++/utility \
- /home/angel/anaconda3/envs/geant-root-env/lib/gcc/x86_64-conda-linux-gnu/13.3.0/include/c++/bits/stl_relops.h \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4VAnalysisManager.icc \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4HnManager.hh \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4BaseAnalysisManager.hh \
- /home/angel/anaconda3/envs/geant-root-env/lib/gcc/x86_64-conda-linux-gnu/13.3.0/include/c++/set \
- /home/angel/anaconda3/envs/geant-root-env/lib/gcc/x86_64-conda-linux-gnu/13.3.0/include/c++/bits/stl_set.h \
- /home/angel/anaconda3/envs/geant-root-env/lib/gcc/x86_64-conda-linux-gnu/13.3.0/include/c++/bits/stl_multiset.h \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4NtupleBookingManager.hh \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/tools/ntuple_booking \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/tools/cids \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/tools/cid \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/tools/typedefs \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/tools/forit \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4NtupleBookingManager.icc \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4VNtupleManager.hh \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4VFileManager.hh \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4BaseFileManager.hh \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4VTHnFileManager.hh \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4TH1ToolsManager.hh \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4THnToolsManager.hh \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4THnManager.hh \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4THnManager.icc \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4THnMessenger.hh \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4UImessenger.hh \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4UIdirectory.hh \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4UIcommand.hh \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4ApplicationState.hh \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4UIparameter.hh \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4THnToolsManager.icc \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4THnMessenger.icc \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4Tokenizer.hh \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4TH2ToolsManager.hh \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4TH3ToolsManager.hh \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4TP1ToolsManager.hh \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4TP2ToolsManager.hh \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/tools/histo/h1d \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/tools/histo/h1 \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/tools/histo/b1 \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/tools/histo/base_histo \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/tools/histo/histo_data \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/tools/histo/axes \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/tools/histo/axis \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/tools/eqT \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/tools/histo/h2d \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/tools/histo/h2 \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/tools/histo/b2 \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/tools/histo/h3d \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/tools/histo/h3 \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/tools/histo/b3 \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/tools/histo/p1d \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/tools/histo/p1 \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/tools/histo/profile_data \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/tools/histo/p2d \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/tools/histo/p2 \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4ToolsAnalysisManager.icc \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4GenericAnalysisManager.icc \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4GenericFileManager.hh \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4GenericFileManager.icc \
+ /media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/include/TargetHit.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4VHit.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4Allocator.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4ThreeVector.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4THitsCollection.hh \
+ /media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/include/MyMaterials.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/globals.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4Material.hh \
+ /media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/include/TargetSD.hh \
  /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4Box.hh \
  /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4GeomTypes.hh \
  /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4GeomConfig.hh \

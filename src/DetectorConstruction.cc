@@ -49,13 +49,14 @@ G4VPhysicalVolume* DetectorConstruction::Construct() {
 
 void DetectorConstruction::ConstructSDandField()
 {
-    G4SDManager* sdman = G4SDManager::GetSDMpointer();
+    if (fTargetSD.Get() == nullptr) {
+        fTargetSD.Put(new TargetSD("TargetSD"));
+    }
 
-    TargetSD* targetSD = new TargetSD("TargetSD");
-    sdman->AddNewDetector(targetSD);
+    G4SDManager::GetSDMpointer()->AddNewDetector(fTargetSD.Get());
 
-    if (fLogicTarget != nullptr) {
-        fLogicTarget->SetSensitiveDetector(targetSD);
-        G4cout << " TargetSD adjuntado correctamente al volumen 'Target'" << G4endl;
+    if (fLogicTarget) {
+        SetSensitiveDetector(fLogicTarget, fTargetSD.Get());
+        G4cout << "»»» TargetSD adjuntado correctamente al volumen 'Target'" << G4endl;
     }
 }

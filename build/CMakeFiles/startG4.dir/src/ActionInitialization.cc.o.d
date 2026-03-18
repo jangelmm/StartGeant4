@@ -573,10 +573,6 @@ CMakeFiles/startG4.dir/src/ActionInitialization.cc.o: \
  /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4Step.hh \
  /media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/include/EventAction.hh \
  /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4UserEventAction.hh \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4Event.hh \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/globals.hh \
- /media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/include/RunAction.hh \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4UserRunAction.hh \
  /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4AnalysisManager.hh \
  /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4GenericAnalysisManager.hh \
  /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4ToolsAnalysisManager.hh \
@@ -638,4 +634,6 @@ CMakeFiles/startG4.dir/src/ActionInitialization.cc.o: \
  /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4ToolsAnalysisManager.icc \
  /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4GenericAnalysisManager.icc \
  /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4GenericFileManager.hh \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4GenericFileManager.icc
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4GenericFileManager.icc \
+ /media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/include/RunAction.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4UserRunAction.hh

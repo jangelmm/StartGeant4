@@ -17,7 +17,7 @@ void ActionInitialization::BuildForMaster() const {
 void ActionInitialization::Build() const {
     // Define las acciones del usuario para cada hilo
     SetUserAction(new PrimaryGeneratorAction());
-    SetUserAction(new SteppingAction());
+    //SetUserAction(new SteppingAction()); //Opcional
     SetUserAction(new EventAction());
     SetUserAction(new RunAction());
 }

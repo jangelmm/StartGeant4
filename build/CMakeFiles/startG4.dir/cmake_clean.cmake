@@ -17,6 +17,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/startG4.dir/src/RunAction.cc.o.d"
   "CMakeFiles/startG4.dir/src/SteppingAction.cc.o"
   "CMakeFiles/startG4.dir/src/SteppingAction.cc.o.d"
+  "CMakeFiles/startG4.dir/src/TargetHit.cc.o"
+  "CMakeFiles/startG4.dir/src/TargetHit.cc.o.d"
   "CMakeFiles/startG4.dir/src/TargetSD.cc.o"
   "CMakeFiles/startG4.dir/src/TargetSD.cc.o.d"
   "startG4"
