@@ -23,6 +23,7 @@ public:
     G4Material* GetPMMA()        const { return fPMMA;        }
     G4Material* GetTeflon()      const { return fTeflon; }
     G4Material* GetTape()        const { return fTape;        }
+    G4Material* GetSilicon()     const { return fSilicon; }
 
 private:
     //Constructor privado (para que solo exista una instancia)
@@ -44,6 +45,7 @@ private:
     G4Material* fPMMA         = nullptr;
     G4Material* fTeflon       = nullptr;
     G4Material* fTape         = nullptr;
+    G4Material* fSilicon      = nullptr;
     //Puedes agregar más aquí (fCoating, fTiO2, etc.)
 };
 

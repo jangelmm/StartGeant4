@@ -31,10 +31,12 @@ MyMaterials* MyMaterials::GetInstance()
 //Método principal: aquí creas todos los materiales
 void MyMaterials::CreateMaterials(){
     // 1. Materiales de NIST (rápidos y estándar)
-    fAir    =   fNistMan->FindOrBuildMaterial("G4_AIR");
-    fWater  = fNistMan->FindOrBuildMaterial("G4_WATER");
-    fTeflon =   fNistMan->FindOrBuildMaterial("G4_TEFLON");
-    fTape   =   fNistMan->FindOrBuildMaterial("G4_POLYETHYLENE");
+    fAir     =   fNistMan->FindOrBuildMaterial("G4_AIR");
+    fWater   = fNistMan->FindOrBuildMaterial("G4_WATER");
+    fTeflon  =   fNistMan->FindOrBuildMaterial("G4_TEFLON");
+    fTape    =   fNistMan->FindOrBuildMaterial("G4_POLYETHYLENE");
+    fSilicon = fNistMan->FindOrBuildMaterial("G4_Si");
+
 
 
     // 2. Polystyrene (centellador clásico C8H8)
@@ -103,6 +105,19 @@ void MyMaterials::CreateMaterials(){
     mptTape->AddProperty("RINDEX", energyRange, rindexTape);
     mptTape->AddProperty("REFLECTIVITY", energyRange, reflectivityTape, true);
     fTape->SetMaterialPropertiesTable(mptTape); 
+
+    //Sillicio (Detector)
+
+    std::vector<G4double> s_energyRange = {2.0*eV, 3.5*eV};
+    std::vector<G4double> s_rindexSi = {3.5, 3.5};
+    std::vector<G4double> s_efficiencySi = {0.25, 0.35}; // eficiencia cuántica típica
+
+    auto mptSi = new G4MaterialPropertiesTable();
+    mptSi->AddProperty("RINDEX", s_energyRange, s_rindexSi);
+    mptSi->AddProperty("EFFICIENCY", s_energyRange, s_efficiencySi);
+
+    fSilicon->SetMaterialPropertiesTable(mptSi);
+
 }
 
 //Método para pedir cualquier material por nombre (múy útil)
