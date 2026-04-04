@@ -1,3 +1,0 @@
-/home/angel/Proyects/Geant4/Practice/StartGeant4/build/CMakeFiles/startG4.dir
-/home/angel/Proyects/Geant4/Practice/StartGeant4/build/CMakeFiles/edit_cache.dir
-/home/angel/Proyects/Geant4/Practice/StartGeant4/build/CMakeFiles/rebuild_cache.dir
