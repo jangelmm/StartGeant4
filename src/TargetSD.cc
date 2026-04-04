@@ -2,6 +2,7 @@
 #include "G4HCofThisEvent.hh"
 #include "G4SDManager.hh"
 #include "G4OpticalPhoton.hh"
+#include "G4SystemOfUnits.hh"
 
 TargetSD::TargetSD(const G4String& name)
     : G4VSensitiveDetector(name)
@@ -21,8 +22,8 @@ G4bool TargetSD::ProcessHits(G4Step* step, G4TouchableHistory*)
     const G4Track* track = step->GetTrack();
     if (track->GetDefinition() != G4OpticalPhoton::OpticalPhotonDefinition()) return false;
 
-    // Creamos un hit (solo para contar)
     auto newHit = new TargetHit();
+    newHit->SetEnergy(track->GetKineticEnergy()/eV); // energía en eV
     fHitsCollection->insert(newHit);
 
     return true;

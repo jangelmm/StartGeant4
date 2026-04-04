@@ -11,6 +11,7 @@ RunAction::RunAction()
     analysis->CreateNtuple("Events", "Datos por evento");
     analysis->CreateNtupleIColumn("EventID");
     analysis->CreateNtupleIColumn("NPhotons");
+    analysis->CreateNtupleDColumn("PhotonEnergy");
     analysis->FinishNtuple();
 }
 

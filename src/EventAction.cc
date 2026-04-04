@@ -25,19 +25,18 @@ void EventAction::EndOfEventAction(const G4Event* event)
         nPhotons = hitsCollection->entries();
     }
 
-    // Guardar energía de cada fotón detectado
-    for (int i = 0; i < hitsCollection->entries(); i++) {
-        auto hit = (*hitsCollection)[i];
-        // Aquí podrías extender TargetHit para guardar energía
-        // Ejemplo: hit->SetEnergy(photonEnergy);
-    }
-
     auto analysis = G4AnalysisManager::Instance();
     analysis->FillNtupleIColumn(0, 0, event->GetEventID());
     analysis->FillNtupleIColumn(0, 1, nPhotons);
-    analysis->AddNtupleRow(0);
+
+    // --- NUEVO: guardar energía de cada fotón ---
+    for (int i = 0; i < hitsCollection->entries(); i++) {
+        auto hit = (*hitsCollection)[i];
+        analysis->FillNtupleDColumn(0, 2, hit->GetEnergy()); // columna de energías
+        analysis->AddNtupleRow(0);
+    }
 
     if (event->GetEventID() % 10 == 0) {
-        G4cout << "Evento " << event->GetEventID() << " → " << nPhotons << " fotones detectados" << G4endl;
+        G4cout << "Evento " << event->GetEventID() << " -> " << nPhotons << " fotones detectados" << G4endl;
     }
 }

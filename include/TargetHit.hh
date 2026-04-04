@@ -11,15 +11,18 @@ public:
     TargetHit() = default;
     ~TargetHit() override = default;
 
-    // Para que Geant4 pueda usar la colección
     inline void* operator new(size_t);
     inline void operator delete(void*);
 
-    void Draw() override {}   // vacío por ahora (puedes dibujar después)
-    void Print() override {}  // vacío por ahora
+    void Draw() override {}
+    void Print() override {}
+
+    // --- NUEVO: energía del fotón ---
+    void SetEnergy(G4double e) { fEnergy = e; }
+    G4double GetEnergy() const { return fEnergy; }
 
 private:
-    // Aquí puedes agregar más datos en el futuro (energía, tiempo, posición...)
+    G4double fEnergy = 0.0;  // energía en eV
 };
 
 extern G4ThreadLocal G4Allocator<TargetHit>* TargetHitAllocator;
