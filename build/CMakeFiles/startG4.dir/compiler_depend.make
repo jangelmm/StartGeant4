@@ -1448,6 +1448,8 @@ CMakeFiles/startG4.dir/src/DetectorConstruction.cc.o: /media/Files/Documentos/Pr
   /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4Allocator.hh \
   /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4AllocatorPool.hh \
   /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4AutoLock.hh \
+  /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4BooleanSolid.hh \
+  /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4BooleanSolid.icc \
   /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4Box.hh \
   /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4Box.icc \
   /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4CSGSolid.hh \
@@ -1457,6 +1459,7 @@ CMakeFiles/startG4.dir/src/DetectorConstruction.cc.o: /media/Files/Documentos/Pr
   /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4DataVector.hh \
   /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4DataVector.icc \
   /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4DensityEffectCalculator.hh \
+  /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4DisplacedSolid.hh \
   /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4DynamicParticle.hh \
   /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4DynamicParticle.icc \
   /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4ElectronOccupancy.hh \
@@ -1528,6 +1531,7 @@ CMakeFiles/startG4.dir/src/DetectorConstruction.cc.o: /media/Files/Documentos/Pr
   /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4SteppingControl.hh \
   /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4String.hh \
   /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4String.icc \
+  /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4SubtractionSolid.hh \
   /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4SystemOfUnits.hh \
   /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4THitsCollection.hh \
   /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4Threading.hh \
@@ -1542,6 +1546,7 @@ CMakeFiles/startG4.dir/src/DetectorConstruction.cc.o: /media/Files/Documentos/Pr
   /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4Transform3D.hh \
   /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4TwoVector.hh \
   /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4Types.hh \
+  /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4VBooleanProcessor.hh \
   /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4VHit.hh \
   /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4VHitsCollection.hh \
   /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4VPhysicalVolume.hh \
@@ -5187,7 +5192,11 @@ CMakeFiles/startG4.dir/src/TargetSD.cc.o: /media/Files/Documentos/Programacion/R
 
 /media/Files/Documentos/Programacion/Root/EjerciciosRootGeant4/StartG4/src/EventAction.cc:
 
+/home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4VBooleanProcessor.hh:
+
 /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4SystemOfUnits.hh:
+
+/home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4SubtractionSolid.hh:
 
 /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4SDStructure.hh:
 
@@ -5196,6 +5205,10 @@ CMakeFiles/startG4.dir/src/TargetSD.cc.o: /media/Files/Documentos/Programacion/R
 /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4OpticalPhoton.hh:
 
 /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4Exp.hh:
+
+/home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4DisplacedSolid.hh:
+
+/home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4BooleanSolid.icc:
 
 /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4PVPlacement.hh:
 
@@ -5770,6 +5783,8 @@ CMakeFiles/startG4.dir/src/TargetSD.cc.o: /media/Files/Documentos/Programacion/R
 /home/angel/anaconda3/envs/geant-root-env/lib/gcc/x86_64-conda-linux-gnu/13.3.0/include/c++/bits/chrono_io.h:
 
 /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4HepRepFileXMLWriter.hh:
+
+/home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4BooleanSolid.hh:
 
 /home/angel/anaconda3/envs/geant-root-env/lib/gcc/x86_64-conda-linux-gnu/13.3.0/include/c++/numbers:
 

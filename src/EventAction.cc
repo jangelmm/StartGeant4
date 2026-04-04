@@ -31,6 +31,6 @@ void EventAction::EndOfEventAction(const G4Event* event)
     analysis->AddNtupleRow(0);
 
     if (event->GetEventID() % 10 == 0) {
-        G4cout << "Evento " << event->GetEventID() << " → " << nPhotons << " fotones ópticos detectados" << G4endl;
+        G4cout << "»»»»»» Evento " << event->GetEventID() << " → " << nPhotons << " fotones ópticos detectados" << G4endl;
     }
 }

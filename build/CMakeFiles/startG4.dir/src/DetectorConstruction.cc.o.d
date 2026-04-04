@@ -463,4 +463,9 @@ CMakeFiles/startG4.dir/src/DetectorConstruction.cc.o: \
  /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4SDManager.hh \
  /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4HCtable.hh \
  /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4SDStructure.hh \
- /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4VSensitiveDetector.hh
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4VSensitiveDetector.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4SubtractionSolid.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4BooleanSolid.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4DisplacedSolid.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4VBooleanProcessor.hh \
+ /home/angel/anaconda3/envs/geant-root-env/include/Geant4/G4BooleanSolid.icc
