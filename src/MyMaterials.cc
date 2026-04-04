@@ -31,8 +31,11 @@ MyMaterials* MyMaterials::GetInstance()
 //Método principal: aquí creas todos los materiales
 void MyMaterials::CreateMaterials(){
     // 1. Materiales de NIST (rápidos y estándar)
-    fAir =   fNistMan->FindOrBuildMaterial("G4_AIR");
-    fWater = fNistMan->FindOrBuildMaterial("G4_WATER");
+    fAir    =   fNistMan->FindOrBuildMaterial("G4_AIR");
+    fWater  = fNistMan->FindOrBuildMaterial("G4_WATER");
+    fTeflon =   fNistMan->FindOrBuildMaterial("G4_TEFLON");
+    fTape   =   fNistMan->FindOrBuildMaterial("G4_POLYETHYLENE");
+
 
     // 2. Polystyrene (centellador clásico C8H8)
     G4double density = 1.050 * g / cm3;
@@ -47,7 +50,8 @@ void MyMaterials::CreateMaterials(){
     fPMMA = fNistMan->ConstructNewMaterial("PMMA", elem_pmma, nat_pmma, 1.190 * g / cm3);
 
     // Opcional: Agregar más propiedades ópticas (RINDEX, ABSLENGTH, SCINTILATIONCOMPONENT1, etc.)
-    // Ejemplo básico para Polystyrene:
+    
+    // Polystyrene -------------------------------------------------------------------------------------
     std::vector<G4double> energy = {
     2.00 * eV, 2.03 * eV, 2.06 * eV, 2.09 * eV, 2.12 * eV, 2.15 * eV, 2.18 * eV, 2.21 * eV,
     2.24 * eV, 2.27 * eV, 2.30 * eV, 2.33 * eV, 2.36 * eV, 2.39 * eV, 2.42 * eV, 2.45 * eV,
@@ -79,7 +83,24 @@ void MyMaterials::CreateMaterials(){
     // Set the Birks Constant for the Polystyrene scintillator
     fPolystyrene->GetIonisation()->SetBirksConstant(0.126 * mm / MeV);
 
-    //Se puede hacer lo mismo para PMMA, etc...
+    /// Teflon
+    std::vector<G4double> energyRange = {2.0*eV, 3.5*eV};
+    std::vector<G4double> rindexTeflon = {1.35, 1.35};
+    std::vector<G4double> reflectivityTeflon = {0.98, 0.98};
+
+    auto mptTeflon = new G4MaterialPropertiesTable();
+    mptTeflon->AddProperty("RINDEX", energyRange, rindexTeflon);
+    mptTeflon->AddProperty("REFLECTIVITY", energyRange, reflectivityTeflon);
+    fTeflon->SetMaterialPropertiesTable(mptTeflon);
+
+    // Tape (absorber)
+    std::vector<G4double> rindexTape = {1.50, 1.50};
+    std::vector<G4double> reflectivityTape = {0.05, 0.05};
+
+    auto mptTape = new G4MaterialPropertiesTable();
+    mptTape->AddProperty("RINDEX", energyRange, rindexTape);
+    mptTape->AddProperty("REFLECTIVITY", energyRange, reflectivityTape);
+    fTape->SetMaterialPropertiesTable(mptTape); 
 }
 
 //Método para pedir cualquier material por nombre (múy útil)

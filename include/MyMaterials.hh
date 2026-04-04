@@ -21,6 +21,8 @@ public:
     G4Material* GetWater()       const { return fWater;       }
     G4Material* GetPolystyrene() const { return fPolystyrene; }
     G4Material* GetPMMA()        const { return fPMMA;        }
+    G4Material* GetTeflon()      const { return fTeflon; }
+    G4Material* GetTape()        const { return fTape;        }
 
 private:
     //Constructor privado (para que solo exista una instancia)
@@ -40,6 +42,8 @@ private:
     G4Material* fWater        = nullptr;
     G4Material* fPolystyrene  = nullptr;
     G4Material* fPMMA         = nullptr;
+    G4Material* fTeflon       = nullptr;
+    G4Material* fTape         = nullptr;
     //Puedes agregar más aquí (fCoating, fTiO2, etc.)
 };
 

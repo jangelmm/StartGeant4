@@ -23,10 +23,8 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
     MyMaterials* materials = MyMaterials::GetInstance();
     auto* air         = materials->GetAir();
     auto* polystyrene = materials->GetPolystyrene();
-
-    // Materiales para las capas
-    auto* teflon = nist->FindOrBuildMaterial("G4_TEFLON");
-    auto* tape   = nist->FindOrBuildMaterial("G4_POLYETHYLENE");  // cinta d
+    auto* teflon      = materials->GetTeflon();
+    auto* tape        = materials->GetTape();
 
     // ====================== MUNDO ======================
     G4double worldSize = 2.0 * m;
