@@ -87,19 +87,21 @@ void MyMaterials::CreateMaterials(){
     std::vector<G4double> energyRange = {2.0*eV, 3.5*eV};
     std::vector<G4double> rindexTeflon = {1.35, 1.35};
     std::vector<G4double> reflectivityTeflon = {0.98, 0.98};
+    std::vector<G4double> absTeflon = {10*m, 10*m}; // absorción muy larga
 
     auto mptTeflon = new G4MaterialPropertiesTable();
     mptTeflon->AddProperty("RINDEX", energyRange, rindexTeflon);
-    mptTeflon->AddProperty("REFLECTIVITY", energyRange, reflectivityTeflon);
+    mptTeflon->AddProperty("REFLECTIVITY", energyRange, reflectivityTeflon, true);
     fTeflon->SetMaterialPropertiesTable(mptTeflon);
 
     // Tape (absorber)
     std::vector<G4double> rindexTape = {1.50, 1.50};
     std::vector<G4double> reflectivityTape = {0.05, 0.05};
+    std::vector<G4double> absTape = {1*mm, 1*mm}; // absorción corta
 
     auto mptTape = new G4MaterialPropertiesTable();
     mptTape->AddProperty("RINDEX", energyRange, rindexTape);
-    mptTape->AddProperty("REFLECTIVITY", energyRange, reflectivityTape);
+    mptTape->AddProperty("REFLECTIVITY", energyRange, reflectivityTape, true);
     fTape->SetMaterialPropertiesTable(mptTape); 
 }
 

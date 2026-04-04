@@ -7,10 +7,11 @@
 #include "G4PVPlacement.hh"
 #include "G4NistManager.hh"
 #include "G4SystemOfUnits.hh"
-#include "G4Element.hh" 
-#include "G4SDManager.hh"
+#include "G4Element.hh"
 #include "G4SDManager.hh"
 #include "G4SubtractionSolid.hh"
+#include "G4OpticalSurface.hh"
+#include "G4LogicalBorderSurface.hh"
 
 DetectorConstruction::DetectorConstruction() = default;
 DetectorConstruction::~DetectorConstruction() = default;
@@ -28,57 +29,76 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
 
     // ====================== MUNDO ======================
     G4double worldSize = 2.0 * m;
-    auto* worldSolid = new G4Box("World", worldSize/2, worldSize/2, worldSize/2);            //Forma del mundo
-    auto* worldLV    = new G4LogicalVolume(worldSolid, vacuum, "World");                     //Volumen logico
-    auto* worldPV    = new G4PVPlacement(nullptr, {}, worldLV, "World", nullptr, false, 0);  //Colocar en el espacio
+    auto* worldSolid = new G4Box("World", worldSize/2, worldSize/2, worldSize/2);
+    auto* worldLV    = new G4LogicalVolume(worldSolid, vacuum, "World");
+    auto* worldPV    = new G4PVPlacement(nullptr, {}, worldLV, "World", nullptr, false, 0);
 
-    // ====================== CUERPO B (IMPORTANTE: Pedir datos al Doc de dimensiones, ya que esto es temporal) ======================
+    // ====================== CAJA ======================
     G4double caseX = 25.0 * cm;
     G4double caseY = 25.0 * cm;
-    G4double caseZ =  5.0 * cm;  
+    G4double caseZ = 5.0 * cm;
 
-    auto* caseSolid = new G4Box("Case", caseX/2, caseY/2, caseZ/2);                          //Forma
-    auto* caseLV    = new G4LogicalVolume(caseSolid, air, "CaseLV");                         //Volumen Logico
+    auto* caseSolid = new G4Box("Case", caseX/2, caseY/2, caseZ/2);
+    auto* caseLV    = new G4LogicalVolume(caseSolid, air, "CaseLV");
+    auto* casePV    = new G4PVPlacement(nullptr, {}, caseLV, "CasePV", worldLV, false, 0);
 
-    new G4PVPlacement(nullptr, {}, caseLV, "CasePV", worldLV, false, 0);                     //Colocamos en el centro
-
-    // ====================== CUERPO A (detector multicapa) ======================
+    // ====================== DETECTOR MULTICAPA ======================
     G4double detX = 20.0 * cm;
     G4double detY = 20.0 * cm;
-    G4double detZ =  1.0 * cm;
+    G4double detZ = 1.0 * cm;
 
-    //IMPORTANTE: Pedir datos de que medida tendrán estas capas.
-
-    // 1. Polystyrene (centelleador) - núcleo
-    auto* scintSolid = new G4Box("Scintillator", detX/2, detY/2, detZ/2);                    //Forma
-    auto* scintLV    = new G4LogicalVolume(scintSolid, polystyrene, "ScintillatorLV");       //Volumen Logico
+    // 1. Polystyrene (centelleador)
+    auto* scintSolid = new G4Box("Scintillator", detX/2, detY/2, detZ/2);
+    auto* scintLV    = new G4LogicalVolume(scintSolid, polystyrene, "ScintillatorLV");
 
     // 2. Teflón (reflector)
     G4double teflonThickness = 0.2 * mm;
-    auto* teflonSolid = new G4Box("Teflon",                                                 //Una caja más grande
-                                  (detX + 2*teflonThickness)/2,                             //Lado X del centellador + 0.2 mm
-                                  (detY + 2*teflonThickness)/2,                             //Lado Y del centellador + 0.2 mm 
-                                  (detZ + 2*teflonThickness)/2);                            //Lado Z del centellador + 0.2 mm
-    auto* teflonLV = new G4LogicalVolume(teflonSolid, teflon, "TeflonLV");                  //Volumen Logico
+    auto* teflonSolid = new G4Box("Teflon",
+                                  (detX + 2*teflonThickness)/2,
+                                  (detY + 2*teflonThickness)/2,
+                                  (detZ + 2*teflonThickness)/2);
+    auto* teflonLV = new G4LogicalVolume(teflonSolid, teflon, "TeflonLV");
 
-    // 3. Cinta de aislar (protección exterior) - capa más externa (Lo mismo de arriba jeje)
+    // 3. Cinta de aislar
     G4double tapeThickness = 0.3 * mm;
-    auto* tapeSolid = new G4Box("Tape", 
+    auto* tapeSolid = new G4Box("Tape",
                                 (detX + 2*teflonThickness + 2*tapeThickness)/2,
                                 (detY + 2*teflonThickness + 2*tapeThickness)/2,
                                 (detZ + 2*teflonThickness + 2*tapeThickness)/2);
     auto* tapeLV = new G4LogicalVolume(tapeSolid, tape, "TapeLV");
 
-    // Colocamos las capas de dentro hacia fuera                                             //"El hijo reemplaza a la madre", por lo que el espacio de la madre, la sustituye el hijo
-    new G4PVPlacement(nullptr, {}, scintLV,  "ScintillatorPV", teflonLV, false, 0);          //El centelleador vive dentro del teflon
-    new G4PVPlacement(nullptr, {}, teflonLV, "TeflonPV",       tapeLV,   false, 0);          //El teflon vive dentro de la cinta
+    // Colocamos las capas de dentro hacia fuera
+    auto* scintPV = new G4PVPlacement(nullptr, {}, scintLV, "ScintillatorPV", teflonLV, false, 0);
+    auto* teflonPV = new G4PVPlacement(nullptr, {}, teflonLV, "TeflonPV", tapeLV, false, 0);
 
-    // Colocamos el detector completo dentro de la caja 
-    G4ThreeVector detPosition(0, 0, -caseZ/2 + detZ/2 + 3.0*mm);  // toca la base de 3 mm
-    new G4PVPlacement(nullptr, detPosition, tapeLV, "DetectorPV", caseLV, false, 0);
+    // Detector completo dentro de la caja
+    G4ThreeVector detPosition(0, 0, -caseZ/2 + detZ/2 + 3.0*mm);
+    auto* tapePV = new G4PVPlacement(nullptr, detPosition, tapeLV, "DetectorPV", caseLV, false, 0);
 
+    // ================== SUPERFICIES ÓPTICAS ==================
+    // 1. Superficie del centelleador (pulida)
+    auto* opScint = new G4OpticalSurface("ScintSurface");
+    opScint->SetType(dielectric_dielectric);
+    opScint->SetModel(unified);
+    opScint->SetFinish(polished);
+    opScint->SetSigmaAlpha(0.0);
+
+    // 2. Superficie del teflón (rugosa)
+    auto* opTeflon = new G4OpticalSurface("TeflonSurface");
+    opTeflon->SetType(dielectric_dielectric);
+    opTeflon->SetModel(unified);
+    opTeflon->SetFinish(ground);
+    opTeflon->SetSigmaAlpha(0.1);
+
+    // Asignar superficies a las fronteras (usando volúmenes físicos)
+    new G4LogicalBorderSurface("ScintTeflonBorder", scintPV, teflonPV, opScint);
+    new G4LogicalBorderSurface("TeflonTapeBorder", teflonPV, tapePV, opTeflon);
+
+    // Vincular las tablas de MyMaterials a las superficies ópticas
+    opScint->SetMaterialPropertiesTable(polystyrene->GetMaterialPropertiesTable());
+    opTeflon->SetMaterialPropertiesTable(teflon->GetMaterialPropertiesTable());
     // ====================== VOLUMEN SENSIBLE ======================
-    fLogicTarget = scintLV;   
+    fLogicTarget = scintLV;
 
     return worldPV;
 }
