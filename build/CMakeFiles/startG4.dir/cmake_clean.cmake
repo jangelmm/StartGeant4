@@ -1,4 +1,5 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/startG4.dir/link.d"
   "CMakeFiles/startG4.dir/main.cc.o"
   "CMakeFiles/startG4.dir/main.cc.o.d"
   "CMakeFiles/startG4.dir/src/ActionInitialization.cc.o"

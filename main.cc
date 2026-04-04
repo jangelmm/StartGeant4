@@ -8,8 +8,15 @@
 #include "ActionInitialization.hh"
 
 int main(int argc, char** argv) {
+    // Modo un solo Hilo (Debug)
+    auto* runManager = G4RunManagerFactory::CreateRunManager(G4RunManagerType::Serial); 
+
     // Modo multi-hilo
-    auto* runManager = G4RunManagerFactory::CreateRunManager(G4RunManagerType::MT);
+    //auto* runManager = G4RunManagerFactory::CreateRunManager(G4RunManagerType::MT);
+
+    //G4int nThreads = G4Threading::G4GetNumberOfCores();
+    //runManager->SetNumberOfThreads(nThreads); 
+
 
     // Inicializa clases
     runManager->SetUserInitialization(new DetectorConstruction());

@@ -21,22 +21,22 @@
 
 /vis/viewer/set/viewpointThetaPhi 90 0
 /vis/viewer/zoom 1.5
-/vis/scene/add/axes 0 0 0 20 cm
+#/vis/scene/add/axes 0 0 0 20 cm
 
 # 5. Agregar trayectorias
-#/vis/scene/add/trajectories smooth
-#/vis/scene/endOfEventAction accumulate
+/vis/scene/add/trajectories smooth
+/vis/scene/endOfEventAction accumulate
 # 6. Crear modelo
-#/vis/modeling/trajectories/create/drawByCharge
+/vis/modeling/trajectories/create/drawByCharge
 
 # 7. CONFIGURAR
-#/vis/modeling/trajectories/create/drawByParticleID
-#/vis/modeling/trajectories/drawByCharge-0/default/setDrawStepPts true
-#/vis/modeling/trajectories/drawByCharge-0/default/setStepPtsSize 2
+/vis/modeling/trajectories/create/drawByParticleID
+/vis/modeling/trajectories/drawByCharge-0/default/setDrawStepPts true
+/vis/modeling/trajectories/drawByCharge-0/default/setStepPtsSize 2
 
 # Colores
-#/vis/modeling/trajectories/drawByParticleID-0/set e- red
-#/vis/modeling/trajectories/drawByParticleID-0/set opticalphoton cyan
+/vis/modeling/trajectories/drawByParticleID-0/set e- red
+/vis/modeling/trajectories/drawByParticleID-0/set opticalphoton cyan
 
 # Colores para identificar las partes
 /vis/geometry/set/colour World         0 0.9 0.9 0.9 0.1   # mundo casi invisible
@@ -46,7 +46,7 @@
 /vis/geometry/set/colour TapeLV        0 0.8 0.4 0.2 0.7   # cinta marrón-anaranjada
 
 # 8. Hacer el cubo semitransparente (para ver fotones dentro)
-#/vis/geometry/set/colour Target 0 0.5 0.8 1.0 0.35
+/vis/geometry/set/colour Target 0 0.5 0.8 1.0 0.35
 
 # 8. Ejecutar
-#/run/beamOn 11
+/run/beamOn 11
