@@ -75,21 +75,22 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
     G4ThreeVector detPosition(0, 0, -caseZ/2 + detZ/2 + 3.0*mm);
     auto* tapePV = new G4PVPlacement(nullptr, detPosition, tapeLV, "DetectorPV", caseLV, false, 0);
 
-    // Silicio --------------------------------------------------------------------------------------------
+    // Silicio =============================================================================================================
     auto* silicon = materials->GetSilicon();
-    G4double sensorX = 1.0 * cm;
-    G4double sensorY = 1.0 * cm;
-    G4double sensorZ = 0.1 * cm;
+    G4double sensorX = 0.1 * cm;   // espesor en X
+    G4double sensorY = 1.0 * cm;   // altura
+    G4double sensorZ = 1.0 * cm;   // ancho
 
     auto* sensorSolid = new G4Box("SiliconSensor", sensorX/2, sensorY/2, sensorZ/2);
     auto* sensorLV = new G4LogicalVolume(sensorSolid, silicon, "SiliconSensorLV");
 
-    // Posición: pegado a un costado del centellador
+    // Posición: pegado a la cara lateral +X del centellador
     G4ThreeVector sensorPos(detX/2 - sensorX/2, 0, 0);
     auto* sensorPV = new G4PVPlacement(nullptr, sensorPos, sensorLV, "SiliconSensorPV", scintLV, false, 0);
 
     // Hacemos sensible el volumen del sensor
     fLogicTarget = sensorLV;
+
 
     // ================== SUPERFICIES ÓPTICAS ==================
     // 1. Superficie del centelleador (pulida)
