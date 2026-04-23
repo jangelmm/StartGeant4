@@ -64,7 +64,7 @@ void MyMaterials::CreateMaterials(){
     3.44 * eV, 3.47 * eV};
     std::vector<G4double> energySmall = {2.0 * eV, 3.47 * eV};
     std::vector<G4double> refractiveIndexPS = {1.50, 1.50};
-    std::vector<G4double> absPS = {2. * cm, 2. * cm};
+    std::vector<G4double> absPS = {2. * m, 2. * m};
     std::vector<G4double> scintilFast = {
     0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
     0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 1.0, 1.0, 1.0,
@@ -86,25 +86,36 @@ void MyMaterials::CreateMaterials(){
     fPolystyrene->GetIonisation()->SetBirksConstant(0.126 * mm / MeV);
 
     /// Teflon
+
+    std::vector<G4double> energyRange = {2.0*eV, 3.5*eV};
+    std::vector<G4double> rindexTeflon = {1.35, 1.35};
+    
+    auto mptTeflon = new G4MaterialPropertiesTable();
+    mptTeflon->AddProperty("RINDEX", energyRange, rindexTeflon);
+    fTeflon->SetMaterialPropertiesTable(mptTeflon);
+    
+    /*
     std::vector<G4double> energyRange = {2.0*eV, 3.5*eV};
     std::vector<G4double> rindexTeflon = {1.35, 1.35};
     std::vector<G4double> reflectivityTeflon = {0.98, 0.98};
     std::vector<G4double> absTeflon = {10*m, 10*m}; // absorción muy larga
 
     auto mptTeflon = new G4MaterialPropertiesTable();
-    mptTeflon->AddProperty("RINDEX", energyRange, rindexTeflon);
+    // mptTeflon->AddProperty("RINDEX", energyRange, rindexTeflon);
     mptTeflon->AddProperty("REFLECTIVITY", energyRange, reflectivityTeflon, true);
     fTeflon->SetMaterialPropertiesTable(mptTeflon);
 
     // Tape (absorber)
+    
     std::vector<G4double> rindexTape = {1.50, 1.50};
     std::vector<G4double> reflectivityTape = {0.05, 0.05};
     std::vector<G4double> absTape = {1*mm, 1*mm}; // absorción corta
-
+    
     auto mptTape = new G4MaterialPropertiesTable();
     mptTape->AddProperty("RINDEX", energyRange, rindexTape);
     mptTape->AddProperty("REFLECTIVITY", energyRange, reflectivityTape, true);
     fTape->SetMaterialPropertiesTable(mptTape); 
+    */
 
     //Sillicio (Detector)
 
@@ -117,7 +128,6 @@ void MyMaterials::CreateMaterials(){
     mptSi->AddProperty("EFFICIENCY", s_energyRange, s_efficiencySi);
 
     fSilicon->SetMaterialPropertiesTable(mptSi);
-
 }
 
 //Método para pedir cualquier material por nombre (múy útil)

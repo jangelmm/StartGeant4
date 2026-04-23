@@ -88,27 +88,31 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
 
 
     // ================== SUPERFICIES ÓPTICAS ==================
-    // 1. Superficie del centelleador (pulida)
-    auto* opScint = new G4OpticalSurface("ScintSurface");
-    opScint->SetType(dielectric_dielectric);
-    opScint->SetModel(unified);
-    opScint->SetFinish(polished);
-    opScint->SetSigmaAlpha(0.0);
+    
+    // Frontera: Centelleador -> Teflón
+    auto* opScintTeflon = new G4OpticalSurface("ScintTeflonSurface");
+    opScintTeflon->SetType(dielectric_dielectric);
+    opScintTeflon->SetModel(unified);
+    
+    // CLAVE: "ground" (rugoso para reflexión difusa) + "frontpainted" (refleja directo en la frontera)
+    opScintTeflon->SetFinish(groundfrontpainted); 
+    opScintTeflon->SetSigmaAlpha(0.1); // Nivel de dispersión de la rugosidad
 
-    // 2. Superficie del teflón (rugosa)
-    auto* opTeflon = new G4OpticalSurface("TeflonSurface");
-    opTeflon->SetType(dielectric_dielectric);
-    opTeflon->SetModel(unified);
-    opTeflon->SetFinish(ground);
-    opTeflon->SetSigmaAlpha(0.1);
+    // Le decimos a LA FRONTERA que refleje el 98% de la luz
+    auto* mptScintTeflon = new G4MaterialPropertiesTable();
+    std::vector<G4double> energy = {2.0*eV, 3.5*eV};
+    std::vector<G4double> reflectivity = {0.98, 0.98}; 
+    mptScintTeflon->AddProperty("REFLECTIVITY", energy, reflectivity);
+    
+    opScintTeflon->SetMaterialPropertiesTable(mptScintTeflon);
 
-    // Asignar superficies a las fronteras (usando volúmenes físicos)
-    new G4LogicalBorderSurface("ScintTeflonBorder", scintPV, teflonPV, opScint);
-    new G4LogicalBorderSurface("TeflonTapeBorder", teflonPV, tapePV, opTeflon);
+    // Asignar la superficie SÓLO a la frontera entre el cristal y el teflón
+    new G4LogicalBorderSurface("ScintTeflonBorder", scintPV, teflonPV, opScintTeflon);
+
+    // NOTA: No creamos frontera para la cinta. Como le quitamos las propiedades ópticas 
+    // en MyMaterials, absorberá por defecto todo lo que la toque.
 
     // Vincular las tablas de MyMaterials a las superficies ópticas
-    opScint->SetMaterialPropertiesTable(polystyrene->GetMaterialPropertiesTable());
-    opTeflon->SetMaterialPropertiesTable(teflon->GetMaterialPropertiesTable());
 
     return worldPV;
 }
