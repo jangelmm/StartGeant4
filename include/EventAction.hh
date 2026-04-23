@@ -13,8 +13,13 @@ public:
     void BeginOfEventAction(const G4Event*) override;
     void EndOfEventAction(const G4Event*) override;
 
+    // Métodos para que el SteppingAction sume fotones
+    void AddProduced() { fProduced++; }
+    void AddDetected() { fDetected++; }
+
 private:
-    G4int fPhotonCount = 0;
+    G4int fProduced = 0;
+    G4int fDetected = 0;
 };
 
 #endif

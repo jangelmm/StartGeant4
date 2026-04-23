@@ -1,42 +1,28 @@
 #include "EventAction.hh"
 #include "G4Event.hh"
-#include "G4HCofThisEvent.hh"
-#include "G4SDManager.hh"
-#include "G4THitsCollection.hh"
-#include "TargetHit.hh"
 
 EventAction::EventAction() = default;
 
 void EventAction::BeginOfEventAction(const G4Event*)
 {
-    fPhotonCount = 0;
+    // Reseteamos los contadores al iniciar un nuevo evento (disparo del electrón)
+    fProduced = 0;
+    fDetected = 0;
 }
 
 void EventAction::EndOfEventAction(const G4Event* event)
 {
-    G4HCofThisEvent* hce = event->GetHCofThisEvent();
-    if (!hce) return;
-
-    auto hcID = G4SDManager::GetSDMpointer()->GetCollectionID("TargetSD/PhotonHits");
-    auto hitsCollection = static_cast<G4THitsCollection<TargetHit>*>(hce->GetHC(hcID));
-
-    G4int nPhotons = 0;
-    if (hitsCollection) {
-        nPhotons = hitsCollection->entries();
-    }
-
+    // Guardamos los datos en el archivo ROOT
     auto analysis = G4AnalysisManager::Instance();
     analysis->FillNtupleIColumn(0, 0, event->GetEventID());
-    analysis->FillNtupleIColumn(0, 1, nPhotons);
+    analysis->FillNtupleIColumn(0, 1, fProduced);
+    analysis->FillNtupleIColumn(0, 2, fDetected);
+    analysis->AddNtupleRow(0);
 
-    // --- NUEVO: guardar energía de cada fotón ---
-    for (int i = 0; i < hitsCollection->entries(); i++) {
-        auto hit = (*hitsCollection)[i];
-        analysis->FillNtupleDColumn(0, 2, hit->GetEnergy()); // columna de energías
-        analysis->AddNtupleRow(0);
-    }
-
+    // Imprimir en consola cada 10 eventos para monitorear
     if (event->GetEventID() % 10 == 0) {
-        G4cout << "Evento " << event->GetEventID() << " -> " << nPhotons << " fotones detectados" << G4endl;
+        G4cout << "Evento " << event->GetEventID() 
+               << " | Fotones Producidos: " << fProduced 
+               << " | Detectados (por PDE): " << fDetected << G4endl;
     }
 }

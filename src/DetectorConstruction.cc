@@ -1,6 +1,5 @@
 #include "DetectorConstruction.hh"
 #include "MyMaterials.hh"
-#include "TargetSD.hh"
 
 #include "G4Box.hh"
 #include "G4LogicalVolume.hh"
@@ -8,7 +7,6 @@
 #include "G4NistManager.hh"
 #include "G4SystemOfUnits.hh"
 #include "G4Element.hh"
-#include "G4SDManager.hh"
 #include "G4SubtractionSolid.hh"
 #include "G4OpticalSurface.hh"
 #include "G4LogicalBorderSurface.hh"
@@ -75,21 +73,18 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
     G4ThreeVector detPosition(0, 0, -caseZ/2 + detZ/2 + 3.0*mm);
     auto* tapePV = new G4PVPlacement(nullptr, detPosition, tapeLV, "DetectorPV", caseLV, false, 0);
 
-    // Silicio =============================================================================================================
+    // Silicio (El SiPM de 6x6 mm) =========================================================
     auto* silicon = materials->GetSilicon();
-    G4double sensorX = 0.1 * cm;   // espesor en X
-    G4double sensorY = 1.0 * cm;   // altura
-    G4double sensorZ = 1.0 * cm;   // ancho
+    G4double sensorX = 0.1 * mm;   // Espesor mínimo solo para que exista un volumen frontera
+    G4double sensorY = 6.0 * mm;   // 6 mm de altura según datasheet MicroFC-60035
+    G4double sensorZ = 6.0 * mm;   // 6 mm de ancho según datasheet MicroFC-60035
 
     auto* sensorSolid = new G4Box("SiliconSensor", sensorX/2, sensorY/2, sensorZ/2);
     auto* sensorLV = new G4LogicalVolume(sensorSolid, silicon, "SiliconSensorLV");
 
-    // Posición: pegado a la cara lateral +X del centellador
+    // Posición: pegado a la cara lateral +X del centellador (hacia adentro para evitar overlaps)
     G4ThreeVector sensorPos(detX/2 - sensorX/2, 0, 0);
     auto* sensorPV = new G4PVPlacement(nullptr, sensorPos, sensorLV, "SiliconSensorPV", scintLV, false, 0);
-
-    // Hacemos sensible el volumen del sensor
-    fLogicTarget = sensorLV;
 
 
     // ================== SUPERFICIES ÓPTICAS ==================
@@ -114,22 +109,15 @@ G4VPhysicalVolume* DetectorConstruction::Construct()
     // Vincular las tablas de MyMaterials a las superficies ópticas
     opScint->SetMaterialPropertiesTable(polystyrene->GetMaterialPropertiesTable());
     opTeflon->SetMaterialPropertiesTable(teflon->GetMaterialPropertiesTable());
-    // ====================== VOLUMEN SENSIBLE ======================
-    fLogicTarget = scintLV;
 
     return worldPV;
 }
 
 void DetectorConstruction::ConstructSDandField()
 {
-    if (fTargetSD.Get() == nullptr) {
-        fTargetSD.Put(new TargetSD("TargetSD"));
-    }
-
-    G4SDManager::GetSDMpointer()->AddNewDetector(fTargetSD.Get());
-
-    if (fLogicTarget) {
-        SetSensitiveDetector(fLogicTarget, fTargetSD.Get());
-        G4cout << "»»» TargetSD adjuntado correctamente al volumen 'Target'" << G4endl;
-    }
+    // INTENCIONALMENTE VACÍO
+    // Ya no usamos TargetSD ni G4SDManager aquí. 
+    // La detección de fotones (con su eficiencia cuántica) se gestiona de forma física y manual
+    // interceptando las partículas al momento en que entran al 'SiliconSensorPV' 
+    // dentro de la clase SteppingAction.
 }

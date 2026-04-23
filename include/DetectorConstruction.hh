@@ -3,10 +3,6 @@
 
 #include "G4VUserDetectorConstruction.hh"
 #include "G4LogicalVolume.hh"
-#include "G4Cache.hh"
-#include "TargetSD.hh"   
-
-class TargetSD;   // forward declaration
 
 class DetectorConstruction : public G4VUserDetectorConstruction
 {
@@ -15,11 +11,12 @@ public:
     ~DetectorConstruction() override;
 
     G4VPhysicalVolume* Construct() override;
-    void ConstructSDandField() override;   // ← ¡Obligatorio en Geant4 11!
+    void ConstructSDandField() override;   // La dejamos declarada aunque esté vacía en el .cc
 
 private:
-    G4LogicalVolume* fLogicTarget = nullptr;
-    G4Cache<TargetSD*> fTargetSD;   // Cache thread-safe
+    // ¡Todo limpio! 
+    // Las variables fLogicTarget y fTargetSD fueron eliminadas 
+    // ya que la detección ahora se hace directamente desde SteppingAction.
 };
 
 #endif

@@ -10,14 +10,13 @@ ActionInitialization::ActionInitialization() : G4VUserActionInitialization() {}
 ActionInitialization::~ActionInitialization() {}
 
 void ActionInitialization::BuildForMaster() const {
-    // En modo multi-hilo, puedes definir acciones específicas para el hilo maestro si es necesario
-    // Por ahora, no necesitamos acciones específicas para el hilo maestro
+    // Es buena práctica inicializar RunAction también en el hilo maestro para los archivos ROOT
+    SetUserAction(new RunAction()); 
 }
 
 void ActionInitialization::Build() const {
-    // Define las acciones del usuario para cada hilo
     SetUserAction(new PrimaryGeneratorAction());
-    //SetUserAction(new SteppingAction()); //Opcional
-    SetUserAction(new EventAction());
     SetUserAction(new RunAction());
+    SetUserAction(new EventAction());
+    SetUserAction(new SteppingAction());
 }

@@ -3,7 +3,6 @@
 
 #include "G4UserSteppingAction.hh"
 #include "G4Step.hh"
-#include <fstream>
 
 class SteppingAction : public G4UserSteppingAction
 {
@@ -14,9 +13,8 @@ public:
     void UserSteppingAction(const G4Step*) override;
 
 private:
-    std::ofstream fOutFile;
-    G4double fTotalEdepPerEvent = 0.0;
-    G4int fCurrentEventID = -1;
+    // Ya no necesitamos fOutFile, fTotalEdepPerEvent ni fCurrentEventID
+    // Toda la información se envía ahora al EventAction para guardarse en ROOT.
 };
 
 #endif
